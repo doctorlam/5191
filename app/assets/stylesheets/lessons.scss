@@ -1,0 +1,163 @@
+// Place all the styles related to the lessons controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+    position: relative;
+    min-height: 100%;
+    font-size: 16px;
+}
+
+body {
+    margin: 0 0 300px; /* bottom = footer height */
+}
+
+.container-fluid {
+	padding: 0;
+	background: #EEEEEE;
+}
+
+.container {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: -40px;
+	margin-bottom: 80px;
+
+}
+.content-container {
+	padding: 20px;
+}
+nav a, nav a:visited {
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+.navbar {
+	opacity: 0.7;
+}
+.navbar-right {
+	padding-right:10px;
+}
+nav a:hover {
+	background: none !important;
+}
+h1 {
+	font-family: 'Open Sans Condensed', sans-serif; 
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.show-left {
+	background-color: #E7E7E7;
+}
+.show-left h3, .show-right h3 {
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+p, ol, li, td {
+	font-family: 'Muli', sans-serif !important;
+	font-size: 1rem !important;
+}
+.first-group-form {
+	background: #BDC3C7;
+	padding: 20px;
+}
+
+.second-group-form {
+	background: #EEEEEE;
+	padding: 20px;
+}
+
+.form-group h2, .form-group h3 {
+	text-align: center;
+}
+.hero-image {
+	height: 400px;
+	background: image-url('hero.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.tagline {
+	padding-top: 100px;
+
+}
+.tagline h1 {
+	font-family: 'Abril Fatface', cursive;
+	text-align: center !important;
+	font-size: 3rem;
+	color: white;
+	text-transform: none;
+
+}
+.tagline h2 {
+	font-family: 'Muli', sans-serif;
+	text-align: center;
+	color: white;
+	font-size: 1.75rem;
+}
+
+footer {
+	background: #2a2a29;
+	position: absolute;
+    left: 0;
+    bottom: 0;
+    min-height: 300px;
+    width: 100%;
+}
+
+footer h2 {
+	font-size: 1.25rem;
+	color: #666666;
+	font-family: 'Muli';
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+footer ul li, footer a, footer a:visited {
+	color: #99b3ab;
+	font-size: 1rem;
+	text-decoration: none;
+	list-style-type: none;
+	margin-left: auto;
+}
+footer ul {
+	padding: 0;
+}
+
+.projects-right {
+	background: #BDC3C7;
+	margin-bottom: 100px;
+	padding-bottom: 20px;
+	padding-top: 5px
+}
+@media only screen and (max-width: 900px) {
+	html {
+	font-size: 15px;
+	}
+	.tagline {
+	padding-top: 50px;
+	}
+	
+	.navbar a {
+	text-align: center;
+	}
+	.projects-right {
+		margin-bottom: 10px;
+
+	}
+}
+@media only screen and (max-width: 768px) {
+	html {
+	font-size: 14px;
+	}
+
+	footer {
+		text-align:center;
+	}
+	.container {
+	width: 95%;
+	}
+	body {
+    margin: 0 0 400px; /* bottom = footer height */
+}
+}

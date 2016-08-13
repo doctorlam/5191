@@ -1,0 +1,250 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+*= require commontator/application
+*/
+
+html {
+    position: relative;
+    min-height: 100%;
+    font-size: 16px;
+}
+
+body {
+    margin: 0 0 300px; /* bottom = footer height */
+}
+
+.container-fluid {
+	padding: 0;
+	background: #E8E8E8;
+}
+
+.container {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: -40px;
+	margin-bottom: 80px;
+
+}
+.content-container {
+	padding: 20px;
+}
+nav a, nav a:visited {
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+.navbar {
+	opacity: 0.7;
+}
+.navbar-right {
+	padding-right:10px;
+}
+nav a:hover {
+	background: none !important;
+}
+h1 {
+	font-family: 'Open Sans Condensed', sans-serif; 
+	font-weight: 700;
+	text-transform: uppercase;
+	border-bottom: gray 1px dotted;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+h2 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+}
+
+h3 {
+	font-family: 'Muli', sans-serif;
+}
+.show-left {
+	background-color: #E7E7E7;
+}
+.show-left h3, .show-right h3 {
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.show-right, .show-right a, .show-right a:visited {
+	background: #2a2a29;
+	color: #99b3ab;
+}
+.show-right {
+	padding-bottom: 30px;
+	
+}
+p, ol, li, td {
+	font-family: 'Muli', sans-serif !important;
+	font-size: 1rem !important;
+	line-height: 1.4rem;
+}
+.first-group-form {
+	background: #BDC3C7;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.second-form-group {
+	background: #454444;
+	padding: 20px;
+		margin-bottom: 20px;
+
+}
+.third-form-group {
+	background: #BDC3C7;
+		padding: 20px;
+		margin-bottom: 20px;
+
+
+}
+.second-form-group a, .second-form-group a:visited, .second-form-group, .fourth-form-group a, .fourth-form-group a:visited, .fourth-form-group {
+	color: white !important;
+}
+.fourth-form-group {
+	background: #454444;
+	padding:20px;
+	margin-bottom: 20px;
+
+	
+}
+
+.fifth-form-group {
+	background: #BDC3C7;
+		padding: 20px;
+
+}
+
+a.add_fields, a.remove_fields {
+	float: right !important;
+	display: inline-block;
+}
+
+.form-group h2, .form-group h3 {
+	text-align: center;
+}
+.hero-image {
+	height: 400px;
+	background: image-url('hero.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.tagline {
+	padding-top: 100px;
+
+}
+.tagline h1 {
+	font-family: 'Abril Fatface', cursive;
+	text-align: center !important;
+	font-size: 3.25rem;
+	color: white;
+	text-transform: none;
+	border-bottom: none;
+
+}
+.tagline h2 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	text-align: center;
+	color: white;
+	font-size: 1.75rem;
+	margin-top: -30px;
+}
+
+footer {
+	background: #2a2a29;
+	position: absolute;
+    left: 0;
+    bottom: 0;
+    min-height: 300px;
+    width: 100%;
+}
+
+footer h2 {
+	font-size: 1.25rem;
+	color: #666666;
+	font-family: 'Muli';
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+footer ul li, footer a, footer a:visited {
+	color: #99b3ab;
+	font-size: 1rem;
+	text-decoration: none;
+	list-style-type: none;
+	margin-left: auto;
+}
+footer ul {
+	padding: 0;
+}
+
+.projects-right {
+	background: #2a2a29;
+	color: #99b3ab;
+	margin-bottom: 100px;
+	padding-bottom: 20px;
+	padding-top: 5px
+}
+.projects-right h3 {
+	color: #666666;
+	text-transform: uppercase;
+	border-bottom: 1px dotted #666666;
+}
+
+.btn-primary {
+	background: #99b3ab;
+	border: #99b3ab;
+}
+.btn-primary:hover {
+		background: #2a2a29;
+
+}
+
+
+@media only screen and (max-width: 1000px) {
+	body {
+    margin: 0 0 350px !important; /* bottom = footer height */
+}
+}
+@media only screen and (max-width: 900px) {
+	html {
+	font-size: 15px;
+	}
+	.tagline {
+	padding-top: 50px;
+	}
+	
+	.navbar a {
+	text-align: center;
+	}
+	.projects-right {
+		margin-bottom: 10px;
+	}
+
+}
+@media only screen and (max-width: 768px) {
+	html {
+	font-size: 14px;
+	}
+
+	footer {
+		text-align:center;
+	}
+	.container {
+	width: 95%;
+	}
+	
+}

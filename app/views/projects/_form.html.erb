@@ -1,0 +1,51 @@
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control", rows: "6" %>
+  </div>
+  <div class="second-form-group">
+    <h2>Deliverables</h2>
+        <%= f.fields_for :deliverables do |builder| %>
+        <%= render 'deliverable_fields', f:builder %>
+          <% end %>
+      <%= link_to_add_fields "Add Deliverable", f, :deliverables, class: "btn btn-mini btn-info add-link" %>
+  </div>
+
+  <div class="third-form-group">
+  <h2>Grading Criteria</h2>
+      <%= f.fields_for :rubrics do |builder| %>
+        <%= render 'rubric_fields', f:builder %>
+      <% end %>
+
+      <%= link_to_add_fields "Add Criteria", f, :rubrics, class: "btn btn-mini btn-info" %>
+  </div>
+
+  <div class="fourth-form-group">
+    <h2>Related Lessons</h2>
+       <%= f.fields_for :related do |builder| %>
+        <%= render 'related_fields', f:builder %>
+      <% end %>
+
+      <%= link_to_add_fields "Add Related Lesson", f, :related, class: "btn btn-mini btn-info" %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

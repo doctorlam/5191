@@ -1,0 +1,50 @@
+<div class="container">
+
+<% if current_user.try(:admin?) %>
+    <%= link_to 'New Project', new_project_path %>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Course Projects</h1>
+<% @projects.each do |project| %>
+
+<div class="row">
+        <div class="col-md-8">
+           
+                <h2><%= project.name %></h2>
+
+                <td><%= link_to 'Show', project %></td>
+      <% if current_user.try(:admin?) %>
+         <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+
+        <br /><br />
+
+                <p><%= project.description %></p>
+
+                <h3>Deliverables</h3>
+                <% for deliverable in project.deliverables %>
+                <ul><li><%= deliverable.description %></li></ul>
+                <% end %>
+                
+
+                <h3>Grading Criteria</h3>
+                <% for rubric in project.rubrics %>
+                <ul><li><%= rubric.description %></li></ul>
+                <% end %>
+        </div>
+        <div class="col-md-4 projects-right">
+            <h3>Related Lessons/Lectures</h3>
+            <% for related in project.related %>
+            <ul><li><%= related.description %></li></ul>
+            <% end %>
+
+        </div>
+</div>
+        <hr style ="border-bottom: dotted 1px gray" />
+     
+    <% end %>
+
+</div>
