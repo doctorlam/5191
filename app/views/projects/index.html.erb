@@ -36,9 +36,9 @@
                 <% end %>
         </div>
         <div class="col-md-4 projects-right">
-            <h3>Related Lessons/Lectures</h3>
+            <h3>Related Lessons and Links</h3>
             <% for related in project.related %>
-            <ul><li><%= related.description %></li></ul>
+            <ul><li><%= related.description.html_safe %></li></ul>
             <% end %>
 
         </div>

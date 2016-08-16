@@ -9,5 +9,6 @@ class Project < ActiveRecord::Base
 	accepts_nested_attributes_for :deliverables, :reject_if => lambda { |a| a[:description].blank? }, :allow_destroy => true
 	accepts_nested_attributes_for :rubrics, :reject_if => lambda { |a| a[:description].blank? }, :allow_destroy => true
 	accepts_nested_attributes_for :related, :reject_if => lambda { |a| a[:description].blank? }, :allow_destroy => true
+    default_scope { order('name') } 
 
 end
