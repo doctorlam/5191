@@ -4,17 +4,29 @@
 <%= link_to 'New Lesson', new_lesson_path, class: "btn btn-primary" %>
 <% end %>
 <h1>Course Schedule</h1>
+
+<%= search_form_for @search do |f| %>
+<div class="field">
+  <%= f.label :name_cont, "Search Lessons" %>
+  <%= f.text_field :name_cont, class: "form-control" %>
+  </div>
+  <div class="actions"><%= f.submit "Search", class: "btn-primary btn" %></div>
+<% end %>
+
+<%= link_to "Clear Search", request.path, class:"cancel-button" %>
+
 <div class="table-responsive">
 <table class="table table-striped table-condensed table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Week</th>
-      <th>Date</th>
-       <th>Objectives</th>
-       <th>In-Class Activities</th>
-        <th>Readings</th>
-         <th>Homework</th>
+      <th><%= sort_link @search, :name, "Name" %></th>
+      <th><%= sort_link @search, :week, "Week" %></th>
+      <th><%= sort_link @search, :date, "Date" %></th>
+       <th><%= sort_link @search, :objectives, "Objectives" %></th>
+       <th><%= sort_link @search, :activties, "In-Class Activities" %></th>
+        <th><%= sort_link @search, :readings, "Readings" %></th>
+
+       <th><%= sort_link @search, :homework, "Homework" %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
