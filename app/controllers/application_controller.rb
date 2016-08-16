@@ -12,5 +12,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
 
   end
+   	WillPaginate.per_page = 6
+
 end
 
