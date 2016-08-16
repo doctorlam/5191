@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
 <div class="container">
+<% if flash[:notice] -%>
+  <div class = "alert alert-success"><%= flash[:notice] %></div>
+<% end %>
 <% if current_user.try(:admin?) %>
 <%= link_to 'New Lesson', new_lesson_path, class: "btn btn-primary" %>
 <% end %>
@@ -47,11 +49,11 @@
       <%end%></td>
 
       <td><% for reading in lesson.readings %>
-        <ul><li><%= reading.content %></li></ul>
+        <ul><li><%= reading.content.html_safe %></li></ul>
       <%end%></td>
 
       <td><% for homework in lesson.homeworks %>
-        <ul><li><%= homework.content %></li></ul>
+        <ul><li><%= homework.content.html_safe %></li></ul>
       <%end%></td>
 
 

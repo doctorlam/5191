@@ -1,6 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
+<% if flash[:notice] -%>
+  <div class = "alert alert-success"><%= flash[:notice] %></div>
+<% end %>
 <div class="row">
 	<div class="col-md-8 show-left">
 
@@ -32,25 +33,25 @@
 		<h3>Readings:</h3>
 		<ol>
 		<% for reading in @lesson.readings %>
-		<li><%= reading.content %></li>
+		<li><%= reading.content.html_safe %></li>
 		<% end %>
 		</ol>
 		<h3>Homework:</h3>
 		<ol>
 		<% for homework in @lesson.homeworks %>
-		<li><%= homework.content %></li>
+		<li><%= homework.content.html_safe %></li>
 		<% end %>
 		</ol>
 
+	<h1>Presentation File</h1>
 	<% if @lesson.document? %>
-		<a target=_blank href=" <%= @lesson.document.url %>">Attached Document</a>
+		<h3><a target=_blank href=" <%= @lesson.document.url %>">Attached Document</a></h3>
 
 	<% else %>
-	  No Document(s) Attached!
+	  <h3>No Document(s) Attached!</h3>
 	<% end %>
 	</div>
 </div><!--row-->
-
 
 <%= commontator_thread(@lesson) %>
 

@@ -29,6 +29,8 @@ gem 'commontator'
 gem 'acts_as_votable'
 gem "cocoon"
 gem 'ransack'
+gem 'will_paginate', '~> 3.1.0'
+
 
 
 group :production do 

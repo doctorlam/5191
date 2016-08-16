@@ -7,7 +7,7 @@ class LessonsController < ApplicationController
   # GET /lessons.json
   def index
   @search = Lesson.search(params[:q])
-  @search.sorts = 'week_asc' if @search.sorts.empty?
+  @search.sorts = 'week' if @search.sorts.empty?
   @lessons = @search.result.paginate(:page => params[:page])
 
    
