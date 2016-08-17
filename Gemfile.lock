@@ -86,6 +86,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.7.0)
+    filterrific (2.0.5)
+      rails (>= 3.1.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -159,6 +161,7 @@ GEM
       json (~> 1.4)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
+    rinku (2.0.0)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -209,6 +212,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   commontator
   devise
+  filterrific
   jbuilder (~> 2.0)
   jquery-rails
   paperclip!
@@ -216,6 +220,7 @@ DEPENDENCIES
   rails (= 4.2.4)
   rails_12factor
   ransack
+  rinku
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

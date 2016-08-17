@@ -13,8 +13,9 @@
   <%= f.text_field :name_cont, class: "form-control" %>
   </div>
   <div class="actions"><%= f.submit "Search", class: "btn-primary btn" %></div>
-<% end %>
 
+
+<% end %>
 <%= link_to "Clear Search", request.path, class:"cancel-button" %>
 
 <div class="table-responsive">
@@ -24,11 +25,11 @@
       <th><%= sort_link @search, :name, "Name" %></th>
       <th><%= sort_link @search, :week, "Week" %></th>
       <th><%= sort_link @search, :date, "Date" %></th>
-       <th><%= sort_link @search, :objectives, "Objectives" %></th>
-       <th><%= sort_link @search, :activties, "In-Class Activities" %></th>
-        <th><%= sort_link @search, :readings, "Readings" %></th>
+       <th>Objectives</th>
+       <th>In-Class Activities</th>
+        <th>Readings</th>
 
-       <th><%= sort_link @search, :homework, "Homework" %></th>
+       <th>Homework</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -49,7 +50,8 @@
       <%end%></td>
 
       <td><% for reading in lesson.readings %>
-        <ul><li><%= reading.content.html_safe %></li></ul>
+        <ul><li><%= reading.content.html_safe %>
+</li></ul>
       <%end%></td>
 
       <td><% for homework in lesson.homeworks %>

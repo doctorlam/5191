@@ -36,15 +36,7 @@
       <%= link_to_add_fields "Add Criteria", f, :rubrics, class: "btn btn-mini btn-info" %>
   </div>
 
-  <div class="fourth-form-group">
-    <h2>Related Lessons</h2>
-       <%= f.fields_for :related do |builder| %>
-        <%= render 'related_fields', f:builder %>
-      <% end %>
-
-      <%= link_to_add_fields "Add Related Lesson", f, :related, class: "btn btn-mini btn-info" %>
-
-  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

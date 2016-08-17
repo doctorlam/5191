@@ -28,11 +28,14 @@
 </div>
 <div class="col-md-4 projects-right">
   <h2>Related Lessons and Links</h2>
-
-  <% for related in @project.related %>
-        <ul><li><%= related.description.html_safe %></li></ul>
-        <% end %>
+   <% for lesson in @project.lessons %>
+                <ul>
+                  <li><%= link_to lesson.name, lesson_url(lesson) %>
+                    </li>
+                </ul>
+                <% end %>
   </div>
+
 
 </div>
 </div>

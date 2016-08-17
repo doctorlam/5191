@@ -42,7 +42,6 @@
 		<li><%= homework.content.html_safe %></li>
 		<% end %>
 		</ol>
-
 	<h1>Presentation File</h1>
 	<% if @lesson.document? %>
 		<h3><a target=_blank href=" <%= @lesson.document.url %>">Attached Document</a></h3>
@@ -50,8 +49,10 @@
 	<% else %>
 	  <h3>No Document(s) Attached!</h3>
 	<% end %>
+	
 	</div>
 </div><!--row-->
+
 
 <%= commontator_thread(@lesson) %>
 
@@ -61,4 +62,5 @@
 	<%= link_to 'Back', lessons_path %>
 <% end %>
 <%= link_to('Back to all lessons', :back) %>
+
 </div>

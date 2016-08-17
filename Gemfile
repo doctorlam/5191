@@ -28,10 +28,10 @@ gem 'ancestry'
 gem 'commontator'
 gem 'acts_as_votable'
 gem "cocoon"
+gem 'filterrific'
 gem 'ransack'
+gem 'rinku'
 gem 'will_paginate', '~> 3.1.0'
-
-
 
 group :production do 
 	gem 'pg'

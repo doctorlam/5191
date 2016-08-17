@@ -37,10 +37,12 @@
         </div>
         <div class="col-md-4 projects-right">
             <h3>Related Lessons and Links</h3>
-            <% for related in project.related %>
-            <ul><li><%= related.description.html_safe %></li></ul>
-            <% end %>
-
+              <% for lesson in project.lessons %>
+                <ul>
+                  <li><%= link_to lesson.name, lesson_url(lesson) %>
+                    </li>
+                </ul>
+                <% end %>
         </div>
 </div>
         <hr style ="border-bottom: dotted 1px gray" />

@@ -169,6 +169,10 @@ a.add_fields, a.remove_fields {
 	margin: 0 auto;
 
 }
+.tagline a, .tagline a:visited {
+	color: white;
+	text-decoration: none
+}
 .tagline h2 {
 	font-family: 'Open Sans Condensed', sans-serif;
 	text-align: center;

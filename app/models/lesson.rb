@@ -3,6 +3,7 @@ class Lesson < ActiveRecord::Base
 	has_many :readings, :dependent => :destroy
 	has_many :homeworks, :dependent => :destroy
 	has_many :classactivitys, :dependent => :destroy
+	belongs_to :project, :dependent => :destroy
 
 	 has_attached_file :image, styles: { medium: "300x>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
@@ -21,7 +22,5 @@ validates_attachment :document, :content_type => { :content_type => %w(applicati
 	belongs_to :course
 	acts_as_commontable
 	acts_as_votable
-	  default_scope { order('date') } 
-
-
+  	default_scope { order('date') } 
 end
