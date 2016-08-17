@@ -22,14 +22,11 @@
 <table class="table table-striped table-condensed table-hover">
   <thead>
     <tr>
-      <th><%= sort_link @search, :name, "Name" %></th>
       <th><%= sort_link @search, :week, "Week" %></th>
       <th><%= sort_link @search, :date, "Date" %></th>
-       <th>Objectives</th>
-       <th>In-Class Activities</th>
-        <th>Readings</th>
-
-       <th>Homework</th>
+      <th><%= sort_link @search, :name, "Name" %></th>
+      <th>Readings</th>
+      <th>Homework</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -37,18 +34,9 @@
   <tbody>
     <% @lessons.each do |lesson| %>
       <tr>
+        <td class="week"><%= link_to lesson.week, lesson %></td>
+        <td class="date"><%= link_to lesson.date, lesson %></td>
         <td class="name"><%= link_to [lesson.name].join(" "), lesson %></td>
-        <td><%= lesson.week %></td>
-        <td><%= lesson.date %></td>
-
-      <td><% for objective in lesson.objectives %>
-        <ul><li><%= objective.content %></li></ul>
-      <%end%></td>
-
-      <td><% for classactivity in lesson.classactivitys %>
-        <ul><li><%= classactivity.content %></li></ul>
-      <%end%></td>
-
       <td><% for reading in lesson.readings %>
         <ul><li><%= reading.content.html_safe %>
 </li></ul>

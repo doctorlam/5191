@@ -10,7 +10,15 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-group">
+        <%= hidden_field_tag "project[lesson_ids][]", nil %>
+        <% Lesson.all.each do |lesson| %>
+          <%= check_box_tag "project[lesson_ids][]", lesson.id, @project.lesson_ids.include?(lesson.id), id: dom_id(lesson) %>
+          <%= label_tag dom_id(lesson), lesson.name %>
+          <br />
 
+        <% end %>
+    </div>
   <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name, class: "form-control" %>

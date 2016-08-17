@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
 	belongs_to :course
-	has_many :lessons
+	has_many :learnings
+	has_many :lessons, :through => :learnings
 	has_many :deliverables, :dependent => :destroy
 	has_many :rubrics, :dependent => :destroy
 	has_many :related, :dependent => :destroy

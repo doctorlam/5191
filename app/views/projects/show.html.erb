@@ -27,7 +27,7 @@
         <% end %>
 </div>
 <div class="col-md-4 projects-right">
-  <h2>Related Lessons and Links</h2>
+  <h2>Related Lessons</h2>
    <% for lesson in @project.lessons %>
                 <ul>
                   <li><%= link_to lesson.name, lesson_url(lesson) %>
