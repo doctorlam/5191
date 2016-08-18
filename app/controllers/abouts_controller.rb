@@ -30,7 +30,7 @@ class AboutsController < ApplicationController
   # POST /abouts.json
   def create
     @about = About.new(about_params)
-
+    @about.user_id = current_user.id 
     respond_to do |format|
       if @about.save
         format.html { redirect_to @about, notice: 'About was successfully created.' }
@@ -74,7 +74,7 @@ class AboutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def about_params
-      params.require(:about).permit(:name, :description, objectives_attributes: [:id, :content, :_destroy], materials_attributes: [:id, :description, :_destroy], vitals_attributes: [:id, :description, :_destroy])
+      params.require(:about).permit(:id, :user_id, :name, :description, objectives_attributes: [:id, :content, :_destroy], materials_attributes: [:id, :description, :_destroy], vitals_attributes: [:id, :description, :_destroy])
     end
      def check_user
       if current_user != @about.user
