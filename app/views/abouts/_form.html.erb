@@ -11,14 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_area :name %>
+    <%= f.text_area :name, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control" %>
   </div>
+  <div class="second-form-group">
+  <h2>Learning Objectives</h2>
+      <%= f.fields_for :objectives do |builder| %>
+      <%= render 'objective_fields', f:builder %>
+
+      <% end %>
+  <%= link_to_add_fields "Add Objective", f, :objectives, class: "btn btn-mini btn-info" %>
+</div>
    <div class="second-form-group">
     <h2>Course Materials</h2>
         <%= f.fields_for :materials do |builder| %>

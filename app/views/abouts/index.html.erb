@@ -21,8 +21,14 @@
           <% end %>
 
         <br /><br />
-
+        <h2>Course Description</h2>
                 <p><%= about.description %></p>
+        <h2>Course Objectives:</h2>
+        <ol>
+            <% for objective in about.objectives %>
+            <li><%= objective.content %></li>
+        <% end %>
+        </ol>
             <h2>Course Materials</h2>
             <% for material in about.materials %>
                 <ul><li><%= material.description %></li></ul>
