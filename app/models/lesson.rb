@@ -7,9 +7,8 @@ class Lesson < ActiveRecord::Base
 	has_many :learnings
 	has_many :projects, :through => :learnings
 	
-	has_attached_file :document2
-  	attr_accessor :document2_file_name
-  	validates_attachment_file_name :document2, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/]
+	has_attached_file :image
+  	validates_attachment_file_name :image, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/]
 
   	has_attached_file :document
   	validates_attachment_file_name :document, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/]
