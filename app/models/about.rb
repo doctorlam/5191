@@ -6,4 +6,7 @@ class About < ActiveRecord::Base
 	accepts_nested_attributes_for :materials, :reject_if => lambda { |a| a[:description].blank? }, :allow_destroy => true
 
 	belongs_to :user
+
+	has_attached_file :document
+  	validates_attachment_file_name :document, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/]
 end
