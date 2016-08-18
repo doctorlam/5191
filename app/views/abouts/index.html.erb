@@ -38,7 +38,7 @@
         <div class="col-md-4 projects-right">
             <h1>Vital Course Information</h1>
               <% for vital in about.vitals %>
-                <ul><li><%= vital.description %></li></ul>
+                <ul><li><%= vital.description.html_safe %></li></ul>
             <% end %>
 
             <h1>Syllabus</h1>
