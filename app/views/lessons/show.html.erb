@@ -42,20 +42,19 @@
 		<li><%= homework.content.html_safe %></li>
 		<% end %>
 		</ol>
-	<h1>Associated File</h1>
+	<h1>Associated Files</h1>
 	<% if @lesson.document? %>
-		<h3><a target=_blank href=" <%= @lesson.document.url %>"><%= @lesson.document.original_filename %></a></h3>
+		<ul><li>Presentation file: <a target=_blank href=" <%= @lesson.document.url %>"><%= @lesson.document.original_filename %></a></li>
+		<% else %>
+	  <h3>No Document(s) Attached!</h3>
+	<% end %>
+		<% if @lesson.image? %>
+		<li>Other file(s): <a target=_blank href=" <%= @lesson.image.url %>"><%= @lesson.image.original_filename %></a></li>
 
 	<% else %>
 	  <h3>No Document(s) Attached!</h3>
 	<% end %>
-	<% if @lesson.document2? %>
-		<h3><a target=_blank href=" <%= @lesson.document2.url %>"><%= @lesson.document2.original_filename %></a></h3>
-
-	<% else %>
-	  <h3>No Document(s) Attached!</h3>
-	<% end %>
-
+	
 
 	<h1>Related Project(s)</h1>
 	 <% for project in @lesson.projects %>
