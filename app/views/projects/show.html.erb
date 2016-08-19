@@ -8,7 +8,7 @@
 <%= link_to 'Back to All Projects', projects_path %>
 
   <h1><%= @project.name %></h1>
-
+  <h3>DUE: <%= @project.due %></h3>
 
   <h2>Description:</h2>
   <p><%= @project.description.html_safe %></p>
