@@ -22,7 +22,7 @@
 
         <br /><br />
 
-                <p><%= project.description %></p>
+                <p><%= project.description.html_safe %></p>
 
                 <h3>Deliverables</h3>
                 <% for deliverable in project.deliverables %>
