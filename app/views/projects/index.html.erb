@@ -39,7 +39,7 @@
             <h3>Related Lessons and Links</h3>
               <% for lesson in project.lessons %>
                 <ul>
-                  <li><%= link_to lesson.name, lesson_url(lesson) %>
+                  <li>[<%= lesson.date %>] <%= link_to lesson.name, lesson_url(lesson) %>
                     </li>
                 </ul>
                 <% end %>
