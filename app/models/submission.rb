@@ -8,4 +8,9 @@ class Submission < ActiveRecord::Base
 
 	has_attached_file :document
   	validates_attachment_file_name :document, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/, /zip\Z/]
+
+  	has_attached_file :image
+  	validates_attachment_file_name :image, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/]
+
+
 end

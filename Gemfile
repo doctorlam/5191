@@ -33,6 +33,7 @@ gem 'ransack'
 gem 'rinku'
 gem 'will_paginate', '~> 3.1.0'
 gem 'aws-sdk', '~> 2.3'
+gem "cancan"
 
 group :production do 
 	gem 'pg'

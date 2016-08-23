@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+		<p id="notice"><%= notice %></p>
+	<div class="row">
+		<div class="col-md-8">
+		
+	  		<h2>Assignment: <%= @assignment.name %></h2>
+			 
+			  <h2>Description:</h2>
+			  <p><%= @assignment.description %></p>
+		</div>
+		<div class="col-md-4 projects-right">
+		  	
+	  	<h1>Deadline:</h1>
+		  <%= @assignment.deadline %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @assignment.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @assignment.description %>
-</p>
-
-<p>
-  <strong>Deadline:</strong>
-  <%= @assignment.deadline %>
-</p>
-
-<p>
-<strong>Upload your submission:</strong>
-<%= link_to 'Submit', submissions_path %>
-</p>
-
-<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
-<%= link_to 'Back', assignments_path %>
+		<h1>Submit homework:</h1>
+			<%= link_to 'Submit', new_submission_path %>
+		</div>
+	</div>
+	<% if current_user.try(:admin?) %>
+		<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+	<% end %>
+		<%= link_to 'Back', assignments_path %>
+	
+	</div>

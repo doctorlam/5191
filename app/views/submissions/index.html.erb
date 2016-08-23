@@ -1,6 +1,6 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
-
+<%= link_to "Create New Homework Assignment", assignments_path %>
 <h1>Listing All Student's Submissions</h1>
 <%= search_form_for @search do |f| %>
 <div class="field">
@@ -27,13 +27,13 @@
 
    <tbody>
     <% @submissions.each do |submission| %>
-     <td><%= submission.user.name %> </td>
+    <td><%= submission.user.name %></td>
       <% for assignment in submission.assignments %>
         <td><%= assignment.name %></td>
       <% end %>
         <td><%= submission.created_at.to_date %>, <%= submission.created_at %></td>
         <% if submission.score? %>
-          <td><%= submission.score %></td>
+          <td><%= submission.score %>/<%= submission.totalscore %></td>
         <% else %>
           <td>Not graded yet!</td>
         <% end %>
@@ -58,6 +58,6 @@
 
 <br>
 
-<%= link_to 'New Submission', new_submission_path %>
+        
 
 </div>

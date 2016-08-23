@@ -11,38 +11,41 @@
     </div>
   <% end %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
-<div class="third-form-group">
-    <p>Select the assignment you are submitting to</p>
-
-       <%= hidden_field_tag "submission[assignment_ids][]", nil %>
-        <% Assignment.all.each do |assignment| %>
-          <%= check_box_tag "submission[assignment_ids][]", assignment.id, @submission.assignment_ids.include?(assignment.id), id: dom_id(assignment) %>
-          <%= label_tag dom_id(assignment), assignment.name %>
-          <br />
-        <% end %>
-    </div>
-
-
-  <div class="second-form-group">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, class: "form-control" %>
-  </div>
+<% if current_user.try(:admin?) %>
   <div class="third-form-group">
-  <h2>Upload your assignment</h2>
-    <%= f.label :document %>
-    <%= f.file_field :document, :class => "form-control-file", class: "form-control" %>
-
-  </div>
-        <% if current_user.try(:admin?) %>
-
-  <div class="third-form-group">
+  <h2>Grade Assignment</h2>
     <%= f.label :score %><br>
     <%= f.number_field :score %>
     <br>
     <%= f.label :totalscore %><br>
     <%= f.number_field :totalscore %>
-  </div>
+    <br>
+   <%= f.label :attachment %>
+    <%= f.file_field :image, :class => "form-control-file", class: "form-control" %>
   <% end %>
+</div>
+<div class="second-form-group">
+    <p>IMPORTANT: Select the assignment you are submitting:</p>
+       <%= hidden_field_tag "submission[assignment_ids][]", nil %>
+        <% Assignment.all.each do |assignment| %>
+          <%= check_box_tag "submission[assignment_ids][]", assignment.id, @submission.assignment_ids.include?(assignment.id), id: dom_id(assignment)%>
+          <%= label_tag dom_id(assignment), assignment.name %> | due <%= assignment.deadline %>
+          <br />
+        <% end %>
+    </div>
+
+
+  <div class="third-form-group">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div class="second-form-group">
+  <h2>Upload your assignment</h2>
+    <%= f.label :document %>
+    <%= f.file_field :document, :class => "form-control-file", class: "form-control" %>
+
+  </div>
+  
 
   <div class="actions">
     <%= f.submit %>

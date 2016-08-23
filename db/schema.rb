@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823172200) do
+ActiveRecord::Schema.define(version: 20160823204348) do
 
   create_table "abouts", force: :cascade do |t|
     t.text     "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160823172200) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "submission_id"
+    t.integer  "homework_id"
   end
 
   create_table "attachments", force: :cascade do |t|
@@ -150,8 +151,9 @@ ActiveRecord::Schema.define(version: 20160823172200) do
   create_table "homeworks", force: :cascade do |t|
     t.integer  "lesson_id"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "assignment_id"
   end
 
   create_table "learnings", force: :cascade do |t|
@@ -252,6 +254,17 @@ ActiveRecord::Schema.define(version: 20160823172200) do
     t.datetime "document_updated_at"
     t.integer  "score"
     t.integer  "totalscore"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "turnins", force: :cascade do |t|
+    t.integer  "homework_id"
+    t.integer  "assignment_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "uploads", force: :cascade do |t|

@@ -9,9 +9,7 @@
       <th>Assignment</th>
       <th>Submission Date:</th>
       <th>Score</th>
-      <th>Percentage</th>
       <th>Attached file</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -19,34 +17,28 @@
     <% @submissions.each do |submission| %>
       <tr>
       <% for assignment in submission.assignments %>
-        <td><%= assignment.name %></td>
+        <td><%= link_to assignment.name, submission %></td>
       <% end %>
         <td><%= submission.created_at.to_date %>, <%= submission.created_at %></td>
         <% if submission.score? %>
-          <td><%= submission.score %></td>
+          <td><%= submission.score %>/<%= submission.totalscore %> or <%= number_to_percentage(submission.score.to_f * 100 / submission.totalscore) %></td>
         <% else %>
           <td>Not graded yet!</td>
         <% end %>
-        <% if submission.score? %>
-          <td><%= number_to_percentage(submission.score.to_f * 100 / submission.totalscore) %></td>
-          <% else %>
-          <td>Not graded yet!</td>
-        <% end %>
+        
         <% if submission.document? %>
-      <td>Attached file<a target=_blank href=" <%= submission.document.url %>"><%= submission.document.original_filename %></a></td>
+      <td><a target=_blank href=" <%= submission.document.url %>"><%= submission.document.original_filename %></a></td>
     <% else %>
     <td>No Document(s) Attached!</td>
-  <% end %>
-
-        <td><%= link_to 'Show', submission %></td>
-        <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
-        <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>      
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
+    <h3>Total Points Earned: <%= @submissions.sum(:score) %> out of <%= @submissions.sum(:totalscore) %></h3>
+    <h3>Your Grade So Far: <%= number_to_percentage @submissions.sum(:score).to_f * 100 / @submissions.sum(:totalscore) %></h3>
+
 
 <%= link_to 'New Submission', new_submission_path %>
 

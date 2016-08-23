@@ -8,7 +8,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions
   # GET /submissions.json
   def index
-     @search = Submission.search(params[:q])
+    @search = Submission.search(params[:q])
     @search.sorts = 'date' if @search.sorts.empty?
     @submissions = @search.result.paginate(:page => params[:page])
   end
@@ -79,7 +79,7 @@ class SubmissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
-      params.require(:submission).permit(:user, :name, {assignment_ids: []}, :assignment, :user_id, :assignment_id, :score, :totalscore, :description, :assignment_id, :document)
+      params.require(:submission).permit(:image, :homework_id, :user, :name, {assignment_ids: []}, :assignment, :user_id, :assignment_id, :score, :totalscore, :description, :assignment_id, :document)
     end
     def check_user
       if current_user == authorize_admin
