@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  resources :grades
+  resources :submissions
+  resources :assignments
   resources :abouts
   resources :projects
   resources :courses
+  get 'pages/gradebook'
   devise_for :users
 root :to => 'lessons#index'  
 resources :lessons

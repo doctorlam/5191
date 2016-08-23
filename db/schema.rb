@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819150001) do
+ActiveRecord::Schema.define(version: 20160823172200) do
 
   create_table "abouts", force: :cascade do |t|
     t.text     "name"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20160819150001) do
   create_table "add_attachment_to_lessons", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "assignments", force: :cascade do |t|
+    t.text     "name"
+    t.text     "description"
+    t.date     "deadline"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "submission_id"
   end
 
   create_table "attachments", force: :cascade do |t|
@@ -124,6 +133,20 @@ ActiveRecord::Schema.define(version: 20160819150001) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "gradecategories", force: :cascade do |t|
+    t.text     "description"
+    t.integer  "grade_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.text     "name"
+    t.integer  "submission_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "homeworks", force: :cascade do |t|
     t.integer  "lesson_id"
     t.text     "content"
@@ -180,6 +203,13 @@ ActiveRecord::Schema.define(version: 20160819150001) do
     t.integer  "about_id"
   end
 
+  create_table "portals", force: :cascade do |t|
+    t.integer  "submission_id"
+    t.integer  "assignment_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -208,6 +238,20 @@ ActiveRecord::Schema.define(version: 20160819150001) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.text     "project_id"
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "assignment_id"
+    t.text     "description"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.integer  "score"
+    t.integer  "totalscore"
   end
 
   create_table "uploads", force: :cascade do |t|

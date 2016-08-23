@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :lessons, dependent: :destroy 
    has_many :projects, dependent: :destroy 
    has_many :abouts, dependent: :destroy
+   has_many :submissions, dependent: :destroy
 
   acts_as_commontator
 

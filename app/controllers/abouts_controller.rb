@@ -20,10 +20,12 @@ class AboutsController < ApplicationController
     @about.materials.build
     @about.vitals.build
     @about.objectives.build
+
   end
 
   # GET /abouts/1/edit
   def edit
+   
   end
 
   # POST /abouts
@@ -80,5 +82,6 @@ class AboutsController < ApplicationController
       if current_user != @about.user
         redirect_to root_url, alert: "You don't have permission to do that!"
       end 
+     
     end
 end

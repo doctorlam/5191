@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @submission.user_id %>
+</p>
+
+<p>
+  <strong>Assignment:</strong>
+  <% for assignment in @submission.assignments %>
+                <ul>
+                  <li><%= link_to assignment.name, assignment_url(assignment) %>
+                    </li>
+                </ul>
+                <% end %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @submission.description %>
+</p>
+
+<% if @submission.document? %>
+    <ul><li>Attached file<a target=_blank href=" <%= @submission.document.url %>"><%= @submission.document.original_filename %></a></li>
+    <% else %>
+    <h3>No Document(s) Attached!</h3>
+  <% end %>
+  </div>
+
+<%= link_to 'Edit', edit_submission_path(@submission) %> |
+<%= link_to 'Back', submissions_path %>

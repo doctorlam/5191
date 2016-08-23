@@ -4,4 +4,8 @@ class PagesController < ApplicationController
 
   def policies
   end
+
+  def gradebook
+  	 @submissions = current_user.submissions
+  end
 end

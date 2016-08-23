@@ -1,0 +1,53 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h1><%= current_user.name %>'s Gradebook</h1>
+
+<table class="table table-striped table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Assignment</th>
+      <th>Submission Date:</th>
+      <th>Score</th>
+      <th>Percentage</th>
+      <th>Attached file</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+   <tbody>
+    <% @submissions.each do |submission| %>
+      <tr>
+      <% for assignment in submission.assignments %>
+        <td><%= assignment.name %></td>
+      <% end %>
+        <td><%= submission.created_at.to_date %>, <%= submission.created_at %></td>
+        <% if submission.score? %>
+          <td><%= submission.score %></td>
+        <% else %>
+          <td>Not graded yet!</td>
+        <% end %>
+        <% if submission.score? %>
+          <td><%= number_to_percentage(submission.score.to_f * 100 / submission.totalscore) %></td>
+          <% else %>
+          <td>Not graded yet!</td>
+        <% end %>
+        <% if submission.document? %>
+      <td>Attached file<a target=_blank href=" <%= submission.document.url %>"><%= submission.document.original_filename %></a></td>
+    <% else %>
+    <td>No Document(s) Attached!</td>
+  <% end %>
+
+        <td><%= link_to 'Show', submission %></td>
+        <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
+        <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Submission', new_submission_path %>
+
+</div>
