@@ -50,6 +50,8 @@
   </tbody>
 </table>
 <%= @submissions.sum(:score) %> out of <%= @submissions.sum(:totalscore) %>
+<%= number_to_percentage @submissions.sum(:score).to_f * 100 / @submissions.sum(:totalscore) %>
+
 
 <br>
 
