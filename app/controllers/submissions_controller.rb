@@ -21,8 +21,6 @@ class SubmissionsController < ApplicationController
   # GET /submissions/new
   def new
     @submission = Submission.new(:user => @current_user)
-    
-
   end
 
   # GET /submissions/1/edit
@@ -34,8 +32,6 @@ class SubmissionsController < ApplicationController
   def create
     @submission = Submission.new(submission_params)
     @submission.user_id = current_user.id
-
-
     respond_to do |format|
       if @submission.save
         format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
