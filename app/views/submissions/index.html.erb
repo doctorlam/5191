@@ -49,6 +49,7 @@
     <% end %>
   </tbody>
 </table>
+<%= @submissions.sum(:score) %> out of <%= @submissions.sum(:totalscore) %>
 
 <br>
 
