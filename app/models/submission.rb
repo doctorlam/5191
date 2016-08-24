@@ -7,9 +7,9 @@ class Submission < ActiveRecord::Base
 	has_many :grades, :through => :gradecategorizations
 
 	has_attached_file :document
-  	validates_attachment_file_name :document, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/, /zip\Z/]
+  	validates_attachment_file_name :document, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/, /zip\Z/, /xlsx\Z/]
 
   	has_attached_file :image
-  	validates_attachment_file_name :image, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/]
+  	validates_attachment_file_name :image, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/, /zip\Z/, /xlsx\Z/]
 
 end

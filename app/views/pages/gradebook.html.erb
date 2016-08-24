@@ -40,6 +40,6 @@
     <h3>Your Grade So Far: <%= number_to_percentage @submissions.sum(:score).to_f * 100 / @submissions.sum(:totalscore) %></h3>
 
 
-<%= link_to 'New Submission', new_submission_path %>
+<%= link_to 'Submit an assignment', new_submission_path %>
 
 </div>
