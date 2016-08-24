@@ -25,10 +25,10 @@
     </div>
   <% end %>
 <div class="second-form-group">
-    <p>IMPORTANT: Select the assignment you are submitting:</p>
+    <h2>Choose the assignment you're turning in.</h2>
        <%= hidden_field_tag "submission[assignment_ids][]", nil %>
         <% Assignment.all.each do |assignment| %>
-          <%= check_box_tag "submission[assignment_ids][]", assignment.id, @submission.assignment_ids.include?(assignment.id), id: dom_id(assignment)%>
+          <%= radio_button_tag "submission[assignment_ids][]", assignment.id, @submission.assignment_ids.include?(assignment.id), id: dom_id(assignment)%>
           <%= label_tag dom_id(assignment), assignment.name %> | due <%= assignment.deadline %>
           <br />
         <% end %>
