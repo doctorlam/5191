@@ -17,7 +17,7 @@
 			<li><%= link_to "Policies", pages_policies_path %></li>
 			 <% if current_user.try(:admin?) %>
 				<li><%= link_to "Admin Gradebook", submissions_path %></li>
-				<li><%= link_to "Homework", assignments_path %></li>
+				<li><%= link_to "Create Homework", assignments_path %></li>
 			<% end %>
 
 		</ul>

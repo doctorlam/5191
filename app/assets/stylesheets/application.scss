@@ -37,14 +37,21 @@ body {
 	margin-bottom: 80px;
 
 }
+
 .content-container {
 	padding: 20px;
 }
 a {
 	text-decoration: underline;
 }
+a:visited {
+	color: black;
+}
+h1 a:hover {
+	background: transparent;
+}
 nav a, nav a:visited {
-	font-size: 1.1rem;
+	font-size: 1rem;
 	color: #99b3ab !important;
 	font-family: 'Muli', sans-serif !important;
 		text-decoration: none;

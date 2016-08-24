@@ -32,7 +32,7 @@
       <% end %>
       <h1>Date Submitted</h1>
       <p><%= @submission.created_at.to_date %> at <%= @submission.created_at %> </p>
-      <h1>Attached Feedback from Instructor</h1>
+      <h1>Instructor Feedback</h1>
         <% if @submission.image? %>
           <ul><li><a target=_blank href=" <%= @submission.image.url %>"><%= @submission.image.original_filename %></a></li></ul>
           <% else %>

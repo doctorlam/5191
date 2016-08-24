@@ -36,8 +36,8 @@
   </tbody>
 </table>
 <br>
-    <h3>Total Points Earned: <%= @submissions.sum(:score) %> out of <%= @submissions.sum(:totalscore) %></h3>
-    <h3>Your Grade So Far: <%= number_to_percentage @submissions.sum(:score).to_f * 100 / @submissions.sum(:totalscore) %></h3>
+    <h3>Total Points Earned:</h3> <h4 style="color:#c0392b"><%= @submissions.sum(:score) %> out of <%= @submissions.sum(:totalscore) %></h4>
+    <h3>Your Grade So Far:</h3><h4 style="color:#c0392b"><%= number_to_percentage @submissions.sum(:score).to_f * 100 / @submissions.sum(:totalscore) %></h4>
 
 
 <%= link_to 'Submit an assignment', new_submission_path %>
