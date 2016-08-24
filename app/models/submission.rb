@@ -12,5 +12,4 @@ class Submission < ActiveRecord::Base
   	has_attached_file :image
   	validates_attachment_file_name :image, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/]
 
-
 end

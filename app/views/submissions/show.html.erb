@@ -9,15 +9,11 @@
 
         <h2>My Grade:</h2>
         <% if @submission.score? %>
-          <p><%= @submission.score %> out of <%= @submission.totalscore %></p>
+          <p><%= @submission.score %> out of <%= @submission.totalscore %> or <%= number_to_percentage(@submission.score.to_f * 100 / @submission.totalscore) %></p>
         <% else %>
           <p>Not graded yet!</p>
         <% end %>
-        <% if @submission.score? %>
-          <p><%= number_to_percentage(@submission.score.to_f * 100 / @submission.totalscore) %></p>
-          <% else %>
-          <p>Not graded yet!</p>
-          <% end %>
+  
         <h2>Submission Content:</h2>
         <p><%= @submission.description %></p>
 
@@ -40,7 +36,7 @@
         <% if @submission.image? %>
           <ul><li><a target=_blank href=" <%= @submission.image.url %>"><%= @submission.image.original_filename %></a></li></ul>
           <% else %>
-          <li>No Document(s) Attached!</li>
+          <li>No Feedback Attached.</li>
         <% end %>
       </div>
 <% if current_user.try(:admin?) %>
