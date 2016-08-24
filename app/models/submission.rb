@@ -11,7 +11,7 @@ class Submission < ActiveRecord::Base
 
   	has_attached_file :image
   	validates_attachment_file_name :image, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/, /zip\Z/, /xlsx\Z/]
-
-	attr_accessor :assignment
+  	
+  	attr_accessor :assignment
 	validates_presence_of :assignment_ids
 end

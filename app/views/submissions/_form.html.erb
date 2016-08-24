@@ -20,6 +20,8 @@
     <%= f.label :totalscore %><br>
     <%= f.number_field :totalscore %>
     <br>
+    <%= f.label :feedback, 'Instructor Feedback' %><br>
+    <%= f.text_area :feedback, class: "form-control", rows: "10" %>
    <%= f.label :attachment %>
     <%= f.file_field :image, :class => "form-control-file", class: "form-control" %>
     </div>
@@ -36,8 +38,8 @@
 
 
   <div class="third-form-group">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, class: "form-control" %>
+    <%= f.label :description, 'Write your brilliant answer here. Feel free to use line breaks and write as if a WYSIWYG.' %><br>
+    <%= f.text_area :description, class: "form-control", rows: "10" %>
   </div>
   <div class="second-form-group">
   <h2>Upload your assignment</h2>

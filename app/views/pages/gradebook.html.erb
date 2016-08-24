@@ -7,7 +7,8 @@
   <thead>
     <tr>
       <th>Assignment</th>
-      <th>Submission Date:</th>
+      <th>Date Submitted</th>
+      <th>Due Date</th>
       <th>Score</th>
       <th>Attached file</th>
     </tr>
@@ -20,6 +21,9 @@
         <td><%= link_to assignment.name, submission %></td>
       <% end %>
         <td><%= submission.created_at.to_date %>, <%= submission.created_at %></td>
+      <% for assignment in submission.assignments %>
+        <td><%= assignment.deadline %></td>
+      <% end %>
         <% if submission.score? %>
           <td><%= submission.score %>/<%= submission.totalscore %> or <%= number_to_percentage(submission.score.to_f * 100 / submission.totalscore) %></td>
         <% else %>

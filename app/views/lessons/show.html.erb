@@ -33,13 +33,13 @@
 		<h3>Readings:</h3>
 		<ol>
 		<% for reading in @lesson.readings %>
-		<li><%= reading.content.html_safe %></li>
+		<li><%= simple_format reading.content.html_safe %></li>
 		<% end %>
 		</ol>
 		<h3>Homework:</h3>
 		<ol>
 		<% for homework in @lesson.homeworks %>
-		<li><%= homework.content.html_safe %></li>
+		<li><%= simple_format homework.content.html_safe %></li>
 		<% end %>
 		</ol>
 	<h1>Associated Files</h1>
