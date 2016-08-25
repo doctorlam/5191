@@ -3,7 +3,7 @@
   <div class = "alert alert-success"><%= flash[:notice] %></div>
 <% end %>
 <% if current_user.try(:admin?) %>
-<%= link_to 'New Lesson', new_lesson_path, class: "btn btn-primary" %>
+<%= link_to 'New Lesson', new_lesson_path, class: "btn btn-default" %>
 <% end %>
 <h1>Course Schedule</h1>
 
@@ -12,7 +12,7 @@
   <%= f.label :name_cont, "Search Lessons" %>
   <%= f.text_field :name_cont, class: "form-control" %>
   </div>
-  <div class="actions"><%= f.submit "Search", class: "btn-primary btn" %></div>
+  <div class="actions"><%= f.submit "Search", class: "btn-default btn" %></div>
 
 
 <% end %>
@@ -42,9 +42,17 @@
 </li></ul>
       <%end%></td>
 
-      <td><% for homework in lesson.homeworks %>
-        <ul><li><%= homework.content.html_safe %></li></ul>
-      <%end%></td>
+      <td>
+        <ul>
+            <% for homework in lesson.homeworks %>
+                <li><%= homework.content.html_safe %></li>
+            <% end %>
+            <% for assignment in lesson.assignments %>  
+                <li>[Turn In] <%= link_to assignment.name, assignment_url(assignment) %></li>  
+            <% end %>
+
+        </ul>
+      </td>
 
 
         <td><%= link_to 'View Lesson', lesson %></td>

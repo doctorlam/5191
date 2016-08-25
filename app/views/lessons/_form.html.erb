@@ -11,10 +11,6 @@
     </div>
   <% end %>
 <div class="first-group-form">
-  <div class="form-group">
-      <%= f.label :course_id, name="Course ID" %><br>
-      <%= f.text_field :course_id, class: "form-control" %>
-    </div>
      <div class="form-group">
         <%= hidden_field_tag "lesson[project_ids][]", nil %>
         <% Project.all.each do |project| %>
@@ -69,7 +65,14 @@
   <% end %>
   
   <%= link_to_add_fields "Add Homework", f, :homeworks, class: "btn btn-mini btn-info" %>
-</div>
+    <h2>Add Turn-in Assignment</h2>
+        <%= hidden_field_tag "lesson[assignment_ids][]", nil %>
+        <% Assignment.all.each do |assignment| %>
+          <%= radio_button_tag "lesson[assignment_ids][]", assignment.id, @lesson.assignment_ids.include?(assignment.id), id: dom_id(assignment) %>
+          <%= label_tag dom_id(assignment), assignment.name %>
+          <br />
+        <% end %>
+    </div>
 
 
   <div class="fourth-form-group">

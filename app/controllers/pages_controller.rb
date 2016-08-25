@@ -6,11 +6,15 @@ class PagesController < ApplicationController
   end
 
   def gradebook
+
   	if user_signed_in?
-  	 @submissions = current_user.submissions
+  	   @submissions = current_user.submissions
+       @assignments = Assignment.all
+      @search = Submission.search(params[:q])
+       @search.sorts = 'date' if @search.sorts.empty?
   	else 
   	redirect_to lessons_url
   end
-  
+
 end
 end

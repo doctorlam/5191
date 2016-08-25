@@ -41,6 +41,10 @@
 		<% for homework in @lesson.homeworks %>
 		<li><%= simple_format homework.content.html_safe %></li>
 		<% end %>
+		 <% for assignment in @lesson.assignments %>  
+              <li>[Turn In] <%= link_to assignment.name, assignment_url(assignment) %></li>
+                
+           <% end %>
 		</ol>
 	<h1>Associated Files</h1>
 	<% if @lesson.document? %>

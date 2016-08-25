@@ -10,7 +10,15 @@
       </ul>
     </div>
   <% end %>
-
+    <div class="form-group">
+        <%= hidden_field_tag "assignment[lesson_ids][]", nil %>
+        <% Lesson.all.each do |lesson| %>
+          <%= radio_button_tag "assignment[lesson_ids][]", lesson.id, @assignment.lesson_ids.include?(lesson.id), id: dom_id(lesson) %>
+          <%= label_tag dom_id(lesson), lesson.name %>
+          [<%= label_tag dom_id(lesson), lesson.date %>]
+          <br />
+        <% end %>
+    </div>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_area :name, class: "form-control" %>

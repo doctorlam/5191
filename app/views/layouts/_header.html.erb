@@ -25,7 +25,7 @@
 		<ul class="nav navbar-nav navbar-right">
 
   			<% if user_signed_in? %>
-  				<li><%= link_to "My Gradebook", pages_gradebook_path %></li>
+  				<li><%= link_to "Homework Center", pages_gradebook_path %></li>
   				<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
 				<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 
@@ -39,7 +39,7 @@
 	</nav>
 	<div class="tagline animated slideInUp">	
 				<h1><%= link_to "tecm5191", lessons_path %></h1>
-				<h2>Digital Literaces for Technical Communicators</h2>
+				<h2>Digital Literacies for Technical Communicators</h2>
 			
 		</div>
 </header>

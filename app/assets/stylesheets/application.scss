@@ -54,7 +54,8 @@ nav a, nav a:visited {
 	font-size: 1rem;
 	color: #99b3ab !important;
 	font-family: 'Muli', sans-serif !important;
-		text-decoration: none;
+	text-decoration: none;
+	text-transform: uppercase;
 
 
 }
@@ -71,10 +72,9 @@ nav a:hover {
 }
 h1 {
 	font-family: 'Open Sans Condensed', sans-serif; 
-	font-weight: 700;
+	font-weight: 400;
 	text-transform: uppercase;
 	border-bottom: gray 1px dotted;
-	padding-top: 20px;
 	padding-bottom: 20px;
 }
 h2 {
@@ -175,6 +175,7 @@ a.add_fields, a.remove_fields {
 	width: 50%;
 	margin: 0 auto;
 	padding-left: 15px;
+	padding-top: 20px;
 
 }
 .tagline a, .tagline a:visited {
@@ -223,7 +224,7 @@ footer ul {
 .projects-right {
 	background: #2a2a29;
 	color: #99b3ab;
-	margin-bottom: 100px;
+	margin-bottom: 20px;
 	padding-bottom: 20px;
 	padding-top: 5px
 }
@@ -237,11 +238,17 @@ footer ul {
 }
 
 .btn-primary {
-	background: #99b3ab;
-	border: #99b3ab;
+	background: transparent;
+	border: 1px solid black !important;
+	text-decoration: none;
+	font-size: 1.2rem;
+	color: black;
+	font-family: 'Open Sans Condensed', sans-serif;
+	text-transform: uppercase;
 }
 .btn-primary:hover {
-		background: #2a2a29;
+		background: black;
+		color:white; 
 
 }
 

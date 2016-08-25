@@ -16,47 +16,49 @@
 
 <% end %>
 <%= link_to "Clear Search", request.path, class:"cancel-button" %>
-<table class="table table-striped table-condensed table-hover">
-  <thead>
-    <tr>
-      <th><%= sort_link @search, :user_name, "Student" %></th>
-      <th><%= sort_link @search, :assignments_name, "Assignment" %></th>
-      <th><%= sort_link @search, :created_at, "Date Submitted" %></th>
-      <th><%= sort_link @search, :assignments_deadline, "Due Date" %></th>
-      <th><%= sort_link @search, :score, "Score" %></th>
-      <th>Attached file</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="table-responsive">
+    <table class="table table-striped table-condensed table-hover">
+      <thead>
+        <tr>
+          <th><%= sort_link @search, :user_name, "Student" %></th>
+          <th><%= sort_link @search, :assignments_name, "Assignment" %></th>
+          <th><%= sort_link @search, :created_at, "Date Submitted" %></th>
+          <th><%= sort_link @search, :assignments_deadline, "Due Date" %></th>
+          <th><%= sort_link @search, :score, "Score" %></th>
+          <th>Attached file</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-   <tbody>
-    <% @submissions.each do |submission| %>
-    <td><%= submission.user.name %></td>
-      <% for assignment in submission.assignments %>
-        <td><%= assignment.name %></td>
-      <% end %>
-        <td><%= submission.created_at.to_date %>, <%= submission.created_at %></td>
-      <% for assignment in submission.assignments %>
-        <td><%= assignment.deadline %></td>
-      <% end %>
-        <% if submission.score? %>
-          <td><%= submission.score %>/<%= submission.totalscore %> or <%= number_to_percentage(submission.score.to_f * 100 / submission.totalscore) %></td>
+       <tbody>
+        <% @submissions.each do |submission| %>
+        <td><%= submission.user.name %></td>
+          <% for assignment in submission.assignments %>
+            <td><%= assignment.name %></td>
+          <% end %>
+            <td><%= submission.created_at.to_date %>, <%= submission.created_at %></td>
+          <% for assignment in submission.assignments %>
+            <td><%= assignment.deadline %></td>
+          <% end %>
+            <% if submission.score? %>
+              <td><%= submission.score %>/<%= submission.totalscore %> or <%= number_to_percentage(submission.score.to_f * 100 / submission.totalscore) %></td>
+            <% else %>
+              <td>Not graded yet!</td>
+            <% end %>
+            <% if submission.document? %>
+          <td><a target=_blank href=" <%= submission.document.url %>"><%= submission.document.original_filename %></a></td>
         <% else %>
-          <td>Not graded yet!</td>
-        <% end %>
-        <% if submission.document? %>
-      <td><a target=_blank href=" <%= submission.document.url %>"><%= submission.document.original_filename %></a></td>
-    <% else %>
-    <td>No Document(s) Attached!</td>
-  <% end %>
+        <td>No Document(s) Attached!</td>
+      <% end %>
 
-        <td><%= link_to 'Show', submission %></td>
-        <td><%= link_to 'Grade', edit_submission_path(submission) %></td>
-        <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <td><%= link_to 'Show', submission %></td>
+            <td><%= link_to 'Grade', edit_submission_path(submission) %></td>
+            <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div><!--responsive table close-->
 <h3>Total Score:</h3><h4 style= "color: #c0392b"><%= @submissions.sum(:score) %> out of <%= @submissions.sum(:totalscore) %></h4>
 
 <h3>Percent:</h3><h4 style= "color: #c0392b"><%= number_to_percentage @submissions.sum(:score).to_f * 100 / @submissions.sum(:totalscore) %></h4>

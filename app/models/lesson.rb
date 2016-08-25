@@ -6,6 +6,7 @@ class Lesson < ActiveRecord::Base
 	has_many :classactivitys, :dependent => :destroy
 	has_many :learnings
 	has_many :projects, :through => :learnings
+	has_many :assignments, :through => :learnings
 	
 	has_attached_file :image
   	validates_attachment_file_name :image, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/]
