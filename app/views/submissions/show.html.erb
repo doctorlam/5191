@@ -14,7 +14,7 @@
       <h2>Date Submitted</h2>
       <p><%= @submission.created_at.to_date %> at <%= @submission.created_at %> </p>
         <h2>Submission Content:</h2>
-        <p><%= simple_format @submission.description.html_safe %></p>
+        <p><%= simple_format @submission.description %></p>
 
         <h2>Attached Submitted Document</h2>
       <% if @submission.document? %>
@@ -33,7 +33,7 @@
         <% end %>
   
       <h1>Instructor Feedback:</h1>
-        <p><%= simple_format @submission.feedback.html_safe %></p>
+        <p><%= simple_format @submission.feedback %></p>
       <h1>Attachments from Instructor</h1>
         <% if @submission.image? %>
           <ul><li><a target=_blank href=" <%= @submission.image.url %>"><%= @submission.image.original_filename %></a></li></ul>
