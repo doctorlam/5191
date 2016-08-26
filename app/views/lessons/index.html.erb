@@ -37,21 +37,20 @@
         <td class="week"><%= link_to lesson.week, lesson %></td>
         <td class="date"><%= link_to lesson.date, lesson %></td>
         <td class="name"><%= link_to [lesson.name].join(" "), lesson %></td>
-      <td><% for reading in lesson.readings %>
-        <ul><li><%= reading.content.html_safe %>
-</li></ul>
-      <%end%></td>
+      <td>
+        <ol><% for reading in lesson.readings %><li><%= reading.content.html_safe %></li><%end%></ol>
+      </td>
 
       <td>
-        <ul>
+          
+            <ol>
             <% for homework in lesson.homeworks %>
                 <li><%= homework.content.html_safe %></li>
-            <% end %>
+              <% end %>
             <% for assignment in lesson.assignments %>  
                 <li>[Turn In] <%= link_to assignment.name, assignment_url(assignment) %></li>  
             <% end %>
-
-        </ul>
+        </ol>
       </td>
 
 
