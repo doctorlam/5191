@@ -46,7 +46,7 @@
       <div class="col-md-4 projects-right">
         <div class="padding-right">
 
-            <h1>Real-Time Grade</h1> <h4><%= @submissions.sum(:score) %>/<%= @submissions.sum(:totalscore) %> or <%= number_to_percentage @submissions.sum(:score).to_f * 100 / @submissions.sum(:totalscore) %></h4>
+            <h1>Real-Time Grade</h1> <h4 class=""><%= @submissions.sum(:score) %>/<%= @submissions.sum(:totalscore) %> or <%= number_to_percentage @submissions.sum(:score).to_f * 100 / @submissions.sum(:totalscore) %></h4>
  
         </div>
       </div>
@@ -57,7 +57,7 @@
             <ul>
               <% @assignments.each do |assignment| %>
 
-                <li>[<%= link_to assignment.deadline, assignment %>] <%= link_to assignment.name, assignment %></lis>
+                <li>[<%= link_to assignment.deadline, assignment %>] <%= link_to assignment.name, assignment %></li>
               <% end %>
             </ul>
 

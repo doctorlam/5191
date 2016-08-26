@@ -23,7 +23,9 @@
 	background: #2a2a29;
 	margin-left: 10px;
 	padding: 5px 20px 20px 20px;
-
+}
+.padding-right li, .padding-right p, .padding-right h4, .padding-right a {
+		color: #D1D1D1 !important;
 }
 html {
     position: relative;
@@ -236,9 +238,7 @@ footer ul li, footer a, footer a:visited {
 footer ul {
 	padding: 0;
 }
-.submission-right p, .submission-right li {
-	color: #D1D1D1;
-}
+
 .projects-right {
 	color: #99b3ab;
 	margin-bottom: 20px;
