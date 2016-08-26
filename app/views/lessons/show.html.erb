@@ -47,17 +47,19 @@
            <% end %>
 		</ol>
 	<h1>Associated Files</h1>
+	<ul>
 	<% if @lesson.document? %>
-		<ul><li>Presentation file: <a target=_blank href=" <%= @lesson.document.url %>"><%= @lesson.document.original_filename %></a></li>
+		<li>Presentation file: <a target=_blank href=" <%= @lesson.document.url %>"><%= @lesson.document.original_filename %></a></li>
 		<% else %>
-	  <h3>No Document(s) Attached!</h3>
+	  <li>No Document(s) Attached!</li>
 	<% end %>
 		<% if @lesson.image? %>
 		<li>Other file(s): <a target=_blank href=" <%= @lesson.image.url %>"><%= @lesson.image.original_filename %></a></li>
-
+		
 	<% else %>
-	  <h3>No Document(s) Attached!</h3>
+	  <li>No Document(s) Attached!</li>
 	<% end %>
+	</ul>
 	
 
 	<h1>Related Project(s)</h1>
