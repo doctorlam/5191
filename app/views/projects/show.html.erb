@@ -1,5 +1,7 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] -%>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
 <div class="row">
 <div class="col-md-8">
 <% if current_user.try(:admin?) %>
@@ -27,6 +29,8 @@
         <% end %>
 </div>
 <div class="col-md-4 projects-right">
+    <div class="padding-right">
+
   <h1>Related Lessons</h1>
    <% for lesson in @project.lessons %>
                 <ul>
@@ -36,6 +40,6 @@
                 <% end %>
   </div>
 
-
+  </div>
 </div>
 </div>

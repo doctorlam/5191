@@ -44,19 +44,24 @@
         </div>
       </div><!--col-md-8-->
       <div class="col-md-4 projects-right">
-       <h1>Real-Time Grade</h1> <h4><%= @submissions.sum(:score) %>/<%= @submissions.sum(:totalscore) %> or <%= number_to_percentage @submissions.sum(:score).to_f * 100 / @submissions.sum(:totalscore) %></h4>
+        <div class="padding-right">
+
+            <h1>Real-Time Grade</h1> <h4><%= @submissions.sum(:score) %>/<%= @submissions.sum(:totalscore) %> or <%= number_to_percentage @submissions.sum(:score).to_f * 100 / @submissions.sum(:totalscore) %></h4>
  
+        </div>
       </div>
       <div class="col-md-4 projects-right">
-        <h1>Homework Assignments</h1>
-          <ul>
-            <% @assignments.each do |assignment| %>
+        <div class="padding-right">
 
-              <li>[<%= link_to assignment.deadline, assignment %>] <%= link_to assignment.name, assignment %></lis>
-            <% end %>
-          </ul>
+          <h1>Homework Assignments</h1>
+            <ul>
+              <% @assignments.each do |assignment| %>
 
+                <li>[<%= link_to assignment.deadline, assignment %>] <%= link_to assignment.name, assignment %></lis>
+              <% end %>
+            </ul>
 
+        </div>
       </div>
     </div><!--row-->
 

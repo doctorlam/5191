@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     redirect_to :back, :status => 401 unless current_user.admin
     #redirects to previous page
     rescue ActionController::RedirectBackError
-    redirect_to root_path
+    redirect_to root_path, alert: "Nice try! Don't try hacking me :)"
 end
 
      

@@ -1,12 +1,15 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
+   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+    before_filter :check_user, only: [:edit, :update, :destroy]
+    before_filter :authorize_admin, only: [:index, :destroy, :edit, :create, :new]
 
   # GET /assignments
   # GET /assignments.json
   def index
-    @assignments = Assignment.order(created_at: :desc)      
-
+    @assignments = Assignment.order(created_at: :desc)
   end
+
 
   # GET /assignments/1
   # GET /assignments/1.json
@@ -71,5 +74,10 @@ class AssignmentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
       params.require(:assignment).permit({lesson_ids: []}, {submission_ids: []}, :lesson, :lesson_id, :submission, :submission_id, :name, :description, :deadline)
+    end
+    def check_user
+      if current_user == authorize_admin
+        redirect_to root_url, alert: "Nice try! Access Denied! :)", class: 'alert alert-danger'
+      end 
     end
 end

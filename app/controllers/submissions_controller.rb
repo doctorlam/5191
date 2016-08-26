@@ -2,7 +2,7 @@ class SubmissionsController < ApplicationController
       before_action :set_submission, only: [:show, :edit, :update, :destroy]
       before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
       before_filter :check_user, only: [:edit, :update, :destroy]
-      before_filter :authorize_admin, only: [:index, :destroy]
+      before_filter :authorize_admin, only: [:index, :destroy, :edit]
 
 
   # GET /submissions
@@ -21,6 +21,9 @@ class SubmissionsController < ApplicationController
   # GET /submissions/new
   def new
     @submission = Submission.new(:user => @current_user)
+    session[:submission_params] ||= {}
+    @subbmission = Submission.new(session[:submission_params])
+    @submission.current_step = session[:submission_step]
   end
 
   # GET /submissions/1/edit
@@ -29,19 +32,31 @@ class SubmissionsController < ApplicationController
 
   # POST /submissions
   # POST /submissions.json
-  def create
-    @submission = Submission.new(submission_params)
-    @submission.user_id = current_user.id
-    respond_to do |format|
-      if @submission.save
-        format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
-        format.json { render :show, status: :created, location: @submission }
-      else
-        format.html { render :new }
-        format.json { render json: @submission.errors, status: :unprocessable_entity }
-      end
+def create
+
+  session[:submission_params].deep_merge!(params[:submission]) if params[:submission]
+  @submission = Submission.new(session[:submission_params])
+  @submission.user_id = current_user.id
+  @submission.current_step = session[:submission_step]
+  if @submission.valid?
+    if params[:back_button]
+      @submission.previous_step
+    elsif @submission.last_step?
+      @submission.save if @submission.all_valid?
+    else
+      @submission.next_step
     end
+    session[:submission_step] = @submission.current_step
   end
+  if @submission.new_record?
+    render "new"
+  else
+    session[:submission_step] = session[:submission_params] = nil
+    flash[:notice] = "Assignment Submitted!"
+    redirect_to @submission
+  end
+
+end
 
   # PATCH/PUT /submissions/1
   # PATCH/PUT /submissions/1.json

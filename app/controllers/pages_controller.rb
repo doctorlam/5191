@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
   	if user_signed_in?
   	   @submissions = current_user.submissions
-      @assignments = Assignment.order(deadline: :asc)
+        @assignments = Assignment.order(deadline: :asc)      
       @search = Submission.search(params[:q])
        @search.sorts = 'date' if @search.sorts.empty?
   	else 

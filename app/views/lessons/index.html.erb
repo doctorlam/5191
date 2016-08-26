@@ -1,7 +1,5 @@
 <div class="container">
-<% if flash[:notice] -%>
-  <div class = "alert alert-success"><%= flash[:notice] %></div>
-<% end %>
+
 <% if current_user.try(:admin?) %>
 <%= link_to 'New Lesson', new_lesson_path, class: "btn btn-default" %>
 <% end %>

@@ -11,45 +11,55 @@
     </div>
   <% end %>
 
-<% if current_user.try(:admin?) %>
+<% if current_user.admin? %>
+<div class="row">
+  <div class="col-md-8">
   <div class="third-form-group">
-  <h2>Grade Assignment</h2>
+  <h2>Grading <strong><%= @submission.user.name %>'s</strong> Submission for <% for @assignment in @submission.assignments %><strong><%= @assignment.name %></strong><% end %></h2>
     <%= f.label :score %><br>
-    <%= f.number_field :score %>
+    <%= f.number_field :score, class: "form-control" %>
     <br>
     <%= f.label :totalscore %><br>
-    <%= f.number_field :totalscore %>
+    <%= f.number_field :totalscore, class: "form-control" %>
     <br>
     <%= f.label :feedback, 'Instructor Feedback' %><br>
     <%= f.text_area :feedback, class: "form-control", rows: "10" %>
    <%= f.label :attachment %>
     <%= f.file_field :image, :class => "form-control-file", class: "form-control" %>
     </div>
-  <% end %>
-<div class="second-form-group">
-    <h2>Choose the assignment you're turning in.</h2>
-       <%= hidden_field_tag "submission[assignment_ids][]", nil %>
-        <% Assignment.all.each do |assignment| %>
-          <%= radio_button_tag "submission[assignment_ids][]", assignment.id, @submission.assignment_ids.include?(assignment.id), id: dom_id(assignment)%>
-          <%= label_tag dom_id(assignment), assignment.name %> | due <%= assignment.deadline %>
-          <br />
-        <% end %>
+  </div><!--col-md-8-->
+  <div class="col-md-4 projects-right">
+  <% for assignment in @submission.assignments %>
+
+    <h2>Submission Information</h2>
+            <ul>
+              <li class="show-field">Due: <%= assignment.deadline %></li>
+    <% end %>
+              <li class="show-field">Submitted: <%= @submission.created_at.to_date %> at <%= @submission.created_at %></li>
+            </ul>
+
+    <h2><%= @submission.user.name %>'s Content</h2>
+      <% if @submission.description? %>
+        <p><%=@submission.description %></p>
+      <% else %>
+      <p><strong><%= @submission.user.name %></strong> didn't write anything</p>
+      <% end %>
+    <h2>Attached file</h2>
+      <% if @submission.document? %>
+            <ul><li><a target=_blank href=" <%= @submission.document.url %>"><%= @submission.document.original_filename %></a></li></ul>
+            <% else %>
+            <li>No Document(s) Attached!</li>
+          <% end %>
     </div>
-
-
-  <div class="third-form-group">
-    <%= f.label :description, 'Write your brilliant answer here. Feel free to use line breaks and write as if a WYSIWYG.' %><br>
-    <%= f.text_area :description, class: "form-control", rows: "10" %>
   </div>
-  <div class="second-form-group">
-  <h2>Upload your assignment</h2>
-    <%= f.label :document %>
-    <%= f.file_field :document, :class => "form-control-file", class: "form-control" %>
+  <%= f.submit "Submit Assignment", class: "btn btn-primary" %> 
 
-  </div>
-  
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<% else %>
+<%= render "#{@submission.current_step}_step", :f => f %>
+<%= f.submit "Back", class: "btn btn-primary", :name => "back_button" unless @submission.first_step? %>
+<%= f.submit "Continue", class: "btn btn-primary" unless @submission.last_step? %> 
+<%= f.submit "Submit Assignment", class: "btn btn-primary" unless @submission.first_step? %> 
+<% end %>
+
 <% end %>

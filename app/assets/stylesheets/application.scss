@@ -14,7 +14,17 @@
  *= require_self
 *= require commontator/application
 */
+.padding-left {
+	background-color: #E7E7E7;
+	padding: 5px 20px 20px 20px;
 
+}
+.padding-right {
+	background: #2a2a29;
+	margin-left: 10px;
+	padding: 5px 20px 20px 20px;
+
+}
 html {
     position: relative;
     min-height: 100%;
@@ -47,6 +57,13 @@ a {
 a:visited {
 	color: black;
 }
+a:hover {
+	color: white;
+}
+.show-field {
+	font-size: 1.25rem;
+	font-style: italic !important;
+}
 h1 a:hover {
 	background: transparent;
 }
@@ -56,8 +73,6 @@ nav a, nav a:visited {
 	font-family: 'Muli', sans-serif !important;
 	text-decoration: none;
 	text-transform: uppercase;
-
-
 }
 .navbar {
 	opacity: 0.8;
@@ -75,10 +90,12 @@ h1 {
 	font-weight: 400;
 	text-transform: uppercase;
 	border-bottom: gray 1px dotted;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
+
 }
 h2 {
 	font-family: 'Open Sans Condensed', sans-serif;
+	border-bottom: gray 1px dotted;
 }
 
 h3 {
@@ -219,14 +236,16 @@ footer ul li, footer a, footer a:visited {
 footer ul {
 	padding: 0;
 }
-
+.submission-right p, .submission-right li {
+	color: #D1D1D1;
+}
 .projects-right {
-	background: #2a2a29;
 	color: #99b3ab;
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 	padding-top: 5px
 }
+
 .projects-right a, .projects-right a:visited {
 	color: #99b3ab;
 }
@@ -259,6 +278,10 @@ footer ul {
 .tagline h1 {
 		width: 90%;
 	}
+.projects-right {
+	background: #2a2a29;
+
+}
 
 }
 @media only screen and (max-width: 900px) {
