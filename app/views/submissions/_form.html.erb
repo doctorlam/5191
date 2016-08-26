@@ -29,6 +29,7 @@
     </div>
   </div><!--col-md-8-->
   <div class="col-md-4 projects-right">
+  	<div class="padding-right">
   <% for assignment in @submission.assignments %>
 
     <h2>Submission Information</h2>
@@ -50,6 +51,7 @@
             <% else %>
             <li>No Document(s) Attached!</li>
           <% end %>
+        </div>
     </div>
   </div>
   <%= f.submit "Submit Assignment", class: "btn btn-primary" %> 
