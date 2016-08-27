@@ -6,8 +6,10 @@ class PagesController < ApplicationController
   end
 
   def gradebook
+    if current_user.admin?
+      redirect_to submissions_url
 
-  	if user_signed_in?
+  	elsif user_signed_in?
   	   @submissions = current_user.submissions
         @assignments = Assignment.order(deadline: :asc)      
       @search = Submission.search(params[:q])

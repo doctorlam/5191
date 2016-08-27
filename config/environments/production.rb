@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #Required for devise. Remember to change localhost:3000 to application host
-  config.action_mailer.default_url_options = { host: 'http://course-website.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'http://tecm4400.herokuapp.com' }
 
 config.paperclip_defaults = {
   storage: :s3,

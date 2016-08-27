@@ -23,5 +23,7 @@ module Scheduler20
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.i18n.load_path += Dir[root.join('config', 'locales', '**', '*.{rb,yml}')]
+    config.action_mailer.default_url_options = { host: 'http://tecm4400.herokuapp.com' }
+
   end
 end

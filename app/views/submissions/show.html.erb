@@ -60,6 +60,9 @@
       </div>
 
 </div>
-<%= link_to 'Back to Homework Center', pages_gradebook_path %>
-
+<% if current_user.try(:admin?) %>
+  <%= link_to 'Back to Gradebook', submissions_path %>
+<% else %>
+  <%= link_to 'Back to Homework Center', pages_gradebook_path %>
+<% end %>
 </div>
