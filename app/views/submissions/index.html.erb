@@ -5,7 +5,7 @@
 <%= search_form_for @search do |f| %>
 <div class="field">
     <%= f.label :user_name_cont %>
-  <%= f.search_field :user_name_cont, class: "form-control" %>
+    <%= f.search_field :user_name_cont, class: "form-control" %>
   </div>
   <div class="field">
       <%= f.label :assignments_name_cont %>
@@ -32,7 +32,7 @@
 
        <tbody>
         <% @submissions.each do |submission| %>
-        <td><%= submission.user.name %></td>
+          <td><%= link_to submission.user.name, submission %></td>
           <% for assignment in submission.assignments %>
             <td><%= assignment.name %></td>
           <% end %>
