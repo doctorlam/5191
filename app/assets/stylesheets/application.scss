@@ -30,7 +30,7 @@
 html {
     position: relative;
     min-height: 100%;
-    font-size: 16px;
+    font-size: 16px !important;
 }
 
 body {
@@ -93,15 +93,21 @@ h1 {
 	text-transform: uppercase;
 	border-bottom: gray 1px dotted;
 	padding-bottom: 10px;
+	font-size: 2.5rem !important;
 
 }
 h2 {
 	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 2rem;
+}
+.padding-right h2 {
 	border-bottom: gray 1px dotted;
+
 }
 
 h3 {
 	font-family: 'Muli', sans-serif;
+	font-size: 1.5rem;
 }
 .show-left {
 	background-color: #E7E7E7;
@@ -185,7 +191,7 @@ a.add_fields, a.remove_fields {
 .tagline h1 {
 	font-family: 'Josefin Sans', sans-serif;
 	text-align: center !important;
-	font-size: 5rem;
+	font-size: 4rem !important;
 	letter-spacing: 15px;
 	color: white;
 	text-transform: none;
@@ -301,7 +307,7 @@ footer ul {
 }
 @media only screen and (max-width: 900px) {
 	html {
-	font-size: 15px;
+	font-size: 15px !important;
 	}
 	
 	.navbar a {
@@ -314,7 +320,7 @@ footer ul {
 }
 @media only screen and (max-width: 768px) {
 	html {
-	font-size: 14px;
+	font-size: 14px !important;
 	}
 
 	footer {
@@ -325,18 +331,16 @@ footer ul {
 	}
 	.tagline h1 {
 		width: 95%;
-		font-size: 3.5rem;
+		
 	}
 }
 @media only screen and (max-width: 500px) {
 	html {
-	font-size: 13px;
+	font-size: 13px !important;
 	}
 	.tagline h1 {
-		font-size: 3rem;
 		width: 90%;
 		letter-spacing: 12px;
 		padding-left: 12px;
-
 	}
 }
