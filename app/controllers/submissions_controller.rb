@@ -24,6 +24,7 @@ class SubmissionsController < ApplicationController
     session[:submission_params] ||= {}
     @subbmission = Submission.new(session[:submission_params])
     @submission.current_step = session[:submission_step]
+
   end
 
   # GET /submissions/1/edit
@@ -33,7 +34,7 @@ class SubmissionsController < ApplicationController
   # POST /submissions
   # POST /submissions.json
 def create
-
+  
   session[:submission_params].deep_merge!(params[:submission]) if params[:submission]
   @submission = Submission.new(session[:submission_params])
   @submission.user_id = current_user.id
