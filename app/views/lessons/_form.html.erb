@@ -77,9 +77,18 @@
 
   <div class="fourth-form-group">
   <h2>Documents</h2>
+  <% if @lesson.document.exists? %>
+      "<%= @lesson.document.original_filename %>" is already attached. Upload file to replace.<br/>
+      <%= f.check_box :delete_document %>
+
+    <% end %>
+
     <%= f.label :document %>
     <%= f.file_field :document, :class => "form-control-file", class: "form-control" %>
-
+  <% if @lesson.image.exists? %>
+      "<%= @lesson.image.original_filename %>" is already attached. Upload file to replace.<br/>
+      <%= f.check_box :delete_image %>
+    <% end %>
     <%= f.label :image %>
     <%= f.file_field :image, :class => "form-control-file", class: "form-control" %>
   </div>

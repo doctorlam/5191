@@ -24,7 +24,12 @@
     <br>
     <%= f.label :feedback, 'Instructor Feedback' %><br>
     <%= f.text_area :feedback, class: "form-control", rows: "10" %>
-   <%= f.label :attachment %>
+   
+    <% if @submission.image.exists? %>
+      "<%= @submission.image.original_filename %>" is already attached. Upload file to replace.<br/>
+      <%= f.check_box :delete_image %>Delete
+    <% end %>
+    <%= f.label :attachment %>
     <%= f.file_field :image, :class => "form-control-file", class: "form-control" %>
     </div>
   </div><!--col-md-8-->
