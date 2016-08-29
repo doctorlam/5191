@@ -7,6 +7,8 @@ class Lesson < ActiveRecord::Base
 	has_many :learnings
 	has_many :projects, :through => :learnings
 	has_many :assignments, :through => :learnings
+	acts_as_commontable
+	
 	
 	has_attached_file :image
   	validates_attachment_file_name :image, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/]
@@ -48,7 +50,6 @@ class Lesson < ActiveRecord::Base
 
 	belongs_to :user
 	belongs_to :course
-	acts_as_commontable
 	acts_as_votable
   	default_scope { order('date') } 
 

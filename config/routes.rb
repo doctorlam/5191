@@ -6,7 +6,15 @@ Rails.application.routes.draw do
   resources :projects
   resources :courses
   get 'pages/gradebook'
+  get 'pages/accounts'
+ 
   devise_for :users
+   match 'users/:id' => 'users#index', via: :get
+# or 
+get 'users/:id' => 'users#index'
+# or
+resources :users, only: [:index]
+
 root :to => 'lessons#index'  
 resources :lessons
   get 'pages/policies'

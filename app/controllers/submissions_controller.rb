@@ -11,6 +11,7 @@ class SubmissionsController < ApplicationController
     @search = Submission.search(params[:q])
     @search.sorts = 'date' if @search.sorts.empty?
     @submissions = @search.result.paginate(:page => params[:page])
+    @users = User.all
   end
 
   # GET /submissions/1

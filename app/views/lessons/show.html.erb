@@ -75,7 +75,6 @@
 
 <%= commontator_thread(@lesson) %>
 
-
 <% if current_user.try(:admin?) %>
 	<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
 	<%= link_to 'Back', lessons_path %>

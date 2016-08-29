@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+
   def about
   end
 
@@ -6,7 +7,7 @@ class PagesController < ApplicationController
   end
 
   def gradebook
-    if current_user.admin?
+    if user_signed_in? && current_user.admin?
       redirect_to submissions_url
 
   	elsif user_signed_in?
@@ -18,5 +19,5 @@ class PagesController < ApplicationController
   	redirect_to lessons_url
   end
 
-end
+  end
 end

@@ -26,13 +26,15 @@
           <th><%= sort_link @search, :assignments_deadline, "Due Date" %></th>
           <th><%= sort_link @search, :score, "Score" %></th>
           <th>Attached file</th>
-          <th colspan="3"></th>
+          <th colspan="2"></th>
         </tr>
       </thead>
 
        <tbody>
         <% @submissions.each do |submission| %>
-          <td><%= link_to submission.user.name, submission %></td>
+
+             <td><%= link_to submission.user.name, submission %></td>
+       
           <% for assignment in submission.assignments %>
             <td><%= assignment.name %></td>
           <% end %>
@@ -41,17 +43,15 @@
             <td><%= assignment.deadline %></td>
           <% end %>
             <% if submission.score? %>
-              <td><%= submission.score %>/<%= submission.totalscore %> or <%= number_to_percentage(submission.score.to_f * 100 / submission.totalscore) %></td>
+              <td style = "color: green !important"><%= submission.score %>/<%= submission.totalscore %> or <%= number_to_percentage(submission.score.to_f * 100 / submission.totalscore) %></td>
             <% else %>
-              <td>Not graded yet!</td>
+              <td style = "color: red !important">Not graded yet!</td>
             <% end %>
             <% if submission.document? %>
           <td><a target=_blank href=" <%= submission.document.url %>"><%= submission.document.original_filename %></a></td>
         <% else %>
         <td>No Document(s) Attached!</td>
       <% end %>
-
-            <td><%= link_to 'Show', submission %></td>
             <td><%= link_to 'Grade', edit_submission_path(submission) %></td>
             <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
