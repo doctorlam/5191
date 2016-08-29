@@ -2,6 +2,8 @@
 <% if flash[:notice] -%>
   <div class = "alert alert-success"><%= flash[:notice] %></div>
 <% end %>
+
+	
 <div class="row">
 	<div class="col-md-8 show-left">
 
@@ -79,9 +81,11 @@
 				<label for="op"></label>
 					<div class="overlay-container">
 						<h1 class="overlay-heading">Cliffs for "<%=@lesson.name %>" on <%= @lesson.date %></h1>
-						<ul><% for takeaway in @lesson.takeaways %><li><%= takeaway.content %></li><% end %></ul>
+						<ol type= "1"><% for takeaway in @lesson.takeaways %><li><%= takeaway.content %></li><% end %></ol>
 					</div>
 			</div>
+
+
 
 <% if current_user.try(:admin?) %>
 	<%= link_to 'Edit', edit_lesson_path(@lesson) %> |

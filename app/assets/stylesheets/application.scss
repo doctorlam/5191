@@ -354,32 +354,33 @@ input{
 	transform: translateY(-50%);
 }
 
-.overlay ul {
-	list-style: none;
-	padding: 0;
+.overlay ol {
+	padding: 20px;
 	margin: 0 auto;
-	display: inline-block;
+	display: block;
 	height: 100%;
 	position: relative;
 }
 
-.overlay ul li {
-	display: block;
+.overlay ol li {
 	height: 20%;
 	height: calc(100% / 5);
 	min-height: 54px;
+	text-align: left;
+	margin-left: 40px;
+
 }
 
-.overlay ul li {
+.overlay ol li {
 	font-weight: 300;
-	display: block;
 	color: white !important;
-  text-decoration:none;
+  	text-decoration:none;
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
-  font-family: 'Open sans condensed' !important;
-  font-size: 2.5rem !important;
-  line-height: 2.5rem !important;
+  	font-family: 'Open sans condensed' !important;
+  	font-size: 2.25rem !important;
+ 	 line-height: 2.7rem !important;
+
 }
 h1.overlay-heading {
 	font-size: 3.5rem !important;
@@ -387,8 +388,8 @@ h1.overlay-heading {
 	padding-bottom: 20px !important;
 	margin-bottom: 40px;
 }
-.overlay ul li a:hover,
-.overlay ul li a:focus {
+.overlay ol li a:hover,
+.overlay ol li a:focus {
 	color: #849368;
 }
 
@@ -410,7 +411,7 @@ h1.overlay-heading {
 	-moz-perspective: 300px;
 }
 
-.overlay-hugeinc .overlay-container ul {
+.overlay-hugeinc .overlay-container ol {
 	opacity: 0.4;
 	-webkit-transform: translateY(-25%) rotateX(35deg);
 	transform: translateY(-25%) rotateX(35deg);
@@ -418,13 +419,13 @@ h1.overlay-heading {
 	transition: transform 0.5s, opacity 0.5s;
 }
 
-#op:checked~.overlay-hugeinc .overlay-container ul {
+#op:checked~.overlay-hugeinc .overlay-container ol {
 	opacity: 1;
 	-webkit-transform: rotateX(0deg);
 	transform: rotateX(0deg);
 }
 
-#op:not(:checked)~.overlay-hugeinc .overlay-container ul {
+#op:not(:checked)~.overlay-hugeinc .overlay-container ol {
 	-webkit-transform: translateY(25%) rotateX(-35deg);
 	transform: translateY(25%) rotateX(-35deg);
 }
