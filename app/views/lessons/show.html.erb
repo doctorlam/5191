@@ -30,24 +30,24 @@
 	</div>
 	<div class="col-md-4 projects-right">
 		<div class="padding-right">
-				<h1>To Do Before Class</h1>
-					<h3>Readings:</h3>
-					<ol>
-					<% for reading in @lesson.readings %>
-					<li><%= simple_format reading.content.html_safe %></li>
-					<% end %>
-					</ol>
-					<h3>Homework:</h3>
-					<ol>
-					<% for homework in @lesson.homeworks %>
-					<li><%= simple_format homework.content.html_safe %></li>
-					<% end %>
-					 <% for assignment in @lesson.assignments %>  
-			              <li>[Turn In] <%= link_to assignment.name, assignment_url(assignment) %></li>
-			                
-			           <% end %>
-					</ol>
-				<h1>Associated Files</h1>
+			<h1>To Do Before Class</h1>
+				<h3>Readings:</h3>
+				<ol>
+				<% for reading in @lesson.readings %>
+				<li><%= simple_format reading.content.html_safe %></li>
+				<% end %>
+				</ol>
+				<h3>Homework:</h3>
+				<ol>
+				<% for homework in @lesson.homeworks %>
+				<li><%= simple_format homework.content.html_safe %></li>
+				<% end %>
+				 <% for assignment in @lesson.assignments %>  
+		              <li>[Turn In] <%= link_to assignment.name, assignment_url(assignment) %></li>
+		                
+		           <% end %>
+				</ol>
+				<h3>Lesson Attachments</h3>
 				<ul>
 				<% if @lesson.document? %>
 					<li>Presentation file: <a target=_blank href=" <%= @lesson.document.url %>"><%= @lesson.document.original_filename %></a></li>
@@ -63,12 +63,12 @@
 				</ul>
 				
 
-				<h1>Related Project(s)</h1>
+				<h3>Related Project(s)</h3>
 				 <% for project in @lesson.projects %>
 			      	<ul><li><%= link_to project.name, project_url(project) %></li></ul>
 			               
 			     <% end %>
-			</div>
+		</div>
 	</div>
 </div><!--row-->
 
