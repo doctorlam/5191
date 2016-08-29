@@ -1,5 +1,5 @@
 class Submission < ActiveRecord::Base
-	belongs_to :user, dependent: :destroy
+	belongs_to :user
 	has_many :portals
 	has_many :gradecategorizations 
 	
