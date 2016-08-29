@@ -29,45 +29,47 @@
 		</ol>
 	</div>
 	<div class="col-md-4 projects-right">
-	<h1>To Do Before Class</h1>
-		<h3>Readings:</h3>
-		<ol>
-		<% for reading in @lesson.readings %>
-		<li><%= simple_format reading.content.html_safe %></li>
-		<% end %>
-		</ol>
-		<h3>Homework:</h3>
-		<ol>
-		<% for homework in @lesson.homeworks %>
-		<li><%= simple_format homework.content.html_safe %></li>
-		<% end %>
-		 <% for assignment in @lesson.assignments %>  
-              <li>[Turn In] <%= link_to assignment.name, assignment_url(assignment) %></li>
-                
-           <% end %>
-		</ol>
-	<h1>Associated Files</h1>
-	<ul>
-	<% if @lesson.document? %>
-		<li>Presentation file: <a target=_blank href=" <%= @lesson.document.url %>"><%= @lesson.document.original_filename %></a></li>
-		<% else %>
-	  <li>No Document(s) Attached!</li>
-	<% end %>
-		<% if @lesson.image? %>
-		<li>Other file(s): <a target=_blank href=" <%= @lesson.image.url %>"><%= @lesson.image.original_filename %></a></li>
-		
-	<% else %>
-	  <li>No Document(s) Attached!</li>
-	<% end %>
-	</ul>
-	
+		<div class="padding-right">
+				<h1>To Do Before Class</h1>
+					<h3>Readings:</h3>
+					<ol>
+					<% for reading in @lesson.readings %>
+					<li><%= simple_format reading.content.html_safe %></li>
+					<% end %>
+					</ol>
+					<h3>Homework:</h3>
+					<ol>
+					<% for homework in @lesson.homeworks %>
+					<li><%= simple_format homework.content.html_safe %></li>
+					<% end %>
+					 <% for assignment in @lesson.assignments %>  
+			              <li>[Turn In] <%= link_to assignment.name, assignment_url(assignment) %></li>
+			                
+			           <% end %>
+					</ol>
+				<h1>Associated Files</h1>
+				<ul>
+				<% if @lesson.document? %>
+					<li>Presentation file: <a target=_blank href=" <%= @lesson.document.url %>"><%= @lesson.document.original_filename %></a></li>
+					<% else %>
+				  <li>No Document(s) Attached!</li>
+				<% end %>
+					<% if @lesson.image? %>
+					<li>Other file(s): <a target=_blank href=" <%= @lesson.image.url %>"><%= @lesson.image.original_filename %></a></li>
+					
+				<% else %>
+				  <li>No Document(s) Attached!</li>
+				<% end %>
+				</ul>
+				
 
-	<h1>Related Project(s)</h1>
-	 <% for project in @lesson.projects %>
-      	<ul><li><%= link_to project.name, project_url(project) %></li></ul>
-               
-     <% end %>
-</div>
+				<h1>Related Project(s)</h1>
+				 <% for project in @lesson.projects %>
+			      	<ul><li><%= link_to project.name, project_url(project) %></li></ul>
+			               
+			     <% end %>
+			</div>
+	</div>
 </div><!--row-->
 
 
