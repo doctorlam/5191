@@ -27,21 +27,6 @@
 		<li><%= classactivity.content.html_safe %></li>
 		<% end %>
 		</ol>
-<div class="row">
-	<div class="col-md-8">
-	<input type="checkbox" id="op"></input>
-		<div class="lower">
-			  <label for="op">TL;DR</label>
-			</div>
-			<div class="overlay overlay-hugeinc">
-				<label for="op"></label>
-					<div class="overlay-container">
-						<h1 class="overlay-heading">Cliffs for "<%=@lesson.name %>" on <%= @lesson.date %></h1>
-						<ul><% for takeaway in @lesson.takeaways %><li><%= takeaway.content %></li><% end %></ul>
-					</div>
-			</div>
-		</div>
-	</div>
 </div>
 	<div class="col-md-4 projects-right">
 		<div class="padding-right">
@@ -86,7 +71,17 @@
 		</div>
 	</div>
 </div><!--row-->
-
+<input type="checkbox" id="op"></input>
+		<div class="lower">
+			  <label for="op">TL;DR</label>
+		</div>
+			<div class="overlay overlay-hugeinc">
+				<label for="op"></label>
+					<div class="overlay-container">
+						<h1 class="overlay-heading">Cliffs for "<%=@lesson.name %>" on <%= @lesson.date %></h1>
+						<ul><% for takeaway in @lesson.takeaways %><li><%= takeaway.content %></li><% end %></ul>
+					</div>
+			</div>
 
 <% if current_user.try(:admin?) %>
 	<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
