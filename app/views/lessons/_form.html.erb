@@ -74,6 +74,13 @@
         <% end %>
     </div>
 
+  <div class="fourth-form-group">
+      <h2>Takeaways</h2>
+      <%= f.fields_for :takeaways do |builder| %>
+      <%= render 'takeaway_fields', f:builder %>
+      <% end %>
+      <%= link_to_add_fields "Add Takeaway", f, :takeaways, class: "btn btn-mini btn-info" %>
+</div>
 
   <div class="fourth-form-group">
   <h2>Documents</h2>

@@ -1,6 +1,7 @@
 class Lesson < ActiveRecord::Base
 
 	has_many :objectives, :dependent => :destroy
+	has_many :takeaways, :dependent => :destroy
 	has_many :readings, :dependent => :destroy
 	has_many :homeworks, :dependent => :destroy
 	has_many :classactivitys, :dependent => :destroy
@@ -39,14 +40,12 @@ class Lesson < ActiveRecord::Base
 		  end
 
 		end
-  
-
-
-
+ 
 	accepts_nested_attributes_for :objectives, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 	accepts_nested_attributes_for :readings, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 	accepts_nested_attributes_for :homeworks, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 	accepts_nested_attributes_for :classactivitys, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
+	accepts_nested_attributes_for :takeaways, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
 	belongs_to :user
 	belongs_to :course
