@@ -4,7 +4,7 @@
 <% end %>
 	<div class="row">
 		<div class="col-md-8">
-		<%= link_to 'Back to Homework Center', pages_gradebook_path %>
+		<%= link_to 'Back', pages_gradebook_path %>
 
 
 			<h1><%= @assignment.name %></h1>
@@ -13,8 +13,11 @@
 		  		<h4><%= @assignment.deadline %></h4>
 			 <h2>What you Need To Do:</h2>
 			  <p><%= @assignment.description %></p>
-			  
+		<% if current_user.try(:admin?) %>
+			<br />
+		<% else %>
 			  <%= link_to 'Submit Your Homework', new_submission_path, class: 'btn btn-primary' %>
+		<% end %>
 		</div>
 		<div class="col-md-4 projects-right">
 			<div class="padding-right">

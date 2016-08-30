@@ -73,6 +73,7 @@
 		</div>
 	</div>
 </div><!--row-->
+<div class="row">
 <input type="checkbox" id="op" class="takeaway"></input>
 		<div class="lower">
 			  <label for="op">TL;DR</label>
@@ -85,7 +86,7 @@
 					</div>
 			</div>
 
-
+</div>
 
 <% if current_user.try(:admin?) %>
 	<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
