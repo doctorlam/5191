@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829185422) do
+ActiveRecord::Schema.define(version: 20160831220213) do
 
   create_table "abouts", force: :cascade do |t|
     t.text     "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160829185422) do
     t.datetime "updated_at",    null: false
     t.integer  "submission_id"
     t.integer  "homework_id"
+    t.integer  "score"
   end
 
   create_table "attachments", force: :cascade do |t|

@@ -42,7 +42,7 @@
             <td><%= assignment.deadline %></td>
           <% end %>
             <% if submission.score? %>
-              <td style = "color: green !important"><%= submission.score %>/<%= submission.totalscore %> or <%= number_to_percentage(submission.score.to_f * 100 / submission.totalscore) %></td>
+              <td style = "color: green !important"><%= submission.score %>/<% for assignment in submission.assignments %><%= assignment.score %> or <%= number_to_percentage(submission.score.to_f * 100 / assignment.score) %><% end %></td>
             <% else %>
               <td style = "color: red !important">Not graded yet!</td>
             <% end %>
@@ -55,16 +55,17 @@
            
           </tr>
         <% end %>
+
       </tbody>
     </table>
+    <%= will_paginate @submissions %>
+
   </div><!--responsive table close-->
-<h3>Total Score:</h3><h4 style= "color: #c0392b"><%= @submissions.sum(:score) %> out of <%= @submissions.sum(:totalscore) %></h4>
 
-<h3>Percent:</h3><h4 style= "color: #c0392b"><%= number_to_percentage @submissions.sum(:score).to_f * 100 / @submissions.sum(:totalscore) %></h4>
+<h3>Total Score:</h3><h4 style= "color: #c0392b"><%= @submissions.sum(:score) %> / <%= @assignments.sum(:score) %>
 
+<h3>Percent:</h3><h4 style= "color: #c0392b"><%= number_to_percentage @submissions.sum(:score).to_f * 100 / @assignments.sum(:score) %></h4>
 
-<br>
-
-        
+<br>  
 
 </div>

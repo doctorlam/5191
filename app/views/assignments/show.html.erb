@@ -9,19 +9,22 @@
 
 			<h1><%= @assignment.name %></h1>
 
-			<h2>Deadline:</h2>
+			<h3>Deadline:</h3>
 		  		<h4><%= @assignment.deadline %></h4>
-			 <h2>What you Need To Do:</h2>
+			 <h3>What you Need To Do:</h3>
 			  <p><%= @assignment.description %></p>
+			  <h3>What's it worth?:</h3>
+			  <p><%= @assignment.score %> points</p>
 		<% if current_user.try(:admin?) %>
 			<br />
 		<% else %>
-			  <%= link_to 'Submit Your Homework', new_submission_path, class: 'btn btn-primary' %>
+			  <%= link_to 'Submit Your Homework', "/submissions/new?assignment=#{@assignment.id}", class: 'btn btn-primary form-control' %>
 		<% end %>
+		<br />
 		</div>
 		<div class="col-md-4 projects-right">
 			<div class="padding-right">
-			<h1>When did we talk about this?</h1>
+			<h3>When did we talk about this?</h3>
 			 <% for lesson in @assignment.lessons %>
                 <ul>
                   <li>[<%= lesson.date %>] <%= link_to lesson.name, lesson_url(lesson) %>

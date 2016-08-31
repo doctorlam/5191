@@ -265,7 +265,6 @@ footer ul {
 	background: transparent;
 	border: 1px solid black !important;
 	text-decoration: none;
-	font-size: 1.3rem;
 	color: black;
 	font-family: 'Open Sans Condensed', sans-serif;
 	text-transform: uppercase;
@@ -274,8 +273,8 @@ footer ul {
 		background: black;
 		color:white; 
 }
-.btn-primary a {
-	margin-top: -10px;
+.btn {
+	font-size: 1rem;
 }
 
 .round-image-50 {

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :avatar, :phonenumber])
 
   end
-  	WillPaginate.per_page = 12
+  	WillPaginate.per_page = 14
 
    def authorize_admin
     redirect_to :back, :status => 401 unless current_user.admin

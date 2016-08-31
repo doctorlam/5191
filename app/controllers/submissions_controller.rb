@@ -11,6 +11,8 @@ class SubmissionsController < ApplicationController
     @search = Submission.search(params[:q])
     @search.sorts = 'created_at DESC' if @search.sorts.empty?
     @submissions = @search.result.paginate(:page => params[:page])
+    @assignments = Assignment.all
+
   end
 
   # GET /submissions/1
@@ -20,7 +22,6 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/new
   def new
-    @Assignments = Assignment.order ('name ASC')
     @submission = Submission.new(:user => @current_user)
     session[:submission_params] ||= {}
     @subbmission = Submission.new(session[:submission_params])

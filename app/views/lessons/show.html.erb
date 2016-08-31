@@ -29,6 +29,20 @@
 		<li><%= classactivity.content.html_safe %></li>
 		<% end %>
 		</ol>
+		<h3>Lesson Attachments</h3>
+				<ul>
+				<% if @lesson.document? %>
+					<li>Presentation file: <a target=_blank href=" <%= @lesson.document.url %>"><%= @lesson.document.original_filename %></a></li>
+					<% else %>
+				  <li>No Document(s) Attached!</li>
+				<% end %>
+					<% if @lesson.image? %>
+					<li>Other file(s): <a target=_blank href=" <%= @lesson.image.url %>"><%= @lesson.image.original_filename %></a></li>
+					
+				<% else %>
+				  <li>No Document(s) Attached!</li>
+				<% end %>
+				</ul>
 </div>
 	<div class="col-md-4 projects-right">
 		<div class="padding-right">
@@ -49,22 +63,7 @@
 		                
 		           <% end %>
 				</ol>
-				<h3>Lesson Attachments</h3>
-				<ul>
-				<% if @lesson.document? %>
-					<li>Presentation file: <a target=_blank href=" <%= @lesson.document.url %>"><%= @lesson.document.original_filename %></a></li>
-					<% else %>
-				  <li>No Document(s) Attached!</li>
-				<% end %>
-					<% if @lesson.image? %>
-					<li>Other file(s): <a target=_blank href=" <%= @lesson.image.url %>"><%= @lesson.image.original_filename %></a></li>
-					
-				<% else %>
-				  <li>No Document(s) Attached!</li>
-				<% end %>
-				</ul>
 				
-
 				<h3>Related Project(s)</h3>
 				 <% for project in @lesson.projects %>
 			      	<ul><li><%= link_to project.name, project_url(project) %></li></ul>

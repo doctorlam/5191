@@ -1,7 +1,7 @@
 <div class="second-form-group">
 	<h1>STEP 1 - Choose the assignment you're turning in.</h1>
        <%= hidden_field_tag "submission[assignment_ids][]", nil %>
-       <% Assignment.all.order(:deadline).each do |assignment| %>
+        <% Assignment.all.order(:deadline).each do |assignment| %>
             <%= radio_button_tag "submission[assignment_ids][]", assignment.id, @submission.assignment_ids.include?(assignment.id), id: dom_id(assignment)%>
             <%= label_tag dom_id(assignment), assignment.name %> | due <%= assignment.deadline %>
           <br />

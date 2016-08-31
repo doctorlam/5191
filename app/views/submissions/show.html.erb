@@ -39,9 +39,9 @@
             <h3>Grade for "<%= assignment.name %>"</h3>
             <% end %>
                 <% if @submission.score? %>
-                  <p style = "color: green !important"><strong><%= @submission.score %>/<%= @submission.totalscore %> or <%= number_to_percentage(@submission.score.to_f * 100 / @submission.totalscore) %></strong></p>
+                  <p style = "color: green !important"><strong><%= @submission.score %>/<% for assignment in @submission.assignments %><%= assignment.score %> or <%= number_to_percentage(@submission.score.to_f * 100 / assignment.score) %><% end %></strong></p>
                 <% else %>
-                  <p style = "color:red !important">Not graded yet!</p>
+                  <p style = "color:red !important">This assignment is worth <% for assignment in @submission.assignments %><%= assignment.score %> points, but it's not graded yet!<% end %></p>
                 <% end %>
           
               <h3>Instructor Feedback</h3>
