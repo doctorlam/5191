@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-    @assignments = Assignment.order(deadline: :desc)
-
   protected
 
   def configure_permitted_parameters
@@ -13,13 +11,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :avatar, :phonenumber])
 
   end
-  	WillPaginate.per_page = 10
+  	WillPaginate.per_page = 12
+
    def authorize_admin
     redirect_to :back, :status => 401 unless current_user.admin
     #redirects to previous page
     rescue ActionController::RedirectBackError
     redirect_to root_path, alert: "Nice try! Don't try hacking me :)"
 end
-     
+
 end
 

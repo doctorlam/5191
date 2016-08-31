@@ -14,7 +14,7 @@
         <%= hidden_field_tag "project[lesson_ids][]", nil %>
         <% Lesson.all.each do |lesson| %>
           <%= check_box_tag "project[lesson_ids][]", lesson.id, @project.lesson_ids.include?(lesson.id), id: dom_id(lesson) %>
-          <%= label_tag dom_id(lesson), lesson.name %>
+          <%= label_tag dom_id(lesson), lesson.name %> | <%= lesson.date %>
           <br />
 
         <% end %>

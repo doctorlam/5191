@@ -46,7 +46,7 @@
 
           <h2><%= @submission.user.name %>'s Content</h2>
             <% if @submission.description? %>
-              <p><%=@submission.description %></p>
+              <p><%= simple_format @submission.description %></p>
             <% else %>
             <p><strong><%= @submission.user.name %></strong> didn't write anything</p>
             <% end %>

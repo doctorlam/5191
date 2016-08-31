@@ -16,7 +16,6 @@ end
   # GET /lessons/1
   # GET /lessons/1.json
   def show
-    commontator_thread_show(@lesson)
   end
 
   # GET /lessons/new

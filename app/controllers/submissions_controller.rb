@@ -9,7 +9,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions.json
   def index
     @search = Submission.search(params[:q])
-    @search.sorts = 'date' if @search.sorts.empty?
+    @search.sorts = 'created_at DESC' if @search.sorts.empty?
     @submissions = @search.result.paginate(:page => params[:page])
   end
 
@@ -20,6 +20,7 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/new
   def new
+    @Assignments = Assignment.order ('name ASC')
     @submission = Submission.new(:user => @current_user)
     session[:submission_params] ||= {}
     @subbmission = Submission.new(session[:submission_params])
@@ -29,12 +30,12 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/1/edit
   def edit
+
   end
 
   # POST /submissions
   # POST /submissions.json
 def create
-  
   session[:submission_params].deep_merge!(params[:submission]) if params[:submission]
   @submission = Submission.new(session[:submission_params])
   @submission.user_id = current_user.id
@@ -62,6 +63,7 @@ end
   # PATCH/PUT /submissions/1
   # PATCH/PUT /submissions/1.json
   def update
+
     respond_to do |format|
       if @submission.update(submission_params)
         format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
