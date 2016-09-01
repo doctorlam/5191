@@ -63,19 +63,9 @@
     <%= will_paginate @submissions %>
 
   </div><!--responsive table close-->
-<% @submissions.each do |submission| %>
-<% if submission.score? %>
-
 
 <h3>Total Score:</h3><h4 style= "color: #c0392b"><%= @submissions.sum(:score) %> / 
 <%= @submissions.sum(:totalscore) %>
-
-<h3>Percent:</h3><h4 style= "color: #c0392b"><%= number_to_percentage @submissions.sum(:score) * 100 / @submissions.sum(:totalscore) %></h3>
-<% else %>
-<h3>Nothing graded yet!</h3>
-<% end %>
-<% end %>
-
 
 
 

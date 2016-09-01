@@ -29,7 +29,7 @@
                   <td><%= assignment.deadline %></td>
                 <% end %>
                   <% if submission.score? %>
-                    <td style = "color: green"><%= submission.score %>/<%= assignment.score %> or <%= number_to_percentage(submission.score * 100 / submission.totalscore) %></td>
+                    <td style = "color: green"><%= submission.score %>/<%= assignment.score %> </td>
                   <% else %>
                     <td style = "color:red">Not graded yet!</td>
                   <% end %>
@@ -49,15 +49,9 @@
         <div class="padding-right">
 
             <h1>Real-Time Grade</h1> 
-        <% @submissions.each do |submission| %>
 
-          <% if @submission.score? %>
-
-            <h4><%= @submissions.sum(:score) %>/<%= @assignments.sum(:score) %> or <%= number_to_percentage @submissions.sum(:score) * 100 / @assignments.sum(:score) %></h4>
-          <% else %>
-          <h4>Nothing graded yet!</h4>
-          <% end %>
-        <% end %>
+            <h4><%= @submissions.sum(:score) %>/<%= @assignments.sum(:score) %> </h4>
+        
             <h1>Homework Assignments</h1>
             <ul>
               <% @assignments.each do |assignment| %>
