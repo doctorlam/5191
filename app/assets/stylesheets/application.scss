@@ -316,16 +316,20 @@ a.small-reply {
 	margin-top: -40px !important;
 }
 .thread {
-	border-bottom: 1px dotted #d1d1d1;
 	background: #FCFCFC;
 	padding: 20px;
 }
+.response-container {
+
+}
 
 .reply h3, .reply {
-	border-bottom: 1px dotted #d1d1d1;
+	border-bottom: 1px dotted #404040;
 }
 .reply {
 	min-height: 150px;
+	padding-top: 10px;
+	padding-left: 30px;
 
 }
 .lower{
@@ -532,7 +536,7 @@ code {
 
 	}
 	.response-container {
-		margin-top: 100px;
+	margin-top: 50px;
 	}
 }
 @media only screen and (max-width: 500px) {
