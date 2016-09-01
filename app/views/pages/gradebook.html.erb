@@ -48,7 +48,7 @@
       <div class="col-md-4 projects-right">
         <div class="padding-right">
 
-            <h1>Real-Time Grade</h1> <h4 class=""><%= @submissions.sum(:score) %>/<%= @assignments.sum(:score) %> or <%= number_to_percentage @submissions.sum(:score).to_f * 100 / @assignments.sum(:score) %></h4>
+            <h1>Real-Time Grade</h1> <h4 class=""><%= @submissions.sum(:score) %>/<%= @assignments.sum(:score) %> or <%= number_to_percentage @submissions.sum(:score) * 100 / @assignments.sum(:score) %></h4>
 
             <h1>Homework Assignments</h1>
             <ul>
