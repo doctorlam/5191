@@ -42,7 +42,7 @@
             <td><%= assignment.deadline %></td>
           <% end %>
             <% if submission.score? %>
-              <td style = "color: green !important"><%= submission.score %>/<% for assignment in submission.assignments %><%= assignment.score %> or <%= number_to_percentage(submission.score.to_f * 100 / assignment.score) %><% end %></td>
+              <td style = "color: green !important"><%= submission.score %>/<% for assignment in submission.assignments %><%= assignment.score %> <% end %></td>
             <% else %>
               <td style = "color: red !important">Not graded yet!</td>
             <% end %>
@@ -52,6 +52,8 @@
         <td>No Document(s) Attached!</td>
       <% end %>
             <td><%= link_to 'Grade', edit_submission_path(submission) %></td>
+                    <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
            
           </tr>
         <% end %>
@@ -62,9 +64,9 @@
 
   </div><!--responsive table close-->
 
-<h3>Total Score:</h3><h4 style= "color: #c0392b"><%= @submissions.sum(:score) %> / <%= @assignments.sum(:score) %>
+<h3>Total Score:</h3><h4 style= "color: #c0392b"><%= @submissions.sum(:score) %> / 
+<%= @submissions.sum(:totalscore) %>
 
-<h3>Percent:</h3><h4 style= "color: #c0392b"><%= number_to_percentage @submissions.sum(:score).to_f * 100 / @assignments.sum(:score) %></h4>
 
 <br>  
 
