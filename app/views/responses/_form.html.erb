@@ -1,0 +1,5 @@
+<%= simple_form_for ([@post, @post.responses.build]) do |f| %>
+	<%= f.text_area :comment, rows: 15, class: "form-control" %>
+	<br>
+	<%= f.button :submit, class: "btn btn-primary form-control" %>
+<% end %>

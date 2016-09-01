@@ -1,0 +1,13 @@
+<div class="row reply">
+	<div class="col-md-8">
+		<p><%= response.comment %></p>
+	</div>
+	<div class="col-md-4 response-container">
+		<p class="small-response">replied <%= time_ago_in_words(response.created_at) %> ago</p>
+		<p class="small-response"><%= image_tag(response.user.avatar.url(:thumb), class: "tiny") %> by <%= response.user.name %> 
+		<% if current_user == response.user %> |
+		<%= link_to "Edit", edit_post_response_path(response.post, response), class: "small-reply" %>
+		<%= link_to "Delete", [response.post, response], class:"small-reply", method: :delete, data: {confirm: "Are you sure?"} %></p>
+		<% end %>
+	</div>
+</div>

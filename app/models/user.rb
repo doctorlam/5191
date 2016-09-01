@@ -9,9 +9,11 @@ class User < ActiveRecord::Base
    has_many :projects, dependent: :destroy 
    has_many :abouts, dependent: :destroy
    has_many :submissions
-   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "missing.png"
+   has_attached_file :avatar, :styles => { :medium => "150x150>", :thumb => "30x30" }, :default_url => "missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   acts_as_commontator
+  has_many :posts
+  has_many :responses
 
   
 end

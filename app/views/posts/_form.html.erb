@@ -1,0 +1,8 @@
+<%= simple_form_for @post do |f|%>
+	<%= f.input :title %>
+	<p>Wrap code with the &lt;code&gt; tag</p>
+	<%= f.text_area :content, rows: 15, class: "form-control" %>
+	<br>
+	<%= f.button :submit, class: "btn btn-primary form-control" %>
+	<br>
+<% end %>
