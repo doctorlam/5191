@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'pages/gradebook'
   get 'pages/accounts'
+    get 'pages/usergrades'
+
  
   devise_for :users
    match 'users/:id' => 'users#index', via: :get
@@ -22,8 +24,5 @@ resources :users, only: [:index]
 root :to => 'lessons#index'  
 resources :lessons
   get 'pages/policies'
-mount Commontator::Engine => '/commontator'
 
-
-  
 end

@@ -51,8 +51,10 @@
         <% else %>
         <td>No Document(s) Attached!</td>
       <% end %>
-              <td><%= link_to 'Grade', submission %></td>
+            <td><%= link_to 'Grade', submission %></td>
+                    <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
+                  
            
           </tr>
         <% end %>
@@ -68,8 +70,7 @@
 
 <h3>Percent:</h3><h4 style= "color: #c0392b"><%= number_to_percentage @submissions.sum(:score).to_f * 100 / @submissions.sum(:totalscore) %></h3>
 
-
-
+<h3><%= link_to "All users grades", pages_usergrades_path, class: "btn btn-primary form-control" %>
 
 <br>  
 

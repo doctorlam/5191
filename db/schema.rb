@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901153639) do
+ActiveRecord::Schema.define(version: 20160902213109) do
 
   create_table "abouts", force: :cascade do |t|
     t.text     "name"
@@ -281,6 +281,7 @@ ActiveRecord::Schema.define(version: 20160901153639) do
     t.datetime "image_updated_at"
     t.text     "feedback"
     t.string   "total"
+    t.string   "assignment_name"
   end
 
   create_table "takeaways", force: :cascade do |t|
@@ -326,6 +327,7 @@ ActiveRecord::Schema.define(version: 20160901153639) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "phonenumber"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
