@@ -4,8 +4,10 @@
 	</div>
 	<div class="col-md-4 response-container">
 		<p class="small-response">replied <%= time_ago_in_words(response.created_at) %> ago</p>
-		<p class="small-response"><%= image_tag(response.user.avatar.url(:thumb), class: "tiny") %> by <%= response.user.name %> 
-		<% if current_user == response.user %> |
+		<p class="small-response"><%= response.user.name %> | <%= image_tag(response.user.avatar.url(:thumb), class: "tiny") %>
+		<% if current_user == response.user %>
+		<br>
+		<br>
 		<%= link_to "Edit", edit_post_response_path(response.post, response), class: "small-reply" %>
 		<%= link_to "Delete", [response.post, response], class:"small-reply", method: :delete, data: {confirm: "Are you sure?"} %></p>
 		<% end %>

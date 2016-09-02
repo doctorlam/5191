@@ -79,6 +79,7 @@ end
   # DELETE /submissions/1
   # DELETE /submissions/1.json
   def destroy
+
     @submission.destroy
     respond_to do |format|
       format.html { redirect_to submissions_url, notice: 'Submission was successfully destroyed.' }
