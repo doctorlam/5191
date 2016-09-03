@@ -291,7 +291,7 @@ footer ul {
 }
 .tiny {
 	background-color: gray;
-    border: 2px solid gray;
+    border: 1px solid #DEDEDE;
     border-radius: 25px;
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
@@ -306,14 +306,13 @@ p.small {
 	margin-top: -10px;
 }
 p.small-response {
-	font-size: 0.75rem !important;
-	line-height: 0.4rem;
+	font-size: 0.65rem !important;
+	line-height: 0.6rem;
 	text-align: right;
 
 }
 a.small-reply {
 	font-size: 0.65rem !important;
-	margin-top: -40px !important;
 }
 .thread {
 	background: #FCFCFC;
@@ -329,7 +328,7 @@ a.small-reply {
 .reply {
 	min-height: 150px;
 	padding-top: 10px;
-	padding-left: 30px;
+	padding-left: 15px;
 
 }
 .lower{
@@ -533,6 +532,7 @@ code {
 	p.small-response {
 		
 		text-align: left;
+		line-height: 0.2rem !important;
 
 	}
 	.response-container {
