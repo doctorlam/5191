@@ -314,8 +314,9 @@ p.small-response {
 	text-align: right;
 
 }
-a.small-reply {
+a.small-reply, p.small-reply {
 	font-size: 0.65rem !important;
+	line-height: 0.6rem !important;
 }
 .thread {
 	background: #FCFCFC;
@@ -323,6 +324,7 @@ a.small-reply {
 }
 .response-container {
 
+padding-top: 30px;
 }
 
 .reply h3, .reply {
@@ -333,7 +335,17 @@ a.small-reply {
 	padding-top: 10px;
 	padding-left: 15px;
 	padding-bottom: 20px;
-
+}
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
 }
 .lower{
   width:100%;
