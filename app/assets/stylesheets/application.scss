@@ -131,6 +131,9 @@ p, ol, li, td {
 	font-size: 1rem !important;
 	line-height: 1.5rem;
 }
+p {
+	margin-bottom: 1.5rem;
+}
 .first-group-form {
 	background: #BDC3C7;
 	padding: 20px;
@@ -329,6 +332,7 @@ a.small-reply {
 	min-height: 150px;
 	padding-top: 10px;
 	padding-left: 15px;
+	padding-bottom: 20px;
 
 }
 .lower{
