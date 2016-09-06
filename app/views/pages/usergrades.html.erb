@@ -1,19 +1,21 @@
 <div class="container">
-	<% @users.each do |user| %>
+		<div class="username">
+			<% @usergrades.each do |user| %>
+			<h1><strong><%=user.last_name %>, <%= user.name %></strong></h1>
+				<div class="table-responsive usergrades">
+					<table class="table table-striped table-hover table-condensed">
+						<% for submission in user.submissions %>
+							<tr>
+				              <td width="30%"><%= submission.assignment_name %>:</td>
+				              <td width="70%"><%= submission.score %> / <% for assignment in submission.assignments %> <%= assignment.score %></td>
+				             </tr>		    
+				             <% end %>
+							<% end %>
+				     
+				          	 <td><strong>Total Score:<strong></td> 
+				          	 <td><strong><%= user.submissions.sum(:score) %> / <%= @assignments.sum(:score) %> or <%= number_to_percentage user.submissions.sum(:score).to_f * 100 / @assignments.sum(:score) %></strong></td>
+				     </table>
+				 </div>
+			</div>
 
-	<h1><%= user.name %> <%= user.last_name %>'s Grades</h1>
-		<div class="table-responsive">
-			<table class="table table-striped table-hover table-condensed">
-				<% for submission in user.submissions %>
-					<tr>
-		              <td><strong><%= submission.assignment_name %>:</strong></td>
-		              <td><%= submission.score %> / <%= submission.totalscore %></td>
-		             </tr>		    
-
-		          <% end %>
-
-		     </table>
-		    <h3 style = "color:red">Total Score: <%= user.submissions.sum(:score) %> out of <%= @assignments.sum(:score) %></h3>
-		 </div>
-	 <% end %>
-</div>
+			 <% end %>

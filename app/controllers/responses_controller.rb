@@ -18,7 +18,7 @@ class ResponsesController < ApplicationController
 	def update
 		@post = Post.find(params[:post_id])
 		@response = @post.responses.find(params[:id])
-
+		@response.update_attributes(:last_poster_id => current_user.id, :last_post_at => Time.now)
 		if @response.update(params[:response].permit(:comment, :user_id, :name))
 			redirect_to post_path(@post)
 		else

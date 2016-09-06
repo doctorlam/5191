@@ -14,7 +14,9 @@
  *= require_self
 *= require commontator/application
 */
-
+ul.alphabet li{
+	display: inline;
+}
 .password {
 	border: 1px solid red;
 	padding:10px;
@@ -309,14 +311,17 @@ p.small {
 	margin-top: -10px;
 }
 p.small-response {
-	font-size: 0.65rem !important;
+	font-size: 0.75rem !important;
 	line-height: 0.6rem;
 	text-align: right;
+	margin-bottom: 5px !important;
 
 }
-a.small-reply, p.small-reply {
-	font-size: 0.65rem !important;
-	line-height: 0.6rem !important;
+a.small-reply {
+	font-size: 0.55rem !important;
+	line-height: 0.2rem;
+	text-align: right;
+	margin-bottom: 5px !important;
 }
 .thread {
 	background: #FCFCFC;
@@ -324,7 +329,8 @@ a.small-reply, p.small-reply {
 }
 .response-container {
 
-padding-top: 30px;
+	padding-top: 30px;
+	text-align:right;
 }
 
 .reply h3, .reply {
@@ -346,6 +352,13 @@ padding-top: 30px;
     text-align:left;
     /* inline-block space fix */
     margin-right:-4px;
+}
+
+.usergrades {
+	background: white;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+
 }
 .lower{
   width:100%;
@@ -515,6 +528,12 @@ code {
 	.projects-right {
 		margin-bottom: 10px;
 	}
+	p.small-response, .response-container {
+		
+		text-align: left !important;
+		padding-top: 0px;
+
+	}
 
 }
 @media only screen and (max-width: 768px) {
@@ -545,15 +564,7 @@ code {
 	.overlay ol li {
 		margin-left: 10px;
 	}
-	p.small-response {
-		
-		text-align: left;
-		line-height: 0.2rem !important;
-
-	}
-	.response-container {
-	margin-top: 50px;
-	}
+	
 }
 @media only screen and (max-width: 500px) {
 	html {

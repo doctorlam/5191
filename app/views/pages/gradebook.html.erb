@@ -29,7 +29,7 @@
                   <td><%= assignment.deadline %></td>
                 <% end %>
                   <% if submission.score? %>
-                    <td style = "color: green"><%= submission.score %>/<%= assignment.score %> or <%= number_to_percentage(submission.score.to_f * 100 / submission.totalscore) %></td>
+                    <td style = "color: green"><%= submission.score %>/<%= assignment.score %></td>
                   <% else %>
                     <td style = "color:red">Not graded yet!</td>
                   <% end %>

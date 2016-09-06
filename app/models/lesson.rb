@@ -51,5 +51,7 @@ class Lesson < ActiveRecord::Base
 	belongs_to :course
 	acts_as_votable
   	default_scope { order('date') } 
+  	  self.per_page = 14
+
 
 end

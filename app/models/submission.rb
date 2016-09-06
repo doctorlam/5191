@@ -1,4 +1,6 @@
 class Submission < ActiveRecord::Base
+	 self.per_page = 14
+
 	belongs_to :user
 	has_many :portals
 	has_many :gradecategorizations 
