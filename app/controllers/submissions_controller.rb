@@ -10,7 +10,7 @@ class SubmissionsController < ApplicationController
   def index
     @search = Submission.search(params[:q])
     @search.sorts = 'created_at DESC' if @search.sorts.empty?
-    @submissions = @search.result.paginate(:page => params[:page])
+    @submissions = @search.result
     @assignments = Assignment.all
     @percentage = Submission.sum(:score) / Assignment.sum(:score)
   end

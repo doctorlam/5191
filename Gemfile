@@ -36,6 +36,8 @@ gem 'aws-sdk', '~> 2.3'
 gem "cancan"
 gem 'sendgrid'
 gem 'simple_form'
+gem 'listjs-rails'
+
 
 group :production do 
 	gem 'pg'

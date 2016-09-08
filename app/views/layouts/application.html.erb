@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TECM 5191- Digital Literacies for Technical Communicators,  UNT, Lam, Fall 2016</title>
+  <title>TECM5191 - Digital Literacies for Technical Communicators,  UNT, Lam, Fall 2016</title>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -12,9 +12,7 @@
       <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Muli' %>
       <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Cardo' %>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
+      <script type= "application/javascript" src="http://listjs.com/no-cdn/list.js"></script>
 
 </head>
 <body>
@@ -30,14 +28,27 @@
 <%= yield %>
 
 </div>
-<script src="http://listjs.com/no-cdn/list.js"></script>
-<script>
+
+<script type ="text/javascript">
 var options = {
-  valueNames: [ 'name' ]
+  valueNames: [ 'name', 'student' ]
 };
 
 var userList = new List('users', options);
 
+$('#student').change(function () {
+    var selection = this.value; 
+
+    // filter items in the list
+    userList.filter(function (item) {
+        if (item.values().student == selection) {
+            return true;
+        } 
+        else {
+            return false;
+        }
+    });
+});
 </script>
 <%= render 'layouts/footer' %>
 </body>
