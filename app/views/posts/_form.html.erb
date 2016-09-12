@@ -3,6 +3,9 @@
 	<p>Wrap code with the &lt;code&gt; tag</p>
 	<%= f.text_area :content, rows: 15, class: "form-control" %>
 	<br>
+	<h3>Attach a file?</h3>
+	      <%= f.file_field :document, :class => "form-control-file" %>
+	<br>
 	<%= f.button :submit, class: "btn btn-primary form-control" %>
 	<br>
 <% end %>

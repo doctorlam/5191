@@ -11,6 +11,11 @@
 			<div class="thread">
 			<p class ="small">authored by <%= @post.user.name %> <%= @post.user.last_name %> <%= time_ago_in_words(@post.created_at) %> ago</p>
 				<p><%= simple_format @post.content %></p>
+				<br>
+			<% if @post.document? %>
+				<p><strong>Attached File:</strong>
+                <a target=_blank href=" <%= @post.document.url %>"><%= @post.document.original_filename %></a></p>
+              <% end %>
 			</div>
 
 			<div class="reply">

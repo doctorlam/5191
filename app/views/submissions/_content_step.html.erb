@@ -27,7 +27,7 @@
         
           <% for assignment in @submission.assignments %>
             <h2>Instructions for "<%= assignment.name %>"</h2>
-              <p><%= assignment.description %></p>
+              <p><%= simple_format assignment.description.html_safe %></p>
 
           <% end %>
 

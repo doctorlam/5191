@@ -1,7 +1,7 @@
 class ResponsesController < ApplicationController
 	def create
 		@post = Post.find(params[:post_id])
-		@response = @post.responses.create(params[:response].permit(:comment, :user_id, :name))
+		@response = @post.responses.create(params[:response].permit(:document, :delete_document, :comment, :user_id, :name))
 		@response.user_id = current_user.id if current_user
 		@response.save
 		if @response.save
@@ -18,7 +18,7 @@ class ResponsesController < ApplicationController
 	def update
 		@post = Post.find(params[:post_id])
 		@response = @post.responses.find(params[:id])
-		if @response.update(params[:response].permit(:comment, :user_id, :name))
+		if @response.update(params[:response].permit(:comment, :user_id, :name, :delete_document, :document))
 			redirect_to post_path(@post)
 		else
 			render 'edit'
@@ -31,6 +31,7 @@ class ResponsesController < ApplicationController
 		@response.destroy
 		redirect_to post_path(@post)
 	end
+
 end
 
 

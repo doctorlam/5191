@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160904132345) do
+ActiveRecord::Schema.define(version: 20160912160530) do
 
   create_table "abouts", force: :cascade do |t|
     t.text     "name"
@@ -217,9 +217,13 @@ ActiveRecord::Schema.define(version: 20160904132345) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "user_id"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -249,10 +253,14 @@ ActiveRecord::Schema.define(version: 20160904132345) do
     t.text     "comment"
     t.integer  "post_id"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "last_poster_id"
     t.time     "last_post_at"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   add_index "responses", ["post_id"], name: "index_responses_on_post_id"

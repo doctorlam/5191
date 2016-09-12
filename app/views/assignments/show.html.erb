@@ -12,7 +12,7 @@
 			<h3>Deadline:</h3>
 		  		<h4><%= @assignment.deadline %></h4>
 			 <h3>What you Need To Do:</h3>
-			  <p><%= @assignment.description %></p>
+			  <p><%= simple_format @assignment.description.html_safe %></p>
 			  <h3>What's it worth?:</h3>
 			  <p><%= @assignment.score %> points</p>
 		<% if current_user.try(:admin?) %>
