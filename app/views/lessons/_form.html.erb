@@ -12,6 +12,7 @@
   <% end %>
 <div class="first-group-form">
      <div class="form-group">
+      <h2>Connect lesson to a project</h2>
         <%= hidden_field_tag "lesson[project_ids][]", nil %>
         <% Project.all.each do |project| %>
           <%= check_box_tag "lesson[project_ids][]", project.id, @lesson.project_ids.include?(project.id), id: dom_id(project) %>
@@ -85,19 +86,21 @@
   <div class="fourth-form-group">
   <h2>Documents</h2>
   <% if @lesson.document.exists? %>
-      "<%= @lesson.document.original_filename %>" is already attached. Upload file to replace.<br/>
-      <%= f.check_box :delete_document %>
+     
+      <%= f.check_box :delete_document %> Remove <%= @lesson.document.original_filename %>
+  <% else %>
+      <%= f.label :document %>
+      <%= f.file_field :document, :class => "form-control-file", class: "form-control" %>
 
-    <% end %>
+  <% end %>
 
-    <%= f.label :document %>
-    <%= f.file_field :document, :class => "form-control-file", class: "form-control" %>
   <% if @lesson.image.exists? %>
-      "<%= @lesson.image.original_filename %>" is already attached. Upload file to replace.<br/>
-      <%= f.check_box :delete_image %>
-    <% end %>
+
+      <%= f.check_box :delete_image %> Remove <%= @lesson.image.original_filename %>
+    <% else %>
     <%= f.label :image %>
     <%= f.file_field :image, :class => "form-control-file", class: "form-control" %>
+  <% end %>
   </div>
 
 
