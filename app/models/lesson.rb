@@ -10,9 +10,12 @@ class Lesson < ActiveRecord::Base
 	has_many :assignments, :through => :learnings
 	acts_as_commontable
 	
-	
+	has_attached_file :document 
+		do_not_validate_attachment_file_type :document
+
 	has_attached_file :image
-  	validates_attachment_file_name :image, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/]
+		do_not_validate_attachment_file_type :image
+
 
 			attr_accessor :delete_image
   			before_validation { image.clear if delete_image == '1' }

@@ -2,7 +2,6 @@ class Response < ActiveRecord::Base
   belongs_to :post
   belongs_to :user
   	has_attached_file :document
-	validates_attachment_file_name :document, :matches => [/pdf\Z/, /pptx\Z/, /docx\Z/,/doc\Z/, /zip\Z/, /xlsx\Z/]
 
 		
 			attr_accessor :delete_image
