@@ -69,7 +69,7 @@
     <h2>Add Turn-in Assignment</h2>
         <%= hidden_field_tag "lesson[assignment_ids][]", nil %>
         <% Assignment.all.each do |assignment| %>
-          <%= radio_button_tag "lesson[assignment_ids][]", assignment.id, @lesson.assignment_ids.include?(assignment.id), id: dom_id(assignment) %>
+          <%= check_box_tag "lesson[assignment_ids][]", assignment.id, @lesson.assignment_ids.include?(assignment.id), id: dom_id(assignment) %>
           <%= label_tag dom_id(assignment), assignment.name %>
           <br />
         <% end %>
