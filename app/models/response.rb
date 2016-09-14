@@ -2,6 +2,7 @@ class Response < ActiveRecord::Base
   belongs_to :post
   belongs_to :user
   	has_attached_file :document
+	do_not_validate_attachment_file_type :document
 
 		
 			attr_accessor :delete_image
