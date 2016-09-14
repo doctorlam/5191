@@ -1,5 +1,5 @@
 class Lesson < ActiveRecord::Base
-
+	has_many :presentations
 	has_many :objectives, :dependent => :destroy
 	has_many :takeaways, :dependent => :destroy
 	has_many :readings, :dependent => :destroy
@@ -7,6 +7,7 @@ class Lesson < ActiveRecord::Base
 	has_many :classactivitys, :dependent => :destroy
 	has_many :learnings
 	has_many :projects, :through => :learnings
+	has_many :presentations, :through => :learnings
 	has_many :assignments, :through => :learnings
 	acts_as_commontable
 	

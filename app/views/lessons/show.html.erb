@@ -31,6 +31,9 @@
 		</ol>
 		<h3>Lesson Attachments</h3>
 				<ul>
+				 	<% for presentation in @lesson.presentations %>
+			      	<li><%= link_to presentation.name, presentation_url(presentation) %></li>
+					<% end %>
 				<% if @lesson.document? %>
 					<li>Presentation file: <a target=_blank href=" <%= @lesson.document.url %>"><%= @lesson.document.original_filename %></a></li>
 					<% else %>

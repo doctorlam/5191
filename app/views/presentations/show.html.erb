@@ -1,0 +1,20 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+
+  <h1><%= @presentation.name %></h1>
+  <h2>Pertinent Lessons</h2>
+   <% for lesson in @presentation.lessons %>
+                <ul>
+                  <li>[<%= lesson.date %>] <%= link_to lesson.name, lesson_url(lesson) %>
+                    </li>
+                </ul>
+                <% end %>
+
+  <%= @presentation.file.html_safe %>
+  <br>
+
+
+	<%= link_to 'Edit', edit_presentation_path(@presentation) %> |
+	<%= link_to 'Back', presentations_path %>
+</div>
