@@ -6,7 +6,8 @@ class PresentationsController < ApplicationController
   # GET /presentations
   # GET /presentations.json
   def index
-    @presentations = Presentation.all
+    @presentations = Presentation.includes(:lessons).order('lessons.week ASC')
+
   end
 
   # GET /presentations/1
