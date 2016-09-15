@@ -32,18 +32,16 @@
 		<h3>Lesson Attachments</h3>
 				<ul>
 				 	<% for presentation in @lesson.presentations %>
-			      	<li><%= link_to presentation.name, presentation_url(presentation) %></li>
+
+			      		<li>Presentation file: <%= link_to presentation.name, presentation_url(presentation) %></li>
 					<% end %>
 				<% if @lesson.document? %>
 					<li>Presentation file: <a target=_blank href=" <%= @lesson.document.url %>"><%= @lesson.document.original_filename %></a></li>
-					<% else %>
-				  <li>No Document(s) Attached!</li>
+					
 				<% end %>
 					<% if @lesson.image? %>
 					<li>Other file(s): <a target=_blank href=" <%= @lesson.image.url %>"><%= @lesson.image.original_filename %></a></li>
-					
-				<% else %>
-				  <li>No Document(s) Attached!</li>
+				
 				<% end %>
 				</ul>
 </div>

@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   	WillPaginate.per_page = 8
 
    def authorize_admin
-    redirect_to :back, :status => 401 unless current_user.admin
+    redirect_to root_path, alert:"Nice try! Don't try hacking me :)"  unless current_user.admin
     #redirects to previous page
     rescue ActionController::RedirectBackError
     redirect_to root_path, alert: "Nice try! Don't try hacking me :)"

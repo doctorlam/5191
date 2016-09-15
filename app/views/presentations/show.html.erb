@@ -3,18 +3,17 @@
 
 
   <h1><%= @presentation.name %></h1>
-  <h2>Pertinent Lessons</h2>
-   <% for lesson in @presentation.lessons %>
-                <ul>
-                  <li>[<%= lesson.date %>] <%= link_to lesson.name, lesson_url(lesson) %>
-                    </li>
-                </ul>
-                <% end %>
+  <% for @lesson in @presentation.lessons %>
+    <h2>Presented with "<%= @lesson.name %>" on <%= @lesson.date %></h2>
+  <% end %>
+  
 
   <%= @presentation.file.html_safe %>
   <br>
 
+<% if current_user.try(:admin?) %>
 
 	<%= link_to 'Edit', edit_presentation_path(@presentation) %> |
 	<%= link_to 'Back', presentations_path %>
+<% end %>
 </div>

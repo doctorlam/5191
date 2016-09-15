@@ -14,5 +14,6 @@ class User < ActiveRecord::Base
   acts_as_commontator
   has_many :posts, dependent: :destroy
   has_many :responses, dependent: :destroy
+  has_many :presentations, dependent: :destroy
 
 end

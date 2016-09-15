@@ -1,7 +1,7 @@
 class PresentationsController < ApplicationController
   before_action :set_presentation, only: [:show, :edit, :update, :destroy]
    before_filter :check_user, only: [:edit, :update, :destroy]
-  before_filter :authorize_admin, only: [:new, :create, :destroy, :edit, :index]
+  before_filter :authorize_admin, only: [:new, :create, :destroy, :edit]
 
   # GET /presentations
   # GET /presentations.json
