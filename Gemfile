@@ -37,6 +37,7 @@ gem "cancan"
 gem 'sendgrid'
 gem 'simple_form'
 gem 'listjs-rails'
+gem "switch_user"
 
 
 group :production do 

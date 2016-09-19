@@ -23,6 +23,8 @@
 		<ul class="nav navbar-nav navbar-right">
 
   			<% if user_signed_in? && current_user.admin? %>
+  			<%= switch_user_select %>
+
 				<li><%= link_to "Gradebook", submissions_path %></li>
 				<li><%= link_to "Homework", assignments_path %></li>
   				<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
