@@ -15,6 +15,7 @@ class Submission < ActiveRecord::Base
   		do_not_validate_attachment_file_type :image
 
 
+
   			attr_accessor :delete_image
   			before_validation { image.clear if delete_image == '1' }
 
@@ -38,6 +39,7 @@ class Submission < ActiveRecord::Base
 		  end
 
 		end
+
   	attr_writer :current_step
 		def current_step
 		  @current_step || steps.first

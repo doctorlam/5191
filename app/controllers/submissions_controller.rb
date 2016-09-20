@@ -24,7 +24,7 @@ class SubmissionsController < ApplicationController
   def new
     @submission = Submission.new(:user => @current_user)
     session[:submission_params] ||= {}
-    @subbmission = Submission.new(session[:submission_params])
+    @submission = Submission.new(session[:submission_params])
     @submission.current_step = session[:submission_step]
 
   end
@@ -86,6 +86,7 @@ end
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
