@@ -20,9 +20,8 @@ class PagesController < ApplicationController
   def gradebook
     if user_signed_in?
   	   @submissions = current_user.submissions
-        @assignments = Assignment.order(deadline: :asc)      
-      @search = Submission.search(params[:q])
-       @search.sorts = 'date' if @search.sorts.empty?
+        @assignments = Assignment.all
+     
   	else 
   	redirect_to lessons_url, alert: "You don't have permission to do that! Nice try though :)"
   end
