@@ -50,11 +50,12 @@
 
             <h1>Real-Time Grade</h1> <h4 class=""><%= @submissions.sum(:score) %>/<%= @assignments.sum(:score) %> or <%= number_to_percentage @submissions.sum(:score).to_f * 100 / @assignments.sum(:score) %></h4>
 
-            <h1>Homework Assignments</h1>
+            <h1>Graded Assignments</h1>
             <ul>
               <% @assignments.each do |assignment| %>
-
+                <% if assignment.score? %>
                 <li>[<%= link_to assignment.deadline, assignment %>] <%= link_to assignment.name, assignment %>, <span>(worth <%= assignment.score %> points)</span></li>
+                <% end %>
               <% end %>
             </ul>
  
