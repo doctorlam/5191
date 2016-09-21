@@ -38,6 +38,7 @@ gem 'sendgrid'
 gem 'simple_form'
 gem 'listjs-rails'
 gem "switch_user"
+gem 'sendgrid-ruby'
 
 
 group :production do 

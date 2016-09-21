@@ -172,6 +172,7 @@ GEM
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rinku (2.0.0)
+    ruby_http_client (3.0.0)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -184,6 +185,8 @@ GEM
       rdoc (~> 4.0)
     sendgrid (1.2.4)
       json
+    sendgrid-ruby (4.0.4)
+      ruby_http_client (~> 3.0.0)
     simple_form (3.3.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -243,6 +246,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   sendgrid
+  sendgrid-ruby
   simple_form
   spring
   sqlite3
