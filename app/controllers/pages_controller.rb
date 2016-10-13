@@ -19,7 +19,7 @@ class PagesController < ApplicationController
 
   def gradebook
     if user_signed_in?
-  	   @submissions = current_user.submissions
+  	   @submissions = current_user.submissions.order(created_at: :desc)
         @assignments = Assignment.all
      
   	else 
