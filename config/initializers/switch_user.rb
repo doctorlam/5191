@@ -24,7 +24,6 @@ SwitchUser.setup do |config|
   # if it returns true, the request will continue,
   # else the request will be refused and returns "Permission Denied"
   # if you switch from "admin" to user, the current_user param is "admin"
-  config.controller_guard = lambda { |current_user, request| Rails.env.development? }
       config.view_guard = lambda { |current_user, request| Rails.env.production? }
 
 
@@ -32,7 +31,6 @@ SwitchUser.setup do |config|
   # if it returns true, the switch user select box will be shown,
   # else the select box will not be shown
   # if you switch from admin to "user", the current_user param is "user"
-  config.view_guard = lambda { |current_user, request| Rails.env.development? }
     config.view_guard = lambda { |current_user, request| Rails.env.production? }
 
 
