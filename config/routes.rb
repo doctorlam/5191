@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tutorials
   resources :presentations
   resources :grades
   resources :submissions
@@ -12,8 +13,7 @@ Rails.application.routes.draw do
 
   get 'pages/gradebook'
   get 'pages/accounts'
-    get 'pages/usergrades'
-
+  get 'usergrades' => "submissions#usergrades"
  
   devise_for :users
    match 'users/:id' => 'users#index', via: :get
@@ -22,7 +22,7 @@ get 'users/:id' => 'users#index'
 # or
 resources :users, only: [:index]
 
-root :to => 'lessons#index'  
+root :to => 'abouts#index'  
 resources :lessons
   get 'pages/policies'
 

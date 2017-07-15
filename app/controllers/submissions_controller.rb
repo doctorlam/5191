@@ -7,12 +7,22 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions
   # GET /submissions.json
+  def usergrades 
+    if user_signed_in? && current_user.admin?
+       
+        @assignments = Assignment.all
+        @usergrades = User.order(last_name: :asc)
+    else
+      redirect_to lessons_url, alert: "You don't have permission to do that! Nice try though :)"
+    end
+  end
+
   def index
     @search = Submission.search(params[:q])
     @search.sorts = 'created_at DESC' if @search.sorts.empty?
     @submissions = @search.result
     @assignments = Assignment.all
-    @percentage = Submission.sum(:score) / Assignment.sum(:score)
+
   end
 
   # GET /submissions/1

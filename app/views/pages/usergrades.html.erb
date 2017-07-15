@@ -1,10 +1,6 @@
 <div class="container">
 <div id="users">
-  <input class="search form-control" placeholder="Search" /><br>
-   <button class="sort btn btn-primary" data-sort="name">
-    Sort by name
-  </button><br><br>
-   <%= select_tag(:user_id, options_from_collection_for_select(User.all.order(:last_name), :id, :name), :id => "student", :name => "username", :prompt => "All Users") %>
+ 
 
 
   		<div class="list">

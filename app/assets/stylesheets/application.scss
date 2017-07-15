@@ -15,6 +15,76 @@
 *= require commontator/application
 */
 
+.filter-box {
+	border: 1px solid black;
+	margin: 5px 0px 20px 0;
+	padding:10px;
+	border-radius: 5px;
+
+}
+.tutorial-content p {
+	font-size: 20px !important;
+}
+.img-container {
+    width: 100px; /* whatever set width */
+    height: 100px;
+    display: inline-block; /* or you could float them */
+    overflow: hidden;
+    	border-radius: 50%;
+
+}
+.img-container-discussion {
+    width: 80px; /* whatever set width */
+    height: 80px;
+    display: inline-block; /* or you could float them */
+    overflow: hidden;
+    	border-radius: 50%;
+
+}
+
+.img-container img, .img-container-discussion img {
+	width: 100%;}
+nav a:hover {
+	background: #1084FF !important;
+}
+nav {
+	z-index: 100 !important;
+}
+nav img {
+	height: 40px !important;
+	width: 40px !important;
+}
+nav p {
+	font-size: 0.9rem !important;
+}
+li.dropdown li a {
+	font-size: 1rem !important;
+	color: #333333 !important;
+	font-weight: bold;
+	margin-top: 15px !important;
+}
+.filter {
+	background: white;
+	padding: 15px;
+}
+select {
+	color: black;
+}
+.btn-green {
+	background: #99b3ab !important;
+	border: #99b3ab !important;
+	color: white !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 1.3rem !important;
+	font-family: 'open sans condensed';
+	letter-spacing: 5px;
+	height: 44px;
+}
+a.btn.btn-green:hover {
+	background: gray !important;
+	color: #99b3ab !important;
+}
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -77,13 +147,15 @@ body {
 	padding: 20px;
 }
 a {
-	text-decoration: underline;
+	text-decoration: underline; 
 }
 a:visited {
 	color: black;
 }
 a:hover {
-	color: white;
+	background: none !important;
+	color: gray;
+	text-decoration: none;
 }
 .show-field {
 	font-size: 1.25rem;
@@ -92,6 +164,9 @@ a:hover {
 h1 a:hover {
 	background: transparent;
 }
+
+
+
 nav a, nav a:visited {
 	font-size: 0.8rem;
 	color: #99b3ab !important;
@@ -100,7 +175,7 @@ nav a, nav a:visited {
 	text-transform: uppercase;
 }
 .navbar {
-	opacity: 0.8;
+	opacity: 0.9;
 	background: #2a2a29 !important;
 	border: none;
 }
@@ -207,7 +282,7 @@ a.add_fields, a.remove_fields {
 }
 
 .tagline {
-	padding-top: 60px;
+	padding-top: 180px;
 
 }
 .tagline h1 {
@@ -418,6 +493,8 @@ input.takeaway {
 	top: 0;
 	left: 0;
 	background: rgba(0,0,0,0.9);
+		z-index: 200;
+
 }
 
 .overlay label{
@@ -427,7 +504,7 @@ input.takeaway {
 	right: 20px;
 	top: 20px;
 	background: url('http://tympanus.net/Development/FullscreenOverlayStyles/img/cross.png');
-	z-index: 100;
+	z-index: 200;
   cursor:pointer;
 }
 
@@ -540,7 +617,10 @@ code {
 	}
 	
 	.navbar a {
-	text-align: center;
+		float: left;
+	}
+	.navbar-fixed-top .navbar-collapse {
+		min-height: 100vh !important;
 	}
 	.projects-right {
 		margin-bottom: 10px;
@@ -551,6 +631,9 @@ code {
 		padding-top: 0px;
 
 	}
+	li.dropdown li a {
+	color: white !important;
+}
 
 }
 @media only screen and (max-width: 768px) {

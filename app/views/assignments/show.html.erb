@@ -9,17 +9,19 @@
 
 			<h1><%= @assignment.name %></h1>
 
-			<h3>Deadline:</h3>
-		  		<h4><%= @assignment.deadline %></h4>
-			 <h3>What you Need To Do:</h3>
-			  <p><%= simple_format @assignment.description.html_safe %></p>
-			  <h3>What's it worth?:</h3>
-			  <p><%= @assignment.score %> points</p>
-		<% if current_user.try(:admin?) %>
-			<br />
-		<% else %>
+			<h3><%= image_tag 'calendar-show.png' %> Deadline:</h3>
+		  		<h4 style="color: #C0392B"><%= @assignment.deadline %></h4>
+		  		<h3><%= image_tag 'point.png' %> What's it worth?:</h3>
+			  <% if @assignment.score? %>
+			  	<h4 style="color: #C0392B"><%= @assignment.score %> points</p>
+			  <% else %>
+			  	<h4 style="color: #C0392B"><%= @assignment.fake_score %> points</p>
+			  <% end %>
+			 <h3><%= image_tag 'checks.png' %> What you Need To Do:</h3>
+			 <p><%= simple_format @assignment.description.html_safe %></p>
+			  
+	
 			  <%= link_to 'Submit Your Homework', "/submissions/new?assignment=#{@assignment.id}", class: 'btn btn-primary form-control' %>
-		<% end %>
 		<br />
 		</div>
 		<div class="col-md-4 projects-right">

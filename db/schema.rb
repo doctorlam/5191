@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915022645) do
+ActiveRecord::Schema.define(version: 20170126165428) do
 
   create_table "abouts", force: :cascade do |t|
     t.text     "name"
@@ -27,26 +27,17 @@ ActiveRecord::Schema.define(version: 20160915022645) do
     t.integer  "user_id"
   end
 
-  create_table "add_attachment_to_lessons", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "assignments", force: :cascade do |t|
     t.text     "name"
     t.text     "description"
     t.date     "deadline"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "submission_id"
     t.integer  "homework_id"
     t.integer  "score"
-  end
-
-  create_table "attachments", force: :cascade do |t|
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "fake_score"
+    t.string   "assignment_type"
   end
 
   create_table "classactivities", force: :cascade do |t|
@@ -128,13 +119,6 @@ ActiveRecord::Schema.define(version: 20160915022645) do
     t.integer  "project_id"
   end
 
-  create_table "entries", force: :cascade do |t|
-    t.decimal  "week"
-    t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "gradecategories", force: :cascade do |t|
     t.text     "description"
     t.integer  "grade_id"
@@ -164,6 +148,7 @@ ActiveRecord::Schema.define(version: 20160915022645) do
     t.datetime "updated_at",      null: false
     t.integer  "assignment_id"
     t.integer  "presentation_id"
+    t.integer  "tutorial_id"
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -192,6 +177,7 @@ ActiveRecord::Schema.define(version: 20160915022645) do
     t.integer  "document2_file_size"
     t.datetime "document2_updated_at"
     t.integer  "presentation_id"
+    t.integer  "tutorial_id"
   end
 
   create_table "materials", force: :cascade do |t|
@@ -319,9 +305,14 @@ ActiveRecord::Schema.define(version: 20160915022645) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "uploads", force: :cascade do |t|
+  create_table "tutorials", force: :cascade do |t|
+    t.string   "name"
+    t.text     "content"
+    t.text     "video"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "lesson_id"
+    t.integer  "user_id"
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"

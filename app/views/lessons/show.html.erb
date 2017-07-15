@@ -9,27 +9,23 @@
 
 	  <h1>Lesson:<%= @lesson.name %></h1>
 
-	  <h3>Week:
-	  <%= @lesson.week %></h3>
+	   <h3><%= image_tag 'calendar-show.png' %> Week:
+	  <%= @lesson.week %> | <%= @lesson.date %></h3>
 
-
-		<h3>Date:
-	  <%= @lesson.date %></h3>
-
-		<h3>Objectives:</h3>
-		<ol>
+		<h3><%= image_tag 'bullets.png' %> Objectives:</h3>
+		<ul>
 			<% for objective in @lesson.objectives %>
 			<li><%= objective.content %></li>
 		<% end %>
-		</ol>
+		</ul>
 
-		<h3>In-Class Activities:</h3>
-		<ol>
+		<h3><%= image_tag 'checks.png' %> In-Class Activities:</h3>
+		<ul>
 		<% for classactivity in @lesson.classactivitys.order(:created_at) %>
 		<li><%= classactivity.content.html_safe %></li>
 		<% end %>
-		</ol>
-		<h3>Lesson Attachments</h3>
+		</ul>
+		<h3><%= image_tag 'attachments.png' %> Lesson Attachments:</h3>
 				<ul>
 				 	<% for presentation in @lesson.presentations %>
 
@@ -48,24 +44,24 @@
 	<div class="col-md-4 projects-right">
 		<div class="padding-right">
 			<h1>To Do Before Class</h1>
-				<h3>Readings:</h3>
-				<ol>
+				<h3><%= image_tag 'book.png' %> Readings:</h3>
+				<ul>
 				<% for reading in @lesson.readings %>
 				<li><%= simple_format reading.content.html_safe %></li>
 				<% end %>
-				</ol>
-				<h3>Homework:</h3>
-				<ol>
+				</ul>
+				<h3><%= image_tag 'assignment.png' %> Homework:</h3>
+				<ul>
 				<% for homework in @lesson.homeworks %>
 				<li><%= simple_format homework.content.html_safe %></li>
 				<% end %>
 				 <% for assignment in @lesson.assignments %>  
-		              <li>[Turn In] <%= link_to assignment.name, assignment_url(assignment) %></li>
+		              <li><span style="color: #F9690E; font-weight: bold">[Turn In]</span> <%= link_to assignment.name, assignment_url(assignment) %></li>
 		                
 		           <% end %>
-				</ol>
+				</ul>
 				
-				<h3>Related Project(s)</h3>
+				<h3><%= image_tag 'arrow.png' %> Related Project(s)</h3>
 				 <% for project in @lesson.projects %>
 			      	<ul><li><%= link_to project.name, project_url(project) %></li></ul>
 			               
@@ -82,7 +78,7 @@
 				<label for="op"></label>
 					<div class="overlay-container">
 						<h1 class="overlay-heading">Cliffs for "<%=@lesson.name %>" on <%= @lesson.date %></h1>
-						<ol type= "1"><% for takeaway in @lesson.takeaways %><li><%= takeaway.content %></li><% end %></ol>
+						<ol type= "1"><% for takeaway in @lesson.takeaways %><li><%= takeaway.content %></li><% end %></ul>
 					</div>
 			</div>
 

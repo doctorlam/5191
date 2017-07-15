@@ -1,28 +1,31 @@
-	
+  
 <div class="table-responsive">
           <table class="table table-striped table-hover">
             <thead>
               <tr>
-              	<th></th>
-
-                <th>User Name</th>
+                <th></th>
+                <th></th>
+                <th>Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>            
               </tr>
             </thead>
 
              <tbody>
-				<% @users.each do |user| %>
+        <% @users.each_with_index do |user, i| %>
 
-                	<tr>
-                		<td><%= image_tag user.avatar (:thumb) %></td>
-                		<td><%= user.name %> <%=user.last_name %></td>
-                		<td><%= user.email %></td>
-                		<td><%= number_to_phone(user.phonenumber) %></td>
+                  <tr>
+                    <td><%= (i+1) %>.</td>
+                  <td><div class="img-container">
+                    <%= image_tag user.avatar %>
+                  </div></td>
+                    <td><%= user.name %> <%=user.last_name %></td>
+                    <td><%= user.email %></td>
+                    <td><%= number_to_phone(user.phonenumber) %></td>
                   
-                	</tr>
+                  </tr>
 
-  				<% end %>
+          <% end %>
             </tbody>
           </table>
  </div>
