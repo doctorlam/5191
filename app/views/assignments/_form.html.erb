@@ -21,7 +21,13 @@
     </div>
      <div class="second-form-group">
     <h2>Choose Assignment Type</h2>
-  <%= f.select :assignment_type, options_for_assignment_type, :prompt => 'Select Assignment Type' %>
+     <%= f.label :assignment_type, "Open", :value => "true"  %>
+      <%= f.radio_button :assignment_type, "Open", checked: "checked" %>
+        &nbsp
+       &nbsp
+
+     <%= f.label :assignment_type, "Closed", :value => "true"  %>
+      <%= f.radio_button :assignment_type, "Closed" %>
 </div>
   <div class="field">
     <%= f.label :name %><br>
