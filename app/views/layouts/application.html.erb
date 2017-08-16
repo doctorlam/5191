@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><% if @about.name? %>
-    <%= @about.name %>
-      <% else %>
-      Dr. Lam's UNT Course
-      <% end %>
+  <title>
+      TECM 5191 - Digitial Literacies for Technical Communicators
     </title>
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
