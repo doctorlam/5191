@@ -39,6 +39,7 @@ gem 'simple_form'
 gem 'listjs-rails'
 gem "switch_user"
 gem 'sendgrid-ruby'
+gem 'bootstrap-datepicker-rails'
 
 
 group :production do 
