@@ -19,7 +19,12 @@
 			  <% end %>
 			 <h3><%= image_tag 'checks.png' %> What you Need To Do:</h3>
 			 <p><%= simple_format @assignment.description.html_safe %></p>
-			  
+			  	<% if @assignment.document? %>
+			<h3><%= image_tag 'attachments.png' %> Attachment:</h3> <br> <a target=_blank href=" <%= @assignment.document.url %>"><%= @assignment.document.original_filename %></a>
+			<br>
+			<br>
+					
+				<% end %>
 	
 			  <%= link_to 'Submit Your Homework', "/submissions/new?assignment=#{@assignment.id}", class: 'btn btn-primary form-control' %>
 		<br />

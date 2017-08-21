@@ -49,6 +49,16 @@
     <%= f.label :score, 'Points' %><br>
     <%= f.number_field :score, class: "form-control" %>
   </div>
+    <div class="field">
+   <% if @assignment.document.exists? %>
+     
+      <%= f.check_box :delete_document %> Remove <%= @assignment.document.original_filename %>
+  <% else %>
+      <%= f.label :document %>
+      <%= f.file_field :document, :class => "form-control-file", class: "form-control" %>
+
+  <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

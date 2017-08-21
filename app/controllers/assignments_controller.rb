@@ -78,7 +78,7 @@ class AssignmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
-      params.require(:assignment).permit(:assignment_type, {lesson_ids: []}, {submission_ids: []}, :lesson, :score, :fake_score, :lesson_id, :submission, :submission_id, :name, :description, :deadline)
+      params.require(:assignment).permit(:document, :delete_document,:assignment_type, {lesson_ids: []}, {submission_ids: []}, :lesson, :score, :fake_score, :lesson_id, :submission, :submission_id, :name, :description, :deadline)
     end
     def check_user
       if current_user == authorize_admin
