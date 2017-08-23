@@ -6,7 +6,7 @@ class TutorialsController < ApplicationController
   # GET /tutorials
   # GET /tutorials.json
   def index
-    @tutorials = Tutorial.includes(:lessons).order('lessons.week ASC')
+    @tutorials = Tutorial.includes(:lessons).order('created_at')
   end
 
   # GET /tutorials/1

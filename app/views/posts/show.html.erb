@@ -10,7 +10,7 @@
 			<% end %>
 			<div class="thread">
 			<p class ="small">authored by <%= @post.user.name %> <%= @post.user.last_name %> <%= time_ago_in_words(@post.created_at) %> ago</p>
-				<p><%= simple_format @post.content %></p>
+				<div class="tutorial-content"><%= simple_format @post.content.html_safe %></div>
 				<br>
 			<% if @post.document? %>
 				<p><strong>Attached File:</strong>

@@ -3,7 +3,9 @@
   <div class="form-group">
     <%= f.input :name, class: 'form-control' %>
     <%= f.label :content %>
-    <%= f.text_area :content, rows: "30", class: 'form-control' %>
+    <%= f.text_area :content, rows: "30", class: 'form-control tinymce' %>
+    <%= tinymce %>
+
     <%= f.input :video, class: 'form-control' %>
   </div>
   <div class="second-form-group">

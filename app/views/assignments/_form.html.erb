@@ -42,20 +42,23 @@
     <%= f.text_field :deadline, class: "form-control", :data => {:provide => "datepicker"} %>
   </div>
    <div class="field">
-    <%= f.label :fake_score, 'Fake Points' %><br>
+    <%= f.label :fake_score, 'Points (pre-graded)' %><br>
     <%= f.number_field :fake_score, class: "form-control" %>
   </div>
    <div class="field">
     <%= f.label :score, 'Points' %><br>
     <%= f.number_field :score, class: "form-control" %>
   </div>
-    <div class="field">
+  <div class="field">
    <% if @assignment.document.exists? %>
      
       <%= f.check_box :delete_document %> Remove <%= @assignment.document.original_filename %>
   <% else %>
       <%= f.label :document %>
       <%= f.file_field :document, :class => "form-control-file", class: "form-control" %>
+      <% if @assignment.document? %>
+        <%= f.check_box :delete_document %> Remove <%= @assignment.document.original_filename %>
+      <% end %>
 
   <% end %>
   </div>

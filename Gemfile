@@ -41,6 +41,8 @@ gem "switch_user"
 gem 'sendgrid-ruby'
 gem 'bootstrap-datepicker-rails'
 gem 'american_date'
+gem 'tinymce-rails'
+
 group :production do 
 	gem 'pg'
 	gem 'rails_12factor'

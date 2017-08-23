@@ -14,7 +14,18 @@
  *= require_self
 *= require commontator/application
 */
+code {
+	display:block;
+}
+.tutorial-content p {
+	line-height: 1.5rem !important;
+	margin-bottom: 5px !important;
+	margin-top: 5px;
 
+}
+.tutorial-content hr {
+	border-bottom: 1px solid black;
+}
 .filter-box {
 	border: 1px solid black;
 	margin: 5px 0px 20px 0;
@@ -22,9 +33,7 @@
 	border-radius: 5px;
 
 }
-.tutorial-content p {
-	font-size: 20px !important;
-}
+
 .img-container {
     width: 100px; /* whatever set width */
     height: 100px;

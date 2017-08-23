@@ -42,15 +42,18 @@
           <td><%= assignment.name %></td>
           <td><%= assignment.description %></td>
           <td><%= assignment.deadline %></td>
+          <td><%= assignment.fake_score %></td>
           <td><%= link_to 'Show', assignment %></td>
         <% if current_user.try(:admin?) %>
           <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
           <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
         </tr>
+        
       <% end %>
     </tbody>
   </table>
+      <h1>Total Score:<%= @assignments.sum(:fake_score) %></h1>
 
   <br>
   <% if current_user.try(:admin?) %>

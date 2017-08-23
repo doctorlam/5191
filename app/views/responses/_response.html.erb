@@ -1,6 +1,6 @@
 <div class="row reply">
 	<div class="col-md-10">
-		<p><%= simple_format response.comment %></p>
+		<div class="tutorial-content"><%= simple_format response.comment.html_safe %></div>
 		<br>
 		<% if response.document? %>
 			<p><strong>Attached File:</strong>
