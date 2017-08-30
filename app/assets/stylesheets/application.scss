@@ -14,6 +14,48 @@
  *= require_self
 *= require commontator/application
 */
+body {
+	background: #F0F0F0;
+}
+
+.notes {
+	background: #FFFFA5 !important;
+	padding: 20px;
+	width: 80%;
+	margin: 0 auto;
+}
+.note-box  {
+	margin-bottom: 20px;
+}
+.notes h2 {
+	margin-bottom: 20px;
+	border-bottom: 1px dotted black;
+	padding-bottom: 20px;
+}
+.note-box a, .note-box a {
+	text-decoration: none;
+}
+.note-box {
+		background: #FFFFA5 !important;
+
+	height: 300px;
+	position: relative;
+	padding: 10px;
+}
+.note-box .links {
+	position: absolute;
+	bottom: 10px;
+}
+.note-box h2 {
+	border-bottom: 1px solid black;
+	text-decoration: none !important;
+}
+.note-box h3 {
+	font-size: 14px;
+}
+.notes h3 {
+	font-size: 16px;
+}
 code {
 	display:block;
 }
@@ -21,7 +63,11 @@ code {
 	line-height: 1.5rem !important;
 	margin-bottom: 5px !important;
 	margin-top: 5px;
+	
 
+}
+.tutorial-content li {
+	margin-top: 15px;
 }
 .tutorial-content hr {
 	border-bottom: 1px solid black;
@@ -142,13 +188,17 @@ body {
 .container-fluid {
 	padding: 0;
 	background: #F0F0F0;
+
 }
 
 .container {
 	width: 90%;
 	margin: 0 auto;
+	height: 100%;
 	margin-top: -40px;
 	margin-bottom: 80px;
+		background: #F0F0F0;
+
 
 }
 
@@ -606,7 +656,7 @@ code {
 }
 @media only screen and (max-width: 1000px) {
 	body {
-    margin: 0 0 350px !important; /* bottom = footer height */
+    margin: 0 0 450px !important; /* bottom = footer height */
 }
 .tagline h1 {
 		width: 90%;
@@ -618,19 +668,16 @@ code {
 .padding-right {
 	padding: 0 0 0 0;
 }
+.note-box {
+		margin-bottom: 20px !important;
+	}
 
 }
 @media only screen and (max-width: 900px) {
 	html {
 	font-size: 15px !important;
 	}
-	
-	.navbar a {
-		float: left;
-	}
-	.navbar-fixed-top .navbar-collapse {
-		min-height: 100vh !important;
-	}
+
 	.projects-right {
 		margin-bottom: 10px;
 	}
@@ -640,19 +687,29 @@ code {
 		padding-top: 0px;
 
 	}
-	li.dropdown li a {
-	color: white !important;
-}
-
+	
 }
 @media only screen and (max-width: 768px) {
 	html {
 	font-size: 14px !important;
 	}
-
+.navbar-fixed-top .navbar-collapse {
+		min-height: 100vh !important;
+	}
 	footer {
 		text-align:center;
 	}
+	
+
+  .navbar-collapse li {
+    float: none !important;
+    display: block !important;
+    text-align:center;
+  }
+	li.dropdown li a {
+	color: white !important;
+}
+
 	.container {
 	width: 95%;
 	}

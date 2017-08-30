@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820132754) do
+ActiveRecord::Schema.define(version: 20170830135140) do
 
   create_table "abouts", force: :cascade do |t|
     t.text     "name"
@@ -191,6 +191,14 @@ ActiveRecord::Schema.define(version: 20170820132754) do
     t.integer  "about_id"
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
   create_table "objectives", force: :cascade do |t|
     t.integer  "lesson_id"
     t.text     "content"
@@ -344,6 +352,7 @@ ActiveRecord::Schema.define(version: 20170820132754) do
     t.datetime "avatar_updated_at"
     t.string   "phonenumber"
     t.string   "last_name"
+    t.integer  "note_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

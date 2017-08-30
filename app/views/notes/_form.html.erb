@@ -1,0 +1,14 @@
+<div class="note-form">
+<%= simple_form_for(@note) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-fields">
+    <%= f.input :title, class: 'form-control' %>
+	<%= f.text_area :content, rows: "15", class: 'form-control tinymce' %>
+    <%= tinymce %>  </div>
+<br>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>
+</div>

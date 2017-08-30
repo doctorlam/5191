@@ -47,7 +47,7 @@
 				<h3><%= image_tag 'book.png' %> Readings:</h3>
 				<ul>
 				<% for reading in @lesson.readings %>
-				<li><%= simple_format reading.content.html_safe %></li>
+					<li><%= reading.content.html_safe %></li>
 				<% end %>
 				</ul>
 				<h3><%= image_tag 'assignment.png' %> Homework:</h3>

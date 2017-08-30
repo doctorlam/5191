@@ -2,16 +2,38 @@
 <p id="notice"><%= notice %></p>
 
 
-  <h1><%= image_tag 'present.png' %> "<%= @presentation.name %>"</h1>
-  <% for @lesson in @presentation.lessons %>
-    <h3>Presented on <%= @lesson.date %></h3>
-  <% end %>
-  
+      <h1><%= image_tag 'present.png' %> "<%= @presentation.name %>"</h1>
+      <% for @lesson in @presentation.lessons %>
+        <h3>Presented on <%= @lesson.date %></h3>
+      <% end %>
+      
+<div class="row">
+  <div class="col-sm-8">
+      <div class="video-container">
+      	<%= @presentation.file.html_safe %>
+      </div>
+      <br>
+    </div><!--/col-md-8-->
+  <div class="col-sm-4">  
 
-  <div class="video-container">
-  	<%= @presentation.file.html_safe %>
-  </div>
-  <br>
+      <div class="take-notes">
+      <h2>Take Notes</h2>
+        <%= simple_form_for(@note) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-fields">
+        <%= f.input :title, class: 'form-control' %>
+      <%= f.text_area :content, rows: "30", class: 'form-control tinymce' %>
+        <%= tinymce %>  </div>
+    <br>
+      <div class="form-actions">
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div><!--/col-md-4-->
+
+  </div><!--/row-->
+</div>
 
 <% if current_user.try(:admin?) %>
 

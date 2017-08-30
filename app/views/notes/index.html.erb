@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<h1>My Notes</h1>
+<div class="row">
+    <% @notes.each do |note| %>
+    <div class="col-md-4">
+
+      <%= link_to note do %> 
+        <div class="note-box">
+        <h2><%= note.title %></h2>
+        <h3><%= note.created_at.strftime("%m-%d-%Y") %> taken at <%=note.created_at.strftime("%H:%M %p") %></h3>
+      <div class="links">
+        <%= link_to 'Show', note %>
+        <%= link_to 'Edit', edit_note_path(note) %>
+        <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div><!--links-->
+      </div>
+      <% end %>
+    </div><!--col-md-4-->
+
+    <% end %>
+    </div><!-- row -->
+
+
+<br>
+
+<%= link_to 'New Note', new_note_path, class: 'btn btn-primary' %>
+</div>
