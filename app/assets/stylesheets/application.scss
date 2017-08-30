@@ -29,8 +29,12 @@ body {
 }
 .notes h2 {
 	margin-bottom: 20px;
-	border-bottom: 1px dotted black;
+	border-bottom: 1px solid black;
 	padding-bottom: 20px;
+}
+.notes p, .notes ul {
+	margin-top: 20px !important;
+	margin-bottom: 0px !important;
 }
 .note-box a, .note-box a {
 	text-decoration: none;
