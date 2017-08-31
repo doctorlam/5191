@@ -31,7 +31,8 @@
           <th><%= sort_link @search, :assignments_deadline, "Due Date" %></th>
           <th><%= sort_link @search, :score, "Score" %></th>
           <th>Attached file</th>
-          <th colspan="1"></th>
+          <th colspan="2"></th>
+          <th>Test</th>
         </tr>
       </thead>
        <tbody>
@@ -60,7 +61,12 @@
       <% end %>
             <td><%= link_to 'Grade', submission %></td>
                     <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+           <%= form_for submission do |s| %>
+                  <td><%= s.number_field :score %> out of <% for assignment in submission.assignments %> <%= assignment.score %><% end %></td>
+                  <td><%= s.submit "Quick Grade" %></td>
+          <% end %>
 
+            <td></td>
           </tr>
         <% end %>
       <% end %>
@@ -75,7 +81,7 @@
         <% @submissions.each_with_index do |submission, i| %>
           <% if submission.score? %>
             <td><%= (i+1) %>.</td>
-
+              
              <td><%= link_to [submission.user.name, submission.user.last_name].join(" "), submission %></td>
           <% for assignment in submission.assignments %>
             <td><%= assignment.name %></td>
@@ -84,6 +90,7 @@
           <% for assignment in submission.assignments %>
             <td><%= assignment.deadline %></td>
           <% end %>
+          
             <% if submission.score? %>
               <td style = "color: green !important"><%= submission.score %>/<% for assignment in submission.assignments %><%= assignment.score %> or <%= number_to_percentage(submission.score.to_f * 100 / assignment.score) %><% end %></td>
             <% else %>
@@ -96,7 +103,6 @@
       <% end %>
             <td><%= link_to 'Grade', submission %></td>
                     <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
           </tr>
           <% end %>
         <% end %>
