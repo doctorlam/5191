@@ -705,7 +705,8 @@ code {
 	font-size: 14px !important;
 	}
 .navbar-fixed-top .navbar-collapse {
-		min-height: 100vh !important;
+			max-height: 80vh !important;
+		overflow:scroll;
 	}
 	footer {
 		text-align:center;
