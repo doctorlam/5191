@@ -19,6 +19,9 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destro
   # GET /slidedecks/new
   def new
     @slidedeck = Slidedeck.new
+    8.times do 
+      @slidedeck.slides.build
+    end 
   end
 
   # GET /slidedecks/1/edit
