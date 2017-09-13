@@ -1,0 +1,53 @@
+
+<div class="slide-form-inside">
+<fieldset>
+<table class="table table-striped">
+
+<tbody>
+<tr>
+	<td><h2><%= f.label :slide_order, "#" %><%= f.text_field :slide_order, class: "slide_order" %></h2>
+		<br>
+		<br>
+
+		<h2>
+			<%= f.input :bgimage, as: :file %><br>
+
+			<%= f.label :bgcolor, "BG Color" %>
+
+			<%= f.select :bgcolor, options_for_select([["White", "#ecf0f1"],["Blue", "#2980b9"], ["Green", "#16a085"], ["Purple", "#8e44ad"], ["Orange", "#e67e22"], ["Dark Blue", "#34495e"],["BG Image", "transparent"]], :selected => f.object.bgcolor) %><br>
+
+
+		<%= f.label :color_scheme, "Text Color" %>
+    	<%= f.select :color_scheme, ['black', 'white'] %>	
+	</td>
+	<td><div class="slide-form">
+
+
+
+		   <%= f.input :image, as: :file %></h2>
+
+	
+	    <%= f.input :title, class: "form-control" %> 
+	    <br>
+	     <%= f.text_area :content, rows: "15", class: 'form-control tinymce' %>
+	    <%= tinymce %>
+
+	      
+	      	<%= f.fields_for :contentmodules do |builder| %>
+	    		<%= render 'contentmodule_fields', f:builder %>
+	  		<% end %>
+	 <div class="row">
+	  <%= link_to_add_fields "Add Content Module", f, :contentmodules, class: "btn btn-primary" %>
+
+	    <%= f.hidden_field :_destroy %>
+
+	    <%= link_to "Remove Entire Slide", '#', class: "remove_fields" %>
+	</div>
+
+	</div> <!--/slideform-->
+	</td>
+</tbody>
+</table>
+</fieldset>
+
+</div>

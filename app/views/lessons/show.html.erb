@@ -27,10 +27,8 @@
 		</ul>
 		<h3><%= image_tag 'attachments.png' %> Lesson Attachments:</h3>
 				<ul>
-				 	<% for presentation in @lesson.presentations %>
 
-			      		<li>Presentation file: <%= link_to presentation.name, presentation_url(presentation) %></li>
-					<% end %>
+			      		<li>Presentation file: <%= link_to "Presentation", @lesson.slidedeck_link %></li>
 				<% if @lesson.document? %>
 					<li>Other file(s): <a target=_blank href=" <%= @lesson.document.url %>"><%= @lesson.document.original_filename %></a></li>
 					

@@ -10,23 +10,115 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+
  *= require_tree .
+  *= require slick
+ *= require jquery.minicolors
  *= require_self
 *= require commontator/application
 */
+@import "bootstrap-colorpicker";
+
+.slide h1 {
+	border-bottom: 1px solid orange;
+	padding-top: 30px;
+	font-size: 2.4rem !important;
+}
+
+
+.slide-content-flex {
+	display: flex;
+	flex-direction: row;
+	overflow: auto;
+	height: 440px;
+}
+
+.slide-content, .slide-image {
+	flex:1;
+	margin-left: 10px;
+	margin-right: 10px;
+	align-self: center;
+		margin-bottom: 20px;
+
+}
+.slide h1 {
+	text-align: center;
+}
+.slick-prev::before, .slick-next::before {
+  color: #000;
+}
+
+.slick-next {
+  right: 0;
+  position: absolute;
+  bottom: -50px;
+    border: none;
+  background: transparent;
+}
+
+.slick-prev {
+  position: absolute;
+  bottom: -50px;
+  left: 0px;
+  z-index: 100;
+  border: none;
+  background: transparent;
+}
+.slide li, .slide p, .slide {
+	font-size: 1.2rem !important;
+	line-height: 1.5rem;
+	font-family: 'Dosis' !important;
+}
+.slide h2 {
+	font-size: 2rem !important;
+	line-height: 2.5rem;
+	font-family: 'Dosis' !important;
+}
+.slide h3 {
+	font-size: 1.65rem !important;
+	line-height: 2rem;
+	font-family: 'Dosis' !important;
+}
+.slide li {
+	margin-bottom: 10px;
+}
+
+.slide-image img {
+	object-fit:contain;
+	width: 95%;
+	height: 420px;
+}
+.slide-form {
+	background: #BDC3C7;
+	margin-bottom: 20px;
+	height: 100%;
+	margin-bottom: 20px;
+	padding: 20px;
+}
+.slide-overlay {
+		background: rgba(52, 73, 94,0.6);
+	  	height: 570px;
+}
+.slide-bgimage, .slide-bgcolor {
+	height: 550px;
+}
+
+input.numeric {
+	font-size: 24px !important;
+	font-weight: bold;
+}
 body {
 	background: #F0F0F0;
 }
-
+.take-notes {
+	border: 1px solid black;
+	padding: 10px;
+}
 .notes {
 	background: #FFFFA5 !important;
 	padding: 20px;
 	width: 80%;
 	margin: 0 auto;
-}
-.take-notes {
-	border: 1px solid black;
-	padding: 10px;
 }
 .note-box  {
 	margin-bottom: 20px;
@@ -38,7 +130,7 @@ body {
 }
 .notes p, .notes ul {
 	margin-top: 20px !important;
-	margin-bottom: 0px !important;
+		margin-bottom: 0px !important;
 }
 .notes img {
 	max-width: 100%;
@@ -334,9 +426,26 @@ p {
 
 a.add_fields, a.remove_fields {
 	float: right !important;
-	display: inline-block;
-}
+	display: block;
 
+}
+a.add_fields {
+	border: 1px red green;
+	background: green;
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	margin: 10px 0 10px 10px;
+
+}
+a.remove_fields {
+	border: 1px red solid;
+	background: red;
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	margin: 10px 0 10px 0;
+}
 .form-group h2, .form-group h3 {
 	text-align: center;
 }
@@ -682,7 +791,9 @@ code {
 .note-box {
 		margin-bottom: 20px !important;
 	}
-
+.take-notes {
+	margin-top: 70px;
+}
 }
 @media only screen and (max-width: 900px) {
 	html {
@@ -702,14 +813,13 @@ code {
 		width: 100%;
 	}
 	
-	
 }
 @media only screen and (max-width: 768px) {
 	html {
 	font-size: 14px !important;
 	}
 .navbar-fixed-top .navbar-collapse {
-			max-height: 80vh !important;
+		max-height: 80vh !important;
 		overflow:scroll;
 	}
 	footer {

@@ -12,9 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.slick
 //= require bootstrap
 //= require turbolinks
 //= require tinymce
-//= require_tree .
 //= require filterrific/filterrific-jquery
 //= require bootstrap-datepicker
+//= require jquery.minicolors
+//= require jquery.minicolors.simple_form
+//= require bootstrap-colorpicker
+//= require jquery.textfill.min
+//= require_tree .
+

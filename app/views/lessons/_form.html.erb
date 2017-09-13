@@ -82,7 +82,7 @@
       <% end %>
       <%= link_to_add_fields "Add Takeaway", f, :takeaways, class: "btn btn-mini btn-info" %>
 </div>
-   <div class="third-form-group">
+   <!-- <div class="third-form-group">
       <h2>Slidebean Presentation?</h2>
         <%= hidden_field_tag "lesson[presentation_ids][]", nil %>
         <% Presentation.all.each do |presentation| %>
@@ -91,9 +91,11 @@
           <br />
 
         <% end %>
-    </div>
-  <div class="fourth-form-group">
+    </div> -->
+  <div class="third-form-group">
   <h2>Documents</h2>
+    <%= f.label :slidedeck_link, "Link to Slide" %><br>
+    <%= f.text_field :slidedeck_link, class: "form-control" %>
   <% if @lesson.document.exists? %>
      
       <%= f.check_box :delete_document %> Remove <%= @lesson.document.original_filename %>
