@@ -2,6 +2,7 @@ module SlidedecksHelper
 	def show_slide_bgcolor
     	  "background-color: #{@slide.bgcolor}; 
     	  color: #{@slide.color_scheme};
+    	  border: 1px solid gray;
     	  "
   	end
 
