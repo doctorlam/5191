@@ -34,7 +34,7 @@ gem 'bxslider-rails'
 gem "jquery-slick-rails"
 gem 'jquery-minicolors-rails'
 gem 'bootstrap_colorpicker_rails'
-
+gem 'summernote-rails'
 
 group :production do 
 	gem 'pg'

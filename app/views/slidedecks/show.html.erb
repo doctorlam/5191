@@ -22,36 +22,41 @@ $(document).ready(function(){
 				<div class="slide-content-flex">
 
 				<% if @slide.content? %>
-					<div class="slide-content"><%= @slide.content.html_safe %>
+					<div class="slide-content">
+						<%= @slide.content.html_safe %>
 					</div>
+				<% end %>
+
 				<% if @slide.image.exists? %>
 					<div class="slide-image">
 						<%= image_tag @slide.image.url %>
 					</div>
 
 				<% end %>
+
 				<% for @contentmodule in @slide.contentmodules %>
 					<% if @contentmodule.modular_content? %>
 						<div class="slide-content">
 
-							<%= @contentmodule.modular_content.html_safe %>
+							<p><%= simple_format @contentmodule.modular_content.html_safe %></p>
 						</div>
 					<% end %>
 				<% end %>
-				<% else %>
-				
-					<div class="slide-image">
-						<%= image_tag @slide.image.url %>
-					</div>
 
-				
+					<% for @bulleted_list in @slide.bulleted_lists %>
+					<% if @bulleted_list.list? %>
+						<div class="slide-content">
 
+							<ul><%= @bulleted_list.list.html_safe %></ul>
+						</div>
+					<% end %>
 				<% end %>
-				</div><!--/slide-content-flex-->
-			</div>
-			</div><!--/slide overlay-->
-			</div><!--bgimage-->
-		</div><!--slide-container-->
+
+			</div><!--/slide-content-flex-->
+		</div>
+	</div><!--/slide overlay-->
+	</div><!--bgimage-->
+</div><!--slide-container-->
 
 		
 <% end %>

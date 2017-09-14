@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913150409) do
+ActiveRecord::Schema.define(version: 20170914153358) do
 
   create_table "abouts", force: :cascade do |t|
     t.text     "name"
@@ -43,6 +43,25 @@ ActiveRecord::Schema.define(version: 20170913150409) do
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
   end
+
+  create_table "bulleted_lists", force: :cascade do |t|
+    t.text     "list"
+    t.integer  "slide_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "bullet_id"
+  end
+
+  add_index "bulleted_lists", ["slide_id"], name: "index_bulleted_lists_on_slide_id"
+
+  create_table "bullets", force: :cascade do |t|
+    t.text     "list_item"
+    t.integer  "bulleted_list_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "bullets", ["bulleted_list_id"], name: "index_bullets_on_bulleted_list_id"
 
   create_table "classactivities", force: :cascade do |t|
     t.integer  "lesson_id"
@@ -326,6 +345,7 @@ ActiveRecord::Schema.define(version: 20170913150409) do
     t.string   "bgcolor"
     t.text     "color_scheme"
     t.integer  "contentmodule_id"
+    t.integer  "bulleted_list_id"
   end
 
   add_index "slides", ["slidedeck_id"], name: "index_slides_on_slidedeck_id"

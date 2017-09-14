@@ -1,0 +1,9 @@
+I"Ÿ(function() {
+  $(function() {
+    return $('[data-provider="summernote"]').each(function() {
+      return $(this).summernote();
+    });
+  });
+
+}).call(this);
+:ET

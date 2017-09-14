@@ -3,6 +3,10 @@ class Slide < ActiveRecord::Base
   has_many :contentmodules, :dependent => :destroy
   	accepts_nested_attributes_for :contentmodules, :reject_if => lambda { |a| a[:modular_content].blank? }, :allow_destroy => true
 
+  has_many :bulleted_lists, :dependent => :destroy
+  accepts_nested_attributes_for :bulleted_lists, :reject_if => lambda { |a| a[:list].blank? }, :allow_destroy => true
+
+
   has_attached_file :image, :styles => { :medium => "150x150>", :thumb => "30x30" }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
