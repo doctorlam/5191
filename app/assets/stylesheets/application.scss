@@ -18,6 +18,7 @@
 *= require commontator/application
 */
 @import "bootstrap-colorpicker";
+
 .material-icons {
 	font-size: 64px !important;
 }
@@ -46,8 +47,10 @@
 	margin-left: 10px;
 	margin-right: 10px;
 	align-self: center;
-		margin-bottom: 20px;
-
+	margin-bottom: 20px;
+}
+.slide-content p {
+	text-align: center;
 }
 .slide h1 {
 	text-align: center;
@@ -73,19 +76,23 @@
   background: transparent;
 }
 .slide li, .slide p, .slide {
-	font-size: 1.4rem !important;
-	line-height: 1.8rem;
+	font-size: 1.5rem !important;
+	line-height: 1.9rem;
 	font-family: 'Dosis' !important;
 }
 .slide h2 {
-	font-size: 2rem !important;
-	line-height: 2.5rem;
+	font-size: 2.2rem !important;
+	line-height: 2.7rem;
 	font-family: 'Dosis' !important;
+	border-bottom: 1px solid gray;
+	text-align: center;
 }
 .slide h3 {
-	font-size: 1.65rem !important;
-	line-height: 2rem;
+	font-size: 1.9rem !important;
+	line-height: 2.4rem;
 	font-family: 'Dosis' !important;
+		text-align: center;
+
 }
 .slide li {
 	margin-bottom: 10px;
