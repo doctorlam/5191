@@ -14,9 +14,15 @@
   
  <label>
   <%= f.radio_button :assignment_type_cont, "Closed" %>
-  Closed Assignments
+  Upcoming Assignments
 </label>
-   
+    &nbsp
+&nbsp
+  
+ <label>
+  <%= f.radio_button :assignment_type_cont, "Graded" %>
+  Graded Assignments
+</label>
   <br>
    <br><br>
 
@@ -32,6 +38,8 @@
         <th>Name</th>
         <th>Description</th>
         <th>Due Date</th>
+        <th>Score</th>
+        <th>Assignment Status</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -42,7 +50,27 @@
           <td><%= assignment.name %></td>
           <td><%= assignment.description %></td>
           <td><%= assignment.deadline %></td>
-          <td><%= assignment.fake_score %></td>
+    <%= form_for(assignment) do |f| %>
+          <td class="wider">
+            <%= f.number_field :score, class: "form-control" %> / <%= assignment.fake_score %></td>
+          <td>
+            <%= f.label :assignment_type, "Open", :value => "true"  %>
+          <%= f.radio_button :assignment_type, "Open" %>
+          <br>
+
+            <%= f.label :assignment_type, "Upcoming", :value => "true"  %>
+            <%= f.radio_button :assignment_type, "Closed" %>
+            <br>
+           <%= f.label :assignment_type, "Graded", :value => "true"  %>
+            <%= f.radio_button :assignment_type, "Graded" %>
+             </td>
+             <td>
+              <div class="actions">
+                <%= f.submit "Change Status", class:'btn btn-primary'%>
+              </div>
+            </td>
+            <% end %>
+    
           <td><%= link_to 'Show', assignment %></td>
         <% if current_user.try(:admin?) %>
           <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
@@ -61,3 +89,8 @@
   <%= link_to 'New Assignment', new_assignment_path %>
 <% end %>
 </div>
+<style>
+.wider {
+  width: 200px;
+}
+</style>

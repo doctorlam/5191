@@ -26,8 +26,14 @@
         &nbsp
        &nbsp
 
-     <%= f.label :assignment_type, "Closed", :value => "true"  %>
+     <%= f.label :assignment_type, "Upcoming", :value => "true"  %>
       <%= f.radio_button :assignment_type, "Closed" %>
+
+      &nbsp
+       &nbsp
+
+     <%= f.label :assignment_type, "Graded", :value => "true"  %>
+      <%= f.radio_button :assignment_type, "Graded" %>
 </div>
   <div class="field">
     <%= f.label :name %><br>
