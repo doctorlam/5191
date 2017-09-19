@@ -1,20 +1,15 @@
-<script>
-$(document).ready(function(){
-  $('.slide').slick({
-  });
-});
-</script>
-
 <div class="container">
 <p id="notice"><%= notice %></p>
 
   <h1><%= @slidedeck.title %></h1>
 
-<div class="col-md-9">
-<div class="slide">
+<div class="row" >
+<div class="slide" id ="full">
+
 <% for @slide in @slidedeck.slides.sort_by(&:slide_order) %>
-		
 		<div class="slide-container">
+
+
 		<div class="slide-bgimage" style ="<%= show_slide_bgimage %>">
 			<div class="slide-overlay">
 		<div class="slide-bgcolor" style = "<%= show_slide_bgcolor %>">
@@ -52,17 +47,25 @@ $(document).ready(function(){
 					<% end %>
 				<% end %>
 
+
 			</div><!--/slide-content-flex-->
 		</div>
 	</div><!--/slide overlay-->
 	</div><!--bgimage-->
+	<br>
+	<button style="right: 0;">Full Screen</button>
+
 </div><!--slide-container-->
 
 		
 <% end %>
+
 </div>
-</div><!--/col-md-9-->
-<div class="col-md-3">
+</div><!--/row-->
+<br>
+<br>
+<br>
+<div class="row">
      <div class="take-notes">
       <h2>Take Notes</h2>
       <%= simple_form_for(@note) do |f| %>
@@ -85,5 +88,15 @@ $(document).ready(function(){
 <% end %>
 
 </div>
+<script>
+$(document).ready(function(){
+  $('.slide').slick({
+  });
+});
+</script>
 
-
+<script>
+$('button').click(function(e){
+    $('#full').toggleClass('fullscreen'); 
+});
+</script>
