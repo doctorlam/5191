@@ -35,7 +35,7 @@
 	font-size: 2.4rem !important;
 }
 .quote {
-  quotes: "“" "”" "‘" "’";
+  quotes: "“" "”";
 }
 .quote::before {
 	content: open-quote;
@@ -47,7 +47,7 @@
 .quote {
 	background: white !important;
 	color: black !important;
-	padding: 50px 20px 20px 20px;
+	padding: 50px 20px 50px 20px;
 	border-radius: 5px !important;
 	text-align: left;
 	font-size: 1.5rem;
