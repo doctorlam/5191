@@ -24,14 +24,13 @@
     	<%= f.select :color_scheme, ['black', 'white'] %>	
 	</td>
 	<td class="form-content"><div class="slide-form">
-
-
-
-		   <%= f.input :image, as: :file %>
-
 	
 	    <%= f.input :title, class: "form-control" %> 
 	    <br>
+	 <div class="form-field">
+	   	<%= f.input :image, as: :file %>
+	 </div>
+
 	  
 	  <div class="row">
 	     <div class="col-md-6">
