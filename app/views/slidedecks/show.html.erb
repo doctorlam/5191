@@ -10,7 +10,7 @@ $(document).ready(function(){
 
   <h1><%= @slidedeck.title %></h1>
 
-<div class="row">
+<div class="col-md-9">
 <div class="slide" id ="full">
 
 <% for @slide in @slidedeck.slides.sort_by(&:slide_order) %>
@@ -71,7 +71,7 @@ $(document).ready(function(){
 <br>
 <br>
 <br>
-<div class="row">
+<div class="col-md-3">
      <div class="take-notes">
       <h2>Take Notes</h2>
       <%= simple_form_for(@note) do |f| %>
