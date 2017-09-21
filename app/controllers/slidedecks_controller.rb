@@ -7,7 +7,7 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destro
   # GET /slidedecks
   # GET /slidedecks.json
   def index
-    @slidedecks = Slidedeck.all
+    @slidedecks = Slidedeck.order(created_at: :asc)
   end
 
   # GET /slidedecks/1
