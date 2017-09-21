@@ -162,10 +162,24 @@ body {
 	padding: 10px;
 }
 h3.connection {
-	background: white;
-	color: black;
+	background: #27ae60;
+	color: white !important;
 	padding: 10px;
 	font-size: 1.25rem !important;
+}
+h3.connection a {
+	color: white !important;
+	text-decoration: underline
+}
+h3.no-connection {
+	background: #e74c3c;
+	color: white;
+	padding: 10px;
+	font-size: 1.25rem !important;
+
+}
+select.pin-dropdown {
+	width: 90%;
 }
 .notes {
 	background: #FFFFA5 !important;

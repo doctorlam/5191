@@ -3,9 +3,9 @@
 <div class="notes">
   <h2><%= @note.title %> | <%= @note.created_at.strftime("%m-%d-%Y") %> at <%=@note.created_at.strftime("%H:%M %p") %></h2>
 <% if @note.slidedeck_id? %>
-	<h3 class="connection">Presentation Connection: <%= link_to @note.slidedeck.try(:title), @note.slidedeck %></h3>
+	<h3 class="connection">Pinned to: <%= link_to @note.slidedeck.try(:title), @note.slidedeck %></h3>
 <% else %>
-	<h3 class="connection">Not Connected to a presentation: Edit note to connect</h3>
+	<h3 class="no-connection">Not Pinned</h3>
 <% end %>
   	<%= @note.content.html_safe %>
 

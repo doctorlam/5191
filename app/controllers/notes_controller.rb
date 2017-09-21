@@ -9,6 +9,7 @@ class NotesController < ApplicationController
   def index
     if user_signed_in?
       @notes = current_user.notes.order(created_at: 'desc')
+      @slidedecks= Slidedeck.all
      
   else 
     redirect_to lessons_url, alert: "Please sign in to access notes"

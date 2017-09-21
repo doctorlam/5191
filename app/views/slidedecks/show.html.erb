@@ -81,8 +81,8 @@ $(document).ready(function(){
       <%= f.text_area :content, rows: "15", class: 'form-control tinymce' %>
         <%= tinymce %>  </div>
     <br>
-    <%= f.label "Connect This Note to Presentation" %><br>
-    <%= f.collection_select(:slidedeck_id, @slidedecks, :id, :title, :include_blank => "Please select") %>
+    <%= f.label "Pin this Note:" %><br>
+    <%= f.collection_select(:slidedeck_id, @slidedecks, :id, :title, :include_blank => "Choose Presentation") %>
     <br>
     <br>
       <div class="form-actions">

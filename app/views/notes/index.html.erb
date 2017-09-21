@@ -9,13 +9,24 @@
         <div class="note-box">
         <h2><%= note.title %></h2>
         <h3><%= note.created_at.strftime("%m-%d-%Y") %> taken at <%=note.created_at.strftime("%H:%M %p") %></h3>
+      <% end %>
+
+    <% if note.slidedeck_id? %>
+  <h3 class="connection">Pinned to: <%= link_to note.slidedeck.try(:title), note.slidedeck %></h3>
+<% else %>
+  <h3 class="no-connection">Not pinned!</h3>
+  <%= simple_form_for(note) do |f| %>
+      <%= f.collection_select(:slidedeck_id, @slidedecks, :id, :title, :include_blank => "Pin to Presentation") %>
+      <%= f.button :submit, "Pin!", class: 'btn btn-success'
+ %>
+   <% end %>
+<% end %>
       <div class="links">
         <%= link_to 'Show', note %>
         <%= link_to 'Edit', edit_note_path(note) %>
         <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div><!--links-->
       </div>
-      <% end %>
     </div><!--col-md-4-->
 
     <% end %>
