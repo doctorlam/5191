@@ -61,7 +61,7 @@ $(document).ready(function(){
 	</div><!--/slide overlay-->
 	</div><!--bgimage-->
 	<br>
-	<button>Full Screen</button>
+	<button class="toggle">Full Screen</button>
 </div><!--slide-container-->
 		
 <% end %>
@@ -102,7 +102,7 @@ $(document).ready(function(){
 
 
 <script>
-$('button').click(function(e){
+$('button.toggle').click(function(e){
     $('#full').toggleClass('fullscreen'); 
 });
 </script>
