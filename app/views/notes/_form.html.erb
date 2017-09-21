@@ -4,7 +4,7 @@
  <div class="third-form-group">
   	<%= f.label :slidedeck_id, "Connect note to a Presentation" %><br>
 
-    <%= f.collection_select(:slidedeck_id, @slidedecks, :id, :title, :include_blank => "Please select") %>
+    <%= f.collection_select(:slidedeck_id, @slidedecks.order('created_at ASC'), :id, :title, :include_blank => "Please select", ) %>
 <br>
 <br>
 </div>

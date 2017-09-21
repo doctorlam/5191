@@ -16,7 +16,8 @@
 <% else %>
   <h3 class="no-connection">Not pinned!</h3>
   <%= simple_form_for(note) do |f| %>
-      <%= f.collection_select(:slidedeck_id, @slidedecks, :id, :title, :include_blank => "Pin to Presentation") %>
+          <%= f.collection_select(:slidedeck_id, @slidedecks.order('created_at ASC'), :id, :title, :include_blank => "Pin to Presentation", ) %>
+
       <%= f.button :submit, "Pin!", class: 'btn btn-success'
  %>
    <% end %>

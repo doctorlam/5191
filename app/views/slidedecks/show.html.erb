@@ -82,7 +82,7 @@ $(document).ready(function(){
         <%= tinymce %>  </div>
     <br>
     <%= f.label "Pin this Note:" %><br>
-    <%= f.collection_select(:slidedeck_id, @slidedecks, :id, :title, :include_blank => "Choose Presentation") %>
+      <%= f.collection_select(:slidedeck_id, @slidedecks.order('created_at ASC'), :id, :title, :include_blank => "Pin to Presentation", ) %>
     <br>
     <br>
       <div class="form-actions">
@@ -115,7 +115,7 @@ $(document).ready(function(){
 			<div class="note-box">
         <h2><%= @note.title %></h2>
         <h3><%= @note.created_at.strftime("%m-%d-%Y") %> taken at <%= @note.created_at.strftime("%H:%M %p") %></h3>
-        <%= truncate @note.content.html_safe, length: 200, :escape => false %>
+        <%= truncate @note.content.html_safe, length: 180, :escape => false %><br>
         <%= link_to '...read more', @note %> 
 
       <div class="links">
