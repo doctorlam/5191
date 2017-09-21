@@ -115,11 +115,11 @@ $(document).ready(function(){
 			<div class="note-box">
         <h2><%= @note.title %></h2>
         <h3><%= @note.created_at.strftime("%m-%d-%Y") %> taken at <%= @note.created_at.strftime("%H:%M %p") %></h3>
-        <%= truncate @note.content.html_safe, length: 300, :escape => false %>
+        <%= truncate @note.content.html_safe, length: 200, :escape => false %>
         <%= link_to 'read more', @note %> 
 
       <div class="links">
-        <%= link_to 'Show', @note %>
+        <%= link_to 'View', @note %>
         <%= link_to 'Edit', edit_note_path(@note) %>
         <%= link_to 'Destroy', @note, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div><!--links-->
