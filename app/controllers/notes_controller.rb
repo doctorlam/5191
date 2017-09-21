@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
         before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+      before_filter :user_is_current_user, only: [:show, :edit, :update, :destroy]
 
 
   # GET /notes
@@ -17,16 +18,19 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
+   
   end
 
   # GET /notes/new
   def new
       @note = Note.new(:user => @current_user)
-
+      @slidedecks = Slidedeck.all
   end
 
   # GET /notes/1/edit
   def edit
+          @slidedecks = Slidedeck.all
+
   end
 
   # POST /notes
@@ -78,6 +82,11 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:title, :content, :user_id)
+      params.require(:note).permit(:slidedeck_id, :title, :content, :user_id)
     end
+  def user_is_current_user
+    unless current_user == @note.user
+      redirect_to(root_url, alert: "You cannot mess with this note") and return
+    end
+  end
 end

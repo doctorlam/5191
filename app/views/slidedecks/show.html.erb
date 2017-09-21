@@ -9,8 +9,8 @@ $(document).ready(function(){
 <p id="notice"><%= notice %></p>
 
   <h1><%= @slidedeck.title %></h1>
-
-<div class="col-md-9">
+<div class="row">
+<div class="col-md-8">
 <div class="slide" id ="full">
 
 <% for @slide in @slidedeck.slides.sort_by(&:slide_order) %>
@@ -67,10 +67,10 @@ $(document).ready(function(){
 <% end %>
 
 </div>
-</div><!--/row-->
+</div><!--/col-md-9-->
 <% if user_signed_in? %>
 
-<div class="col-md-3">
+<div class="col-md-4">
      <div class="take-notes">
       <h2>Take Notes</h2>
       <%= simple_form_for(@note) do |f| %>
@@ -81,8 +81,13 @@ $(document).ready(function(){
       <%= f.text_area :content, rows: "15", class: 'form-control tinymce' %>
         <%= tinymce %>  </div>
     <br>
+    <%= f.label "Connect This Note to Presentation" %><br>
+    <%= f.collection_select(:slidedeck_id, @slidedecks, :id, :title, :include_blank => "Please select") %>
+    <br>
+    <br>
       <div class="form-actions">
-        <%= f.button :submit, class: 'btn btn-primary' %>
+        <%= f.button :submit, class: 'btn btn-primary'
+ %>
       </div>
     <% end %>
 </div>
@@ -98,8 +103,33 @@ $(document).ready(function(){
 	<%= link_to 'Back', slidedecks_path %>
 <% end %>
 
-</div>
+</div><!--/col-md-3-->
+</div><!--row -->
+<% if user_signed_in? %>
+<div class="row notes-slidedeck">
+	<% for @note in @slidedeck.notes.each %>
+	<% if current_user == @note.user %>
+		<% if @note.id? %>
 
+		<div class="col-sm-4">
+			<div class="note-box">
+        <h2><%= @note.title %></h2>
+        <h3><%= @note.created_at.strftime("%m-%d-%Y") %> taken at <%= @note.created_at.strftime("%H:%M %p") %></h3>
+        <%= truncate @note.content.html_safe, length: 300, :escape => false %>
+        <%= link_to 'read more', @note %> 
+
+      <div class="links">
+        <%= link_to 'Show', @note %>
+        <%= link_to 'Edit', edit_note_path(@note) %>
+        <%= link_to 'Destroy', @note, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div><!--links-->
+      </div>
+		</div>
+		<% end %>
+	<% end %>
+<% end %>
+</div>
+<% end %>
 
 <script>
 $('button.toggle').click(function(e){

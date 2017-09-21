@@ -20,6 +20,7 @@
 *= require commontator/application
 */
 
+
 .material-icons {
 	font-size: 64px !important;
 }
@@ -159,6 +160,12 @@ body {
 .take-notes {
 	border: 1px solid black;
 	padding: 10px;
+}
+h3.connection {
+	background: white;
+	color: black;
+	padding: 10px;
+	font-size: 1.25rem !important;
 }
 .notes {
 	background: #FFFFA5 !important;
@@ -846,10 +853,26 @@ h1.overlay-heading {
 
 code {
 }
+@media only screen and (max-width: 1300px) {
+.notes-slidedeck {
+	margin-top: -50px;
+	}
+}
+@media only screen and (max-width: 1240px) {
+
+.notes-slidedeck {
+	margin-top: -120px;
+	}
+}
+
 @media only screen and (max-width: 1000px) {
 	body {
     margin: 0 0 450px !important; /* bottom = footer height */
 }
+	
+.notes-slidedeck {
+	margin-top: 10px;
+	}
 .tagline h1 {
 		width: 90%;
 	}
@@ -872,6 +895,7 @@ code {
 	font-size: 15px !important;
 	}
 
+
 	.projects-right {
 		margin-bottom: 10px;
 	}
@@ -893,6 +917,8 @@ code {
 	.slide-content-flex {
 	flex-direction: column;
 }
+
+
 .navbar-fixed-top .navbar-collapse {
 		max-height: 80vh !important;
 		overflow:scroll;
