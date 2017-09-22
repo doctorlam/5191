@@ -2,7 +2,7 @@
 <%= simple_form_for(@note) do |f| %>
   <%= f.error_notification %>
  <div class="third-form-group">
-  	<%= f.label :slidedeck_id, "Connect note to a Presentation" %><br>
+    <%= f.label :slidedeck_id, "Connect note to a Presentation" %><br>
 
     <%= f.collection_select(:slidedeck_id, @slidedecks.order('created_at ASC'), :id, :title, :include_blank => "Please select", ) %>
 <br>
@@ -10,7 +10,7 @@
 </div>
   <div class="form-fields">
     <%= f.input :title, class: 'form-control' %>
-	<%= f.text_area :content, rows: "15", class: 'form-control tinymce' %>
+  <%= f.text_area :content, rows: "15", class: 'form-control tinymce' %>
     <%= tinymce %>  </div>
 <br>
   <div class="form-actions">

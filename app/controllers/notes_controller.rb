@@ -41,7 +41,10 @@ class NotesController < ApplicationController
     @note.user_id = current_user.id
 
     respond_to do |format|
-      if @note.save
+      if @note.save && @note.slidedeck_id?
+        format.html { redirect_to @note.slidedeck, notice: 'Note was successfully created.' }
+        format.json { render :show, status: :created, location: @note }
+      elsif @note.save
         format.html { redirect_to @note, notice: 'Note was successfully created.' }
         format.json { render :show, status: :created, location: @note }
       else
@@ -55,7 +58,10 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1.json
   def update
     respond_to do |format|
-      if @note.update(note_params)
+      if @note.update(note_params) && @note.slidedeck_id?
+        format.html { redirect_to @note.slidedeck, notice: 'Note was successfully updated.' }
+        format.json { render :show, status: :ok, location: @note }
+      elsif @note.update(note_params)
         format.html { redirect_to @note, notice: 'Note was successfully updated.' }
         format.json { render :show, status: :ok, location: @note }
       else

@@ -162,21 +162,27 @@ body {
 	padding: 10px;
 }
 h3.connection {
-	background: #27ae60;
-	color: white !important;
+	color: black !important;
 	padding: 10px;
-	font-size: 1.25rem !important;
+	font-size: 1rem !important;
+	position: absolute;
+	bottom: -10px;
+	left: -5px;
+	width: 100%;
 }
 h3.connection a {
-	color: white !important;
-	text-decoration: underline
+	color: black !important;
+	text-decoration: underline;
+	
 }
-h3.no-connection {
-	background: #e74c3c;
-	color: white;
-	padding: 10px;
-	font-size: 1.25rem !important;
 
+.no-connection {
+position: absolute;
+	bottom: 10px;
+	width: 90%;	
+}
+.no-connection select {
+	width: 90%;
 }
 select.pin-dropdown {
 	width: 90%;
@@ -213,9 +219,8 @@ select.pin-dropdown {
 	padding: 10px;
 }
 .note-box .links {
-	position: absolute;
-	bottom: 0px;
-	right: 0px;
+	margin-top: -10px;
+	font-size: 0.65rem;
 }
 .note-box h2 {
 	border-bottom: 1px solid black;
