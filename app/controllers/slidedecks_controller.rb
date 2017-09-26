@@ -84,9 +84,6 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destro
         redirect_to root_url, alert: "You don't have permission to do that!"
       end 
     end
-     def user_is_current_user
-    unless current_user == @note.user
-      redirect_to(root_url, alert: "You cannot mess with this note") and return
-    end
+    
   end
-end
+
