@@ -64,7 +64,7 @@
 	display: flex;
 	flex-direction: row;
 	overflow: auto;
-	height: 70%;
+	height: 90%;
 }
 
 .slide-content, .slide-image {
@@ -111,11 +111,13 @@
 .slide li {
 	margin-bottom: 10px;
 }
-
+.slide-image {
+	height: 100%;
+}
 .slide-image img {
 	object-fit:contain;
 	width: 100%;
-	height: 400px;
+	height: 100%;
 }
 .slide-form {
 	background: #BDC3C7;
@@ -871,8 +873,8 @@ h1.overlay-heading {
 	transform: translateY(25%) rotateX(-35deg);
 }
 
-code {
-}
+
+
 @media only screen and (max-width: 1300px) {
 .notes-slidedeck {
 	margin-top: -50px;
