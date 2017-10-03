@@ -36,7 +36,6 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Description</th>
         <th>Due Date</th>
         <th>Score</th>
         <th>Assignment Status</th>
@@ -48,7 +47,6 @@
       <% @assignments.each do |assignment| %>
         <tr>
           <td><%= assignment.name %></td>
-          <td><%= assignment.description %></td>
           <td><%= assignment.deadline %></td>
     <%= form_for(assignment) do |f| %>
           <td class="wider">
