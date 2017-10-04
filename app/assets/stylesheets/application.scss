@@ -91,13 +91,13 @@
 	font-size: 24px;
 }
 .slide-content li, .slide-content p {
-	font-size: 1.5rem;
-	line-height: 2rem;
+	font-size: 1.4rem !important;
+	line-height: 1.8rem;
 	font-family: 'Dosis' !important;
 }
 .fullscreen-fonts li, .fullscreen-fonts p {
-	font-size: 2rem !important; 
-	line-height: 2.7rem;
+	font-size: 2.2rem !important; 
+	line-height: 3rem;
 
 }
 .slide h2 {
@@ -141,11 +141,12 @@
 	height: 70vh;
 }
 #full.fullscreen .slide-bgimage, #full.fullscreen .slide-bgcolor, #full.fullscreen .slide-overlay {
-	height: 90vh;
+	height: 91vh;
 	width: 100%;
 }
-
-
+button.off {
+	display: none;
+}
 #full.fullscreen {
     z-index: 9999; 
     width: 100%; 
@@ -153,6 +154,7 @@
     position: fixed; 
     top: 0; 
     left: 0; 
+    background: white;
  }
 #full.slide.slick-initialized.slick-slider.fullscreen {
 	background: white;

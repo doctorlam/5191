@@ -10,8 +10,8 @@ $(document).ready(function(){
 
   <h1><%= @slidedeck.title %></h1>
 <div class="row">
-<div class="col-md-8">
-<div class="slide" id ="full">
+<div class="col-md-8" id ="full">
+<div class="slide">
 
 <% for @slide in @slidedeck.slides.sort_by(&:slide_order) %>
 
@@ -61,12 +61,14 @@ $(document).ready(function(){
 	</div><!--/slide overlay-->
 	</div><!--bgimage-->
 	<br>
-	<button class="toggle">Full Screen</button>
 </div><!--slide-container-->
-		
+
 <% end %>
 
 </div>
+<button class="toggle btn btn-default">Full Screen</button>
+<button class="off btn btn-default">Close Screen</button>
+	
 </div><!--/col-md-9-->
 <% if user_signed_in? %>
 
@@ -106,6 +108,7 @@ $(document).ready(function(){
 </div><!--/col-md-3-->
 </div><!--row -->
 <% if user_signed_in? %>
+<br>
 <div class="row notes-slidedeck">
 	<% for @note in @slidedeck.notes.each %>
 	<% if current_user == @note.user %>
@@ -136,6 +139,16 @@ $(document).ready(function(){
 $('button.toggle').click(function(e){
     $('#full').toggleClass('fullscreen'); 
     $("div.slide").addClass("fullscreen-fonts");
+    $('button.toggle').hide()
+    $('button.off').show()
+});
+</script>
+<script>
+$('button.off').click(function(e){
+    $('#full').toggleClass('fullscreen'); 
+    $("div.slide").removeClass("fullscreen-fonts");
+    $('button.off').hide()
+    $('button.toggle').show()
 
 });
 </script>
