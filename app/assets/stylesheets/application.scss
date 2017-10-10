@@ -75,6 +75,12 @@
 	align-self: center;
 	margin-bottom: 20px;
 }
+.slide-image {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+}
 .slide-content p {
 	text-align: center;
 }
@@ -123,7 +129,8 @@
 .slide-image img {
 	object-fit:contain;
 	width: 100%;
-	height: 95%;
+	height: auto;
+	align-self: center;
 }
 .slide-form {
 	background: #BDC3C7;
@@ -139,6 +146,10 @@
 }
 .slide-bgimage, .slide-bgcolor {
 	height: 70vh;
+}
+.slide-image caption {
+	font-family: 'Dosis';
+	font-size: 12px;
 }
 #full.fullscreen .slide-bgimage, #full.fullscreen .slide-bgcolor, #full.fullscreen .slide-overlay {
 	height: 91vh;

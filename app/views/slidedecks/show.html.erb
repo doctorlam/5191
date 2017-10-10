@@ -32,7 +32,8 @@ $(document).ready(function(){
 
 				<% if @slide.image.exists? %>
 					<div class="slide-image">
-						<%= image_tag @slide.image.url %>
+						<%= image_tag @slide.image.url %><br>
+						<caption><%= @slide.caption %></caption>
 					</div>
 
 				<% end %>

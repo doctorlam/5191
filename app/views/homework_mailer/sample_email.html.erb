@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    	<h1>Hi <%= @submission_user.name %></h1>
+    <p>
+      Your assignment, <%= @assignment_name %> has been graded.</p>
+
+      <p>You received a <%= @score %> out of <%= @total_score %>
+    </p>
+
+    <p>Go to the <a href="http://tecm4400.herokuapp.com">course website</a> to view comments or feedback.</p>
+    <p>Thanks! Dr. Lam</p>
+  </body>
+</html>

@@ -76,9 +76,11 @@ end
   # PATCH/PUT /submissions/1
   # PATCH/PUT /submissions/1.json
   def update
-
+  
     respond_to do |format|
       if @submission.update(submission_params)
+        HomeworkMailer.sample_email(@submission.user, @submission.score, @submission.assignment_name, @submission.totalscore).deliver
+
         format.html { redirect_to submissions_path, notice: 'Submission was successfully updated.' }
         format.json { render :index, status: :ok, location: submissions_path }
       else
