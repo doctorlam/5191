@@ -12,8 +12,14 @@
 
 	<h2><%= f.label :slide_order, "#" %><%= f.text_field :slide_order, class: "slide_order" %></h2>
 		<br>
+ 		<% if f.object.bgimage? %>
+	    	<%= image_tag f.object.bgimage(:thumb) %>
 
-			<%= f.input :bgimage, as: :file %><br>
+  			<%= f.check_box :delete_image %> Remove Image
+		<% else %>
+ 		 <%= f.file_field :bgimage %>
+		<% end %>
+			<br>
 
 			<%= f.label :bgcolor, "BG Color" %>
 			<br>
@@ -28,7 +34,16 @@
 	    <%= f.input :title, class: "form-control" %> 
 	    <br>
 	 <div class="form-field">
-	   	<%= f.input :image, as: :file %>
+	  <% if f.object.image? %>
+	    	<%= image_tag f.object.image(:thumb) %>
+
+  			<%= f.check_box :delete_image %> Remove Image
+
+		<% else %>
+ 		 <%= f.file_field :image %>
+		<% end %>
+		<br>
+
 	   	<%= f.label :caption, "Image Caption" %><br>
 	   	<%= f.text_field :caption, class: 'form-control' %><br>
 

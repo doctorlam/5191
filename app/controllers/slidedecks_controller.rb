@@ -26,7 +26,6 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destro
 
   # GET /slidedecks/1/edit
   def edit
-
   end
 
   # POST /slidedecks
@@ -77,7 +76,7 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destro
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def slidedeck_params
-      params.require(:slidedeck).permit(:caption, :bgcolor, :image, :title, slides_attributes: [:caption, :id, :color_scheme, :image, :bgimage, :bgcolor, :title, :content, :slide_order, :_destroy, contentmodules_attributes: [:id, :_destroy, :modular_content], bulleted_lists_attributes: [:id, :_destroy, :list, bullet_attributes: [:id, :list_item, :_destroy]]])
+      params.require(:slidedeck).permit(:delete_image, :caption, :bgcolor, :image, :title, slides_attributes: [:id, :delete_image, :caption, :color_scheme, :image, :bgimage, :bgcolor, :title, :content, :slide_order, :_destroy, contentmodules_attributes: [:id, :_destroy, :modular_content], bulleted_lists_attributes: [:id, :_destroy, :list, bullet_attributes: [:id, :list_item, :_destroy]]])
     end
     def check_user
       if current_user == authorize_admin
