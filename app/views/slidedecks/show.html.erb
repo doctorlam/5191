@@ -30,7 +30,7 @@ $(document).ready(function(){
 					</div>
 				<% end %>
 
-				<% if @slide.image.exists? %>
+				<% if @slide.image? %>
 					<div class="slide-image">
 						<%= image_tag @slide.image.url %><br>
 						<caption><%= @slide.caption %></caption>
